@@ -1,0 +1,159 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Laravel specific
+.env
+.env.backup
+.env.production
+web/.env
+web/.env.local
+web/.env.staging
+web/.env.production
+cms/.env
+cms/.env.local
+cms/.env.staging
+cms/.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+
+# Laravel storage and cache
+storage/*.key
+storage/app/public/*
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/testing/*
+storage/framework/views/*
+storage/logs/*
+bootstrap/cache/*
+.phpunit.cache
+
+# Keep important storage directories but ignore contents
+!storage/app/.gitkeep
+!storage/app/public/.gitkeep
+!storage/framework/.gitkeep
+!storage/framework/cache/.gitkeep
+!storage/framework/cache/data/.gitkeep
+!storage/framework/sessions/.gitkeep
+!storage/framework/testing/.gitkeep
+!storage/framework/views/.gitkeep
+!storage/logs/.gitkeep
+!bootstrap/cache/.gitkeep
+
+# Frontend build artifacts
+web/public/hot
+web/public/api/*
+web/public/img/*
+web/public/storage
+web/public/build/*
+.docker/.htpasswd
+docker/.htpasswd
+web/public/mix-manifest.json
+mix-manifest.json
+
+# Node.js and npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# TypeScript
+*.tsbuildinfo
+dist/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Docker
+.docker/
+
+# SSL certificates (keep structure but not actual certificates)
+docker/ssl/*.crt
+docker/ssl/*.key
+docker/ssl/*.pem
+!docker/ssl/.gitkeep
+
+#authelia
+/docker/configuration.yml
+/docker/users_database.yml
+
+# Database
+*.sqlite
+*.sqlite-journal
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Backup files
+*.bak
+*.backup
+
+# Compiled assets
+public/css/
+public/js/
+public/fonts/
+
+# Keep important public directories
+!public/css/.gitkeep
+!public/js/.gitkeep
+!public/fonts/.gitkeep
+
+# AWS and deployment
+.aws/
+deploy.log
+
+# Testing
+coverage/
+.coverage
+.nyc_output
+.phpunit.result.cache
+web/public/testefs.php
+web/public/testrds.php
+
+# Miscellaneous
+*.pid
+*.seed
+*.pid.lock
+
+#HCUC
+hcuc/zata_da/src/*
+hcuc/.env
+hcuc/.env.local
+hcuc/.env.staging
+hcuc/.env.production
+
+#Product Recall
+productrecall/.env
+productrecall/.env.local
+productrecall/.env.staging
+productrecall/.env.production
+
+
+
+

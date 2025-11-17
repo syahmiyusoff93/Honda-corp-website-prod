@@ -1,0 +1,150 @@
+
+@extends('layouts.base')
+
+@section('page-title')
+Parking Sensor System
+@endsection
+
+@section('content')
+
+<style>
+    .tech-banner {background: url(../img/technology/00_landing/banner2.png)no-repeat top center;background-size: cover;height: 420px;color: #fff;}
+    .text-container {top: 50%;transform: translate(0, -50%);text-align: center;}
+    .text-container .header {font-size: 2.25rem;font-weight: 400;line-height: 54px;letter-spacing: 7.2px;text-shadow: 0px 2px 24px rgba(0,0,0,0.5);margin-top: 15px;max-width: 1200px;margin-left: auto;margin-right: auto;}
+
+    .desc-fold {padding: 70px 20px;}
+    .desc-copy {text-align: center;font-size: 1rem;color: #5e6063;letter-spacing: 0.25px;line-height: 1.75rem;font-weight: 400;max-width: 780px;margin: auto;}
+
+    .content-copy {text-align: center;font-size: 1rem;color: #5e6063;letter-spacing: 0.25px;line-height: 1.75rem;font-weight: 400;}
+
+
+    .container {width: 100%;max-width: 1200px;margin: auto;padding: 70px 10px;position: relative;}
+    .img-sec.float-right {text-align: right; overflow: hidden;}
+    .img-sec {width: calc(50% - 25px);}
+
+    .img-sec img {transition: all 1s;display: block;width: 100%;height: auto;transform: scale(1);image-rendering: auto;}
+    .content-sec {width: 50%;margin-right: 25px;position: absolute;top: 50%;position: absolute;transform: translate(0, -50%);-webkit-transform: translate(0, -50%);height: 100%;}
+
+    .float-right {float: right;}
+    .float-left {float: left;}
+
+    .content-sec.float-left {padding-left: calc(2.5% + 25px);position: absolute;left: 50%;}
+
+    .detail-content {top: 50%;position: absolute;transform: translate(0, -50%);-webkit-transform: translate(0, -50%);}
+    .rightpadding {padding-right:90px;}
+    .centerdiv {margin:auto;margin-top: 20px;margin-bottom: 20px;}
+    .maxwidth783 {margin: auto; max-width: 783px;}
+    .maxwidth800 {margin: auto; max-width: 800px;}
+    .grey {background: #f7f7f7;}
+    /* overwrite */
+    .spec-container .tab-slider-tabs, .comp-tabbed-content .tab-nav ul {background: unset;}
+    .img-sec {width: calc(50% - 25px);}
+    .img-sec-fullwidth {width: calc(100% - 0px);}
+    .w718 {width:718px;}
+    .w579 {width:579px;}
+
+    .vtecturbocol {float: left;width: 50%;padding: 15px;}
+    .vtecturborow:after {content: "";display: table;clear: both;}
+
+    @media only screen and (max-width: 768px) {
+        .tech-banner {background: url(../img/technology/00_landing/banner2.png)no-repeat left;background-size: cover;height: 170px;}
+        .text-container .header {font-size: 1.25rem;letter-spacing: 1.2px;}
+
+
+        .container {padding: 35px 10px;}
+        .desc-copy {font-size: 0.9rem;}
+
+        .float-right {float: none;}
+        .float-left {float: none;}
+        .img-sec {width:100%;}
+        .content-sec {width: 100%;position:relative;top: unset;transform: unset;-webkit-transform: unset;padding-top: 20px;}
+        .detail-content {top: unset;position: unset;transform:unset;-webkit-transform:unset;}
+        .rightpadding {padding-right:0px;}
+
+        .content-sec.float-left {padding-left: unset;position: unset;left: unset;}
+        .vtecturbocol {width: 100%; padding: 0px 10px;}
+    }
+</style>
+
+<section>
+    <div style="height: 50px;background: #ececec;margin-bottom: -15px;">
+        <a href="{{url('technology/honda-sensing')}}" class="">
+            <div style="padding: 15px 30px;font-size: 12px;">
+                <img src="{{url('img/interface/back-icon.svg')}}" alt="Back link">
+                <span class="backtocopy" style="color: #565656;padding: 0 5px;width:unset;bottom:3px;">BACK TO Honda SENSING™</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- description -->
+    <div class="desc-fold maxwidth800">
+        <div class="desc-copy">INCREASING FIELD OF VISION, DECREASING BLIND SPOTS</div>
+        <h2>PARKING SENSOR SYSTEM</h2>
+        <div class="desc-copy">The driver is alerted with sound, and the Navigation screen display when it detects obstacles around the vehicle when parking, made possible by 6 sensors mounted in each corner and the rear of the vehicle. </div><br>
+        <div class="desc-copy">The Navigation screen display and alert sound changes in 4 stages according to how close the obstacles are, or if there are any obstacles. The system assists the driver not only in parking, but also turning at narrow roads. </div>
+        <div class="vtecturborow">
+            <div class="vtecturbocol">
+                <div class="img-sec centerdiv img-sec-fullwidth">
+                    <img src="{{url('img/technology/02_sensing/03_Image/07_ParkingSensor1.jpg')}}" alt="" style="border: solid 1px #c9cfd4;">
+                </div>
+            </div>
+            <div class="vtecturbocol">
+                <div class="img-sec centerdiv img-sec-fullwidth">
+                    <img src="{{url('img/technology/02_sensing/03_Image/07_ParkingSensor2.jpg')}}" alt="" style="border: solid 1px #c9cfd4;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="grey">
+
+            <div class="sensing-footer">
+                <div class="sensing-footer-row">
+                    <div class="sensing-footer-col">
+                        <a href="{{url('technology/honda-sensing/wide-angle-rearview')}}">
+                            <div class="details-content">
+                                <h2 class="left red-font">Previous</h2>
+                                <div>Wide-angle Rearview Camera<br> System</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sensing-footer-col">
+                        <a href="{{url('technology/honda-sensing/backing-out-support')}}">
+                            <div class="details-content">
+                                <h2 class="right red-font">Next</h2>
+                                <div class="right">Backing Out Support</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+    <style>
+        /* sensing-footer */
+        .sensing-footer-col {float: left;width: 50%;padding: 50px;}
+        .sensing-footer-row:after { content: "";display: table;clear: both;}
+        .details-content {margin: auto;width: 75%;}
+        .red-font {color:#E01327;}
+        .contact-footer-copy {padding: 20px 0px 10px;}
+        .right {text-align: right;}
+
+        @media only screen and (max-width: 640px) {
+               /* sensing-footer */
+                .sensing-footer {margin-bottom:50px;}
+                .sensing-footer-col {width: 50%;padding: 20px;}
+                .details-content {width: unset;}
+
+        }
+    </style>
+</section>
+
+
+
+
+@stop
+
+

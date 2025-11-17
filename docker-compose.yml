@@ -1,0 +1,22 @@
+services:
+
+  webserver:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: web_prod
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./web/:/var/www/web
+      - ./hcuc/:/var/www/hcuc
+      - ./productrecall/:/var/www/productrecall
+      # Mount Laravel storage directories to EFS
+      # - efs_data:/var/www/html/storage  # mount into container here
+      - ./docker/default.conf:/etc/nginx/http.d/default.conf:ro
+    networks:
+      - laravel
+    
+networks:
+  laravel:

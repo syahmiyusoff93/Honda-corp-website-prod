@@ -1,0 +1,312 @@
+.body-w {}
+
+.body-w .logo {
+    padding-bottom: 15px;
+}
+.body-w .body-lr-w {
+    min-height: 100vh
+}
+.body-w .body-l {
+    flex: 0 0 240px;
+    max-width: 240px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.body-w .body-l > div {
+    position: sticky;
+    top: 0;
+}
+.body-w .body-l > div.fixed,
+.body-w .body-l.fixed {
+    z-index: inherit;
+    position: inherit;
+}
+.body-w .body-r {
+    flex: 0 0 calc(100% - 240px);
+    max-width: calc(100% - 240px);
+    background-color: #f8f8f8;
+    
+    flex-direction: column;
+}
+
+.body-w .body-l .inner-w {
+    padding: 15px
+}
+
+@media only screen and (max-width: 991px) {
+    .body-w .logo img {
+        max-height: 40px
+    }
+
+    .body-w .logo {
+        padding: 0 0;
+    }
+
+    .body-w .body-l,
+    .body-w .body-r {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .body-w .body-l .inner-w {
+        background-color: #fff
+    }
+}
+
+/*================================*/
+.nav {
+    transition: .4s all ease;
+    font-family: var(--font-nav);
+    line-height: 1;
+    font-weight: inherit
+}
+
+
+.nav * {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.nav a {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 992px) {
+
+    .nav a,
+    nav a {
+        color: inherit;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .nav ul,
+    nav ul {
+        display: block;
+        margin: 0 0;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav > ul,
+    nav > ul {
+        padding: 0;
+        width: 500px;
+        max-width: 100%;
+    }
+
+
+    .nav > ul > li,
+    nav > ul > li {
+        display: block;
+        padding: 0;
+        padding: 9px 0;
+    }
+
+    div.med > a,
+    .nav > ul > li > a,
+    nav > ul > li > a {
+        position: relative;
+        display: table;
+        padding: 0;
+        width: 100%;
+        background-color: transparent;
+        font-size: 120%
+    }
+
+    div.med > a:hover,
+    .nav > ul > li > a:hover,
+    nav > ul > li > a:hover {
+        /*        background-color: var(--clr02);*/
+        color: var(--clr01);
+    }
+
+    .nav > ul > li > a:hover:after,
+    nav > ul > li > a:hover:after,
+    .nav > ul > li.active > a:after,
+    nav > ul > li.active > a:after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 30px;
+        height: 3px;
+        background-color: var(--clr01)
+    }
+
+    .nav > ul > li > a + ul > li {
+        padding: 0;
+        border-top: 1px dotted #f8f8f8;
+    }
+
+    .nav > ul > li > a + ul > li:last-child {
+        border-bottom: 1px dotted #f8f8f8;
+    }
+
+    .nav > ul > li > a + ul,
+    nav > ul > li > a + ul {
+        padding: 0;
+        overflow: hidden;
+        display: none;
+    }
+
+    .nav > ul > li > a + ul > li > a {
+        font-size: 120%;
+        font-family: var(--font-t1);
+    }
+
+
+    .nav > ul > li > a + ul > li a {
+        position: relative;
+        display: table;
+        padding: 10px 15px 10px 35px;
+        color: #fff;
+        width: 100%;
+    }
+
+    .nav > ul > li > a + ul > li > a + ul {
+        display: none;
+    }
+
+    .nav > ul > li > a + ul ul a {
+        padding: 10px 15px 10px 55px;
+    }
+
+    .nav > ul > li > a + ul > li > a:hover,
+    nav > ul > li > a + ul > li > a:hover {
+        background-color: var(--clr01);
+    }
+    .menucon {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .body-w .nav {
+        display: none
+    }
+
+    .nav > .close,
+    nav > .close {
+        text-align: right;
+        font-size: 25px;
+        opacity: 1;
+        color: var(--nav-a-clr);
+    }
+
+    .nav a,
+    nav a {
+        color: #fff;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .nav ul,
+    nav ul {
+        display: block;
+        margin: 0 0;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav > ul,
+    nav > ul {
+        padding: 15px;
+        width: 500px;
+        max-width: 100%;
+    }
+
+
+    .nav > ul > li,
+    nav > ul > li {
+        display: block;
+        padding: 0;
+    }
+
+    div.med > a,
+    .nav > ul > li > a,
+    nav > ul > li > a {
+        position: relative;
+        display: table;
+        padding: 12px 18px;
+        width: 100%;
+        background-color: transparent;
+        text-transform: uppercase;
+        font-size: 170%;
+    }
+
+    div.med > a:hover,
+    .nav > ul > li > a:hover,
+    nav > ul > li > a:hover {
+        background-color: var(--clr02);
+        color: #fff;
+    }
+
+    .nav > ul > li > a + ul > li {
+        padding: 0;
+        border-top: 1px dotted #f8f8f8;
+    }
+
+    .nav > ul > li > a + ul > li:last-child {
+        border-bottom: 1px dotted #f8f8f8;
+    }
+
+    .nav > ul > li > a + ul,
+    nav > ul > li > a + ul {
+        padding: 0;
+        overflow: hidden;
+        display: none;
+    }
+
+    .nav > ul > li > a + ul > li > a {
+        font-size: 120%;
+        font-family: var(--font-t1);
+    }
+
+
+    .nav > ul > li > a + ul > li a {
+        position: relative;
+        display: table;
+        padding: 10px 15px 10px 35px;
+        color: #fff;
+        width: 100%;
+    }
+
+    .nav > ul > li > a + ul > li > a + ul {
+        display: none;
+    }
+
+    .nav > ul > li > a + ul ul a {
+        padding: 10px 15px 10px 55px;
+    }
+
+    .nav > ul > li > a + ul > li > a:hover,
+    nav > ul > li > a + ul > li > a:hover {
+        background-color: var(--clr01);
+    }
+
+    [licht][menu] {
+        background-color: var(--clr01);
+        padding: 90px 0;
+    }
+
+    .menucon.fixed {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        background-color: var(--clr01);
+        color: #fff;
+    }
+    .menucon {
+        padding: 0;
+        font-size: 150%;
+        color: var(--clr01, #000);
+        cursor: pointer;
+        -webkit-transition: ease all .4s;
+        transition: ease all .4s;
+        z-index: 1000;
+        line-height: 1;
+        top: 0;
+    }
+}

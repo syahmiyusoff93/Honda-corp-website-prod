@@ -1,0 +1,118 @@
+/* Honda Corporation Authelia Custom Styling */
+
+/* Hide "Powered by Authelia" footer */
+footer,
+footer > div,
+#root footer,
+footer * {
+    display: none !important;
+}
+
+/* Hide any Authelia branding text and links */
+[data-testid="powered-by"],
+.authelia-branding,
+footer a[href*="authelia"],
+a[href*="authelia.com"],
+.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineHover.tss-1ioow4v-links.mui-3u5y1c,
+a[href="https://www.authelia.com"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Hide any footer or branding containers */
+#footer,
+#footer-container,
+.branding,
+.powered-by,
+.authelia-footer {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Honda Red Brand Color */
+:root {
+    --primary-color: #cc0000;
+    --primary-hover: #aa0000;
+    --secondary-color: #000000;
+}
+
+/* Primary Button Styling */
+button[type="submit"],
+.MuiButton-containedPrimary {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+button[type="submit"]:hover,
+.MuiButton-containedPrimary:hover {
+    background-color: var(--primary-hover) !important;
+}
+
+/* Link Colors */
+a {
+    color: var(--primary-color) !important;
+}
+
+a:hover {
+    color: var(--primary-hover) !important;
+}
+
+/* Card Background for Dark Theme */
+.MuiPaper-root {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333 !important;
+}
+
+/* Input Fields */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary-color) !important;
+}
+
+/* Checkbox and Radio */
+.MuiCheckbox-colorPrimary.Mui-checked,
+.MuiRadio-colorPrimary.Mui-checked {
+    color: var(--primary-color) !important;
+}
+
+/* Page Title Customization */
+#root > div > div > div > div > h5 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Loading Spinner */
+.MuiCircularProgress-colorPrimary {
+    color: var(--primary-color) !important;
+}
+
+/* Success Messages */
+.MuiAlert-standardSuccess {
+    background-color: rgba(46, 125, 50, 0.2) !important;
+    border-left: 4px solid #2e7d32 !important;
+}
+
+/* Error Messages */
+.MuiAlert-standardError {
+    background-color: rgba(204, 0, 0, 0.2) !important;
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    #root > div > div > div:first-child {
+        height: 240px;
+        width: 240px;
+    }
+}
+
+@media (max-width: 400px) {
+    #root > div > div > div:first-child {
+        height: 180px;
+        width: 180px;
+    }
+}

@@ -1,0 +1,8 @@
+<div style="position:absolute;bottom:77px;left:44%;">
+    <svg class="arrow-long-right" width="47px" height="7px" viewBox="0 0 47 7" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <g >
+            <path d="M0 0L3.88889 3.5L0 7" transform="matrix(1 -8.742278E-08 -8.742278E-08 -1 42.77778 7)" id="Stroke-1" fill="none" stroke="#070708" stroke-width="1" />
+            <path d="M2.01696e-13 0.388889L46.6667 0.388889" transform="matrix(1 -8.742278E-08 -8.742278E-08 -1 0 3.888891)" id="Line" fill="none" stroke="#070708" stroke-width="2" />
+        </g>
+    </svg>
+</div>

@@ -1,0 +1,381 @@
+.lichtCart {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, .2);
+    opacity: 1;
+}
+
+.lichtCart > div {
+    height: 100%;
+    width: 350px;
+    background-color: #f8f8f8;
+    margin: 0 0 0 auto;
+    max-width: 100%;
+}
+
+.lichtCart .main,
+.lichtCart .scroll-w {
+    height: 100%;
+}
+
+.lichtCart .main > .scroll-w {
+    overflow-y: scroll;
+    /*    flex-direction: column;*/
+}
+
+.lichtCart .scroll-w > div {
+    flex-direction: column;
+}
+
+.lichtCart span.ccl {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.lichtCart .taste-top .taste.schlies {
+    flex: 0 0 30px;
+    max-width: 30px;
+}
+
+.lichtCart .taste-top .taste.schlies button.btn-gen {
+    background-color: orangered;
+    /*    border: 2px solid orangered*/
+}
+
+.lichtCart .taste-top .taste {
+    flex: 0 0 calc((100% - 30px) / 2);
+    max-width: calc((100% - 30px) / 2);
+}
+
+.lichtCart .taste-btm .taste {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.lichtCart .taste-top button {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    padding: 9px; 
+    border-radius: 0;
+}
+.lichtCart .taste-btm button {
+    border-radius: 50px;
+    width: 100%;
+}
+.lichtCart .taste-top,
+.lichtCart .taste-btm {
+    position: sticky;
+    z-index: 10;
+}
+
+.lichtCart .taste-top {
+    top: 0;
+}
+
+.lichtCart .taste-btm {
+    bottom: 0;
+    background-color: #fff;
+}
+
+.lichtCart .taste-btm .taste {
+    padding: 0 15px 15px;
+
+}
+
+.lichtCart .taste-btm .total {
+    padding: 15px;
+    text-align: center;
+    font-family: var(--font-t1);
+
+}
+
+.lichtCart .info-section {
+    flex: 1 0 0;
+}
+
+.lichtCart .cart-itm {
+    padding: 12px;
+    border-bottom: 1px solid #ccc
+}
+
+.lichtCart .cart-itm:hover {
+    background-color: #eee
+}
+
+.lichtCart .cart-itm .lr-w {
+    margin: 0 -3px
+}
+
+.lichtCart .cart-itm .l,
+.lichtCart .cart-itm .r {
+    padding: 3px
+}
+
+.lichtCart .cart-itm .l {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.lichtCart .cart-itm .r {
+    flex: 0 0 70%;
+    max-width: 70%;
+}
+
+.lichtCart .cart-ttl,
+.lichtCart .cart-price {
+    font-size: 80%;
+    line-height: 1.1
+}
+
+.lichtCart .cart-ttl {
+    font-weight: bold
+}
+
+.lichtCart .cart-price {
+    margin: 0 0 3px
+}
+
+.lichtCart .cart-quan > div {
+    width: 150px;
+    max-width: 100%
+}
+
+.lichtCart .cart-quan button,
+.lichtCart .cart-quan input {
+    margin: 0;
+    padding: 6px;
+    line-height: 1;
+    background-color: #fff;
+    border: 1px solid #ccc
+}
+
+.lichtCart .cart-quan button {
+    flex: 0 0 40px;
+    max-width: 40px;
+    cursor: pointer;
+    font-size: 75%;
+}
+
+.lichtCart .cart-quan input {
+    flex: 0 0 calc(100% - 80px);
+    max-width: calc(100% - 80px);
+    text-align: center;
+}
+
+.lichtCart .aktion {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+.lichtCart .aktion-itm {
+    padding: 9px;
+    line-height: 1;
+    color: #fff;
+    font-size: 80%;
+    cursor: pointer
+}
+
+.lichtCart .loeschen {
+    background-color: orangered;
+    border-radius: 50%;
+}
+
+.lichtCart .profileform {
+    padding: 15px;
+}
+
+.lichtCart .profileform .ttl {
+    font-size: 120%;
+    font-weight: bold;
+
+}
+
+.lichtCart .profileform label {
+    font-weight: bold;
+    margin: 0;
+    font-size: 80%;
+}
+
+.lichtCart .profileform input {
+    padding: 6px 9px;
+    margin: 0 0 3px;
+    background-color: #fff
+}
+
+.lichtCart .profileform .wrap + .ttl {
+    margin: 30px 0 0
+}
+
+.lichtCart .cart-profile-taste {
+    padding: 0 0 15px
+}
+
+.lichtCart .cart-profile-taste > button {
+    width: 100%
+}
+
+@media only screen and (max-width: 575px) {
+    .lichtCart > div {
+        width: 100%;
+    }
+}
+
+/*===========*/
+
+.CARTITEM {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 25px;
+    min-width: 25px;
+    background-color: var(--clr01);
+    border-radius: 50px;
+    border: 1px solid #fff;
+    transform: translate(50%,50%);
+    font-size: 14px;
+    color: #fff
+}
+
+/*===========*/
+
+.lichtCartSignup .main,
+.lichtCartlogin .main {
+    max-width: 500px;
+    text-align: center
+}
+
+.lichtCartSignup button,
+.lichtCartlogin button,
+.lichtCartlogin .signup button {
+    width: 100%;
+    margin: 0 0 6px
+}
+
+.lichtCartlogin .signup button {
+    color: var(--clr01);
+    background-color: transparent;
+}
+
+.lichtCartlogin .signup button:hover {
+    color: #fff;
+    background-color: var(--clr02);
+
+}
+
+.lichtCartSignup .taste,
+.lichtCartlogin .taste {
+    padding: 0 0 15px
+}
+
+.lichtCartSignup .notimsg,
+.lichtCartlogin .notimsg {
+    color: red;
+}
+
+.lichtCartSignup .notiwell,
+.lichtCartlogin .notiwell {
+    color: green;
+}
+
+.lichtCartlogin .forget {
+    font-size: 80%
+}
+
+.lichtCartSignup .ttl,
+.lichtCartSignup .set {
+    text-align: left;
+}
+
+.lichtCartSignup .ttl {
+    font-size: 120%;
+    margin: 30px 0 0;
+    font-weight: bold
+}
+
+.lichtCartSignup label {
+    margin: 0 0;
+}
+
+.lichtCartSignup .notipass {
+    color: orangered
+}
+
+/*===========*/
+
+.lichtCartHistory .main {
+    max-width: 800px;
+}
+
+.lichtCartHistory .order-itm {
+    padding: 9px 3px;
+    border-bottom: 1px solid #ccc
+}
+
+.lichtCartHistory .order-itm:hover {
+    background-color: #eee
+}
+
+.lichtCartHistory .order-itm .lr-w {
+    margin: 0 -3px
+}
+
+.lichtCartHistory .order-itm .l,
+.lichtCartHistory .order-itm .r {
+    padding: 3px
+}
+
+.lichtCartHistory .order-itm .l {
+    flex: 0 0 60px;
+    max-width: 60px;
+}
+
+.lichtCartHistory .order-itm .r {
+    flex: 0 0 calc(100% - 60px);
+    max-width: calc(100% - 60px);
+}
+
+.lichtCartHistory .order-itm .ln {
+    flex: 1 0 0;
+}
+
+.lichtCartHistory .order-title {
+    font-weight: bold
+}
+
+.lichtCartHistory .order-date {
+    font-size: 80%;
+}
+
+.lichtCartHistory .order-price {
+    font-size: 80%;
+    line-height: 1.1
+}
+
+.lichtCartHistory .order-ttl {
+    font-weight: bold
+}
+
+.lichtCartHistory .order-price {
+    margin: 0 0 3px
+}
+
+@media only screen and (max-width: 575px) {
+
+    .lichtCartHistory .order-itm .ln,
+    .lichtCartHistory .order-itm .rn {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

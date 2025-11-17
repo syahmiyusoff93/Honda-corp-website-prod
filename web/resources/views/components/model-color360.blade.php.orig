@@ -1,0 +1,264 @@
+@php
+    $APIPATH = config('global.APIPATH');
+    $honda_api_context = config('global.APICONTEXT');
+
+    $data = file_get_contents($APIPATH.'model_'.$model_slug.'_variants.json', false, $honda_api_context);
+    $data = json_decode($data);
+    $model_info = $data->model;
+    $variant_info = $data->payload;
+
+    $data = file_get_contents($APIPATH.'model_'.$model_slug.'_gallery_ext360.json', false, $honda_api_context);
+    $data = json_decode($data);
+
+    /*$accessories = file_get_contents($APIPATH.'model_'.$model_slug.'_accessories.json', false, $honda_api_context);
+    $accessories = json_decode($accessories);
+    $accessories = $accessories->payload;
+
+    foreach($accessories as $item){
+        $accindexed[$item->id] = $item;
+    }  */
+
+    $asset_url = $data->meta->asset_url;
+    $asset_url = '';
+    $out = $data->payload[0];
+
+
+    if(count(@$out->sprite)>0){
+        $sprites = [];
+        foreach($out->sprite as $item){
+            $sprites[] = $asset_url.$item;
+        }
+        $sprites = implode(',', $sprites);
+    }
+
+@endphp
+
+<style>
+    .model-ref-- { opacity:.3;}
+    .exterior-model, .model-default, .model-default-bg {position: absolute !important; top:0; left:50%; border: 0px solid red; transform:translateX(-50%); max-width:900px; }
+    .car-parts-holder {position: relative;max-width:900px; left: 50%; transform: translateX(-50%);}
+
+    .exterior-holder, .modelexterior {width:unset;}
+    .spritespin {
+        width: 100%;
+    }
+    /* .model-inner-container .intro {margin-bottom:0;} */
+    .colorpickerdisclaimer {font-size: 0.77rem;line-height: 1.5em;font-weight: 400;letter-spacing: 0.6px;margin: 20px 35px 20px 35px;}
+
+
+</style>
+
+<script>
+        var currentcolor_id = 0;
+        var imageratio = 1;
+        $(document).ready(function(){
+            jQuery.support.cors = true;
+            var spritedata, spritedata_acc;
+            function __spritespin_destroy(){
+                var div = $(".car-parts-holder, .exterior-model, .model-default, canvas");
+                // destroy the instance
+                div.spritespin("destroy");
+                div.attr("style", "");
+                div.html("");
+
+            }
+
+            function __resizeAssets(){
+                var div = $('.model-default, .model-default-bg, .car-parts-holder, .exterior-model, .exterior-holder, .modelexterior');
+                var hh = $('.model-default').width() * imageratio;
+
+                div.css('width', '100%');
+                div.css('height', hh+'px');
+<<<<<<< working copy
+
+=======
+                console.log('ll', imageratio)
+>>>>>>> destination
+            }
+
+            function __constuctHTML(){
+
+                var ww,hh, cc, dmc;
+
+                $.each( spritedata_acc, function( key, val ) {
+                    //spritedata.meta.asset_url
+                    //console.log('spriteata', val)
+                    if(val.spritedata!=null){
+                        ww = val.spritedata.sprite_info.width;
+                        hh = val.spritedata.sprite_info.height;
+                        cc = val.spritedata.sprite_info.count;
+
+                        var slices = [];
+                        $.each( val.spritedata.sprite, function( kk, vv ) {
+                            slices.push(spritedata.meta.asset_url + val.spritedata.sprite[kk]);
+                        });
+
+                        $('.car-parts-holder').append('<div id="sa_'+val.accid+'_'+val.colorid+'" class="exterior-model colorgroup'+val.colorid+' accgroup'+val.accid+' "></div>');
+                        $('#sa_'+val.accid+'_'+val.colorid).spritespin({
+                            source		: slices,
+                            width		: ww,
+                            height		: hh,
+                            sense		: -1,
+                            frames		: cc,
+                            animate		: false,
+                            loop		: false,
+                            responsive  : true,
+                            //onDraw      : __resizeAssets
+                        })
+                    }
+
+                });
+
+
+            }
+
+            function __switch_color(id){
+
+                var ww = spritedata.payload[id].sprite_info.width;
+                var hh = spritedata.payload[id].sprite_info.height;
+
+                imageratio = hh/ww;
+                console.log('ratio', imageratio)
+                __resizeAssets();
+
+                var frames=[];
+                $.each(spritedata.payload[id].sprite, function(key,val){
+                    frames.push(spritedata.meta.asset_url+val);
+                })
+
+                $(".model-default-bg").spritespin({
+                    width : ww,
+                    height: hh,
+                    frames: frames.length,
+                    sense : -1,
+                    source: frames,
+                    animate : false,
+                    loop: false,
+                    responsive: true,
+
+                });
+
+                $(".model-default").spritespin({
+                    width : ww,
+                    height: hh,
+                    frames: frames.length,
+                    behavior: "drag", // "hold"
+                    sense : -1,
+                    source: frames,
+                    animate : true,
+                    loop: false,
+                    responsive: true,
+                    onDraw : __resizeAssets,
+
+                    onFrame: function() {
+                        api = $('.model-default').spritespin('api');
+                        var data = api.data;
+                        $(".exterior-model, .model-default-bg").each(function(){
+                            $(this).spritespin('api').updateFrame(data.frame);
+                        })
+                    }
+
+                });
+
+            }
+
+            $.getJSON( "{{$APIPATH}}model_{{$model_slug}}_colors.json", function( data ) {
+                spritedata = data;
+
+                console.log('midata', data)
+
+                if(spritedata.payload==null || spritedata.payload=='null' || spritedata.payload.length==0){
+                    $('.inner-color-container').hide();
+                    return false;
+                }
+
+                $('.inner-color-container').show();
+
+                var items = [];
+                $.each( spritedata.payload, function( key, val ) {
+                  items.push( '<li class="btn-color-exterior" style="background-color:'+val.color_code+'" data-cname="'+val.name+'" data-cid="'+key+'" data-sysid="'+val.color_id+'"></li>' );
+                });
+                $('.color-option-holder').html(items);
+
+                /* ---------------------------------------------------------------- COLOR CLICK */
+                $('.color-option-holder>li').click(function(){
+                    currentcolor_id = $(this).data('sysid');
+
+                    $('.color-option-holder>li').removeClass('active');
+                    $(this).addClass('active');
+                    $('.ajax-cta-cname').html($(this).data('cname'));
+
+                    //__spritespin_destroy();
+
+                    __switch_color($(this).data('cid'));
+
+                    // layer switching
+                    $('.exterior-model').hide();
+                    //$('.colorgroup'+currentcolor_id).show().css({'opacity':0});
+                    $('.package, .tick').removeClass('active');
+                    //console.log('colorid', currentcolor_id)
+
+                    // height control
+                    $('.exterior-holder, .exteriorholder, .modelexterior').css( 'height', $('.model-default-bg').height() )
+
+                });
+
+
+                // ---------
+                // load accessories sprites
+                $.getJSON( "{{$APIPATH}}model_{{$model_slug}}_accessories.json", function( data ) {
+                    spritedata_acc = data.payload_exterior360;
+                    //console.log(data.payload_exterior360);
+
+                    // init
+                    if(data.payload_exterior360!=null && data.payload_exterior360!='null'){
+                        @if(@$load_accessory_360assets)
+                            __constuctHTML();
+                        @endif
+
+                        $(window).resize(__resizeAssets);
+                        $(window).trigger('resize');
+                    }
+                    $('.color-option-holder>li:nth-of-type(1)').trigger('click');
+                });
+
+            });
+        });
+    </script>
+
+
+<div class="inner-color-container" style="display:none;">
+        <div class="color-name sub-title ajax-cta-cname">Loading...</div>
+        <div class="modelexterior">
+            <div class="exterior-holder">
+            <div class="model-indicator" style="position:absolute; bottom:0; padding:0 10px;"><img src="{{url('img/mock/360indicator.png')}}" alt="" style="width:50%;"></div>
+                <div class="model-default-bg"></div>
+                <div class="car-parts-holder"></div>
+                <div class="model-default model-ref" style="opacity:0 !important"></div>
+            </div>
+        </div>
+
+        <ul class="color-option-holder">
+            {{--  GENERATED BY JS   --}}
+        </ul>
+        <div class="clearfix"></div>
+        <!-- <div class="color-name sub-title">Honda City is also available in Passion Red Pearl</div> //testpush// -->
+
+        @if(Request::is('model/city/*'))
+        <div class="colorpickerdisclaimer"><span style="font-weight:500;">Honda City is also available in:</span><br>Passion Red Pearl</div>
+        @endif
+        @if(Request::is('model/jazz/*'))
+        <div class="colorpickerdisclaimer"><span style="font-weight:500;">Honda Jazz is also available in:</span><br>Passion Red Pearl</div>
+        @endif
+        @if(Request::is('model/hrv/*'))
+        <div class="colorpickerdisclaimer"><span style="font-weight:500;">Honda HR-V is also available in:</span><br>Passion Red Pearl, Lunar Silver Metallic, Modern Steel Metallic</div>
+        @endif
+        @if(Request::is('model/crv/*'))
+        <div class="colorpickerdisclaimer"><span style="font-weight:500;">Honda CR-V is also available in:</span><br>Passion Red Pearl</div>
+        @endif
+        @if(Request::is('model/brv/*'))
+        <div class="colorpickerdisclaimer"><span style="font-weight:500;">Honda BR-V is also available in:</span><br>Passion Red Pearl</div>
+        @endif
+
+
+    </div>

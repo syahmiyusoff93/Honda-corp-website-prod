@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+RewriteRule ^(.*)$ - [E=BASE:%1]
+
+RewriteCond %{HTTP_HOST} !localhost
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{SERVER_NAME}%{ENV:BASE}$1 [R=301,L]

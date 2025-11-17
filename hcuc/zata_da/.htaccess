@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+    ErrorDocument 403 /home
+    RewriteEngine Off
+</IfModule>

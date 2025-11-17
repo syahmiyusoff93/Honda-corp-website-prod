@@ -1,0 +1,11 @@
+ {
+     "js": {
+         "plugin": ["jquery.min", "parallaxie", "smooth-scrollbar", "jquery.lettering", "panzoom.min", "masonry", "owl.carousel.min", "jquery.counterup.min", "jquery.inview.min","jquery-ui.min"],
+         "local": ["form", "dekami","menu"]
+     },
+     "css": {
+         "plugin": ["bootstrap.min", "fontawesome.min", "owl.carousel.min", "owl.theme.default.min", "jquery-ui.min", "animate.min"],
+         "local": ["var", "fonts", "menu", "header", "footer", "default", "style", "theme", "products", "fields"]
+     },
+     "api": {"jslink":[]}
+ }

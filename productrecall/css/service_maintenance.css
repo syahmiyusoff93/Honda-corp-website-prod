@@ -1,0 +1,710 @@
+#contact_us_panel{  background: #eeeeee; height: 564px;}
+#contact_form_panel{ float: left; width: 55%; padding: 80px 0 40px 40px ; height: 470px; }
+
+#contact_form_panel p{ font-size: 13px}
+#contact_form_panel h1{ margin: 0 0 20px 0; font-family: 'Conv_ProximaNova-BoldIt';}
+
+#contact_form_content_panel{ float: left; width: 400px; padding: 0 20px 0 50px; min-height: 400px}
+#contact_form_content_panel h3{ font-family: 'Conv_ProximaNova-BoldIt'; font-size: 13px; margin: 40px 0 0 0}
+#contact_form_content_panel h4{ margin: 0}
+/*#contact_form_content_panel h3{ font-family: 'Conv_ProximaNova-BoldIt'; font-size: 13px; margin: 0 0 0 0}*/
+#contact_form_content_panel textarea{ width: 350px; height: 100px; border: 1px solid #CCCCCC}
+
+
+#contact_details_panel{ float: right; width: 40%; background: #f5f5f5; height: 100%;  }
+#contact_details_panel h3{ font-family: 'Conv_ProximaNova-BoldIt'; font-size: 18px; margin: 0 0 20px 0}
+#contact_details_panel h4{font-family: 'Conv_ProximaNova-BoldIt';}
+#contact_details_content_panel{ width: 90%; margin: 80px auto 0 auto}
+#contact_details_content_panel p{ }
+#contact_hotline{color: #cc0000; font-size: 20px; margin: 20px 0 10px 0}
+
+
+#contact_landing_panel{ width: 55%; padding: 80px 0 0 40px; float: left}
+#contact_landing_panel p{ font-size: 13px}
+#contact_landing_panel h1{ margin: 0 0 20px 0; font-family: 'Conv_ProximaNova-BoldIt';}
+#contact_landing_content_panel{ }
+#contact_landing_content_panel h3{ font-family: 'Conv_ProximaNova-BoldIt'; font-size: 13px; margin: 40px 0 0 0}
+
+
+#contact_question_tabs_listing{ float: left; width: 85px;}
+#contact_question_tabs_listing li{  font-size: 13px; border-top: 2px solid #999999; margin: 0 0 20px 0; padding: 5px 0 0 0; color: #999999}
+#contact_question_tabs_listing li.selected{border-top: 2px solid #cc0000; margin: 0 0 20px 0; padding: 5px 0 0 0; color: #000}
+
+#contact_form_content_panel table tr td{font-family: 'Conv_ProximaNova-Bold';}
+#contact_form_content_panel input[type=text]{ border: 1px solid #CCCCCC; height: 23px; padding: 5px 15px; width: 300px}
+.enquiry_form_label{ margin: 10px 0 5px 0 ; }
+.enquiry_form_label span{ color:#cc0000}
+
+#thankyou_panel {margin: 0 0 0 -50px}
+#thankyou_panel p{ line-height: 20px; font-family: 'Conv_ProximaNova-BoldIt'; font-size: 14px ; height: 200px; }
+
+
+#faq_panel{ background: #eeeeee; height: 549px; padding: 15px 0 0 0; }
+#faq_content_panel { width: 90%; margin: 0 auto}
+#faq_content_panel ul#main_faq_listing{ margin: 20px 0 0 0; border-bottom: 1px solid #666666; padding: 0 0 40px 0}
+#faq_content_panel ul#main_faq_listing li { background: #FFF; width: 258px; margin: 0 0 20px 30px; height: 27px; padding: 12px 0 0 20px; float: left}
+#faq_content_panel ul#main_faq_listing li:hover{ background: #cc0000; color: #FFF}
+#faq_content_panel ul#main_faq_listing li:hover div{ background: url("../graphic/list_icon_hover.jpg") no-repeat;}
+#faq_content_panel ul#main_faq_listing li.no_margin{ margin-left: 0}
+#faq_content_panel ul#main_faq_listing li div{ background: url("../graphic/list_icon.png") no-repeat; padding: 0 0 0 28px; font-size: 13px; width: 205px}
+
+
+#faq_main_content_panel{ margin: 20px 0 0 0}
+#faq_main_content_panel ul{ list-style: upper-roman; padding: 0 0 0 20px; margin: 10px 0 0 0}
+#faq_main_content_panel ul li{ margin: 15px 0 0 0; font-size: 13px}
+#faq_main_content_panel ul li div{ font-weight: bold}
+#content_for_general_tab{ }
+.tab_content_title{ color: #cc0000; font-size: 13px; font-family: 'Conv_ProximaNova-Bold';}
+#content_for_sales_tab,#faq_main_content_panel,#content_for_special_sales_tab,#content_for_service_appointment_tab,#content_for_warranty_tab,#content_for_auto_assist_tab,#content_for_genuine_parts_tab,#content_for_accessories_tab,#content_for_technical_advice_tab,#content_for_service_maintenance_tab{ margin: 45px 0 0 0 }
+.arrow_up{ float: right; margin-top: -3px}
+
+
+#faq_panel h1{ font-family: 'Conv_ProximaNova-BoldIt';}
+
+
+
+
+label.error{ color: red; display: block; margin: 3px 0 0 0}
+
+
+
+/* maintenance */
+.page_title{font-family: 'Conv_ProximaNova-BoldIt', sans-serif; font-size: 26px;}
+.sub_title{font-family: 'Conv_ProximaNova-BoldIt', sans-serif; font-size: 20px;}
+
+
+#periodical_maintenance_panel{background: #eeeeee}
+#maintenance_name_listing { margin: 0 0 20px 0}
+#maintenance_name_listing li{ font-size: 18px; font-weight: bold; float: left }
+.maintenance_tab{ float: left; padding: 10px 15px; background: #f6f6f6; margin: 0 2px 0 0; cursor: pointer}
+.maintenance_tab.active{ background: #FFF}
+table#maintenance_listing{ width: 99%; background: #FFF}
+table#maintenance_listing tbody{ display: none; width: 100%}
+table#maintenance_listing tbody.active{ display: block}
+table#maintenance_listing tr th.even_row,table#maintenance_listing tr td.even_row{ background: #f6f6f6; width: 10%}
+/*table#maintenance_listing tr td{ text-align: center; padding: 10px  19px}*/
+table#maintenance_listing tr td{ text-align: center; padding: 10px  15px}
+table#maintenance_listing tr th{ padding: 10px 20px; width: 25%}
+table#maintenance_listing tr th.total_cost_row.odd_row,table#maintenance_listing tr td.total_cost_row.odd_row,table#maintenance_listing tr th.total_cost_row.even_row,table#maintenance_listing tr td.total_cost_row.even_row,table#maintenance_listing tr th.total_cost_row,table#maintenance_listing tr td.total_cost_row{ background: #000 !important; color: #FFF}
+
+
+#maintenance_notes_panel{ background: #f5f5f5; min-width:95%; max-width: 92%; margin: 50px 0 0 0; padding: 30px}
+
+
+
+
+#privileges_panel{ background: #eeeeee; min-width: 80%; height: 504px; overflow: hidden; padding: 60px 0 0 0; width: 1024px}
+#privileges_panel h1{ font-family: 'Conv_ProximaNova-BoldIt'; }
+#privileges_panel h1,#privileges_panel p{ color: #000}
+#privileges_panel #privileges_brief_explanation{ margin: 20px 0; font-size: 13px}
+#privileges_panel #module_top_navigation{ margin: 0 40px 0 40px; padding: 20px 0 0 0}
+
+
+
+
+
+
+
+#maintenance_overview_content_panel{ width: 90%; margin: 20px auto}
+#servicing_panel #servicing_title{ font-size: 40px; color:  #cc0000; font-family: 'Conv_ProximaNova-BoldIt'; margin: 45px 100px 20px 0; line-height: 46px;}
+#servicing_panel p{ font-size: 13px; color:  #666666; margin: 10px 150px 20px 0; width: 350px;  line-height: 24px}
+
+#quality_assurance_panel .quality_assurance_title{ font-size: 30px; color:  #cc0000; font-family: 'Conv_ProximaNova-BoldIt'; margin: 45px 100px 20px 0}
+#quality_assurance_panel  p{ font-size: 13px; color:  #666666; margin: 10px 150px 20px 0; width: 100%;  line-height: 24px}
+#quality_assurance_panel  .bold_med_title{ font-family: 'Conv_ProximaNova-Bold'; font-size: 20px}
+#quality_assurance_panel table tr td ul{ list-style: decimal; font-weight: bold; color: #666666; padding: 0 0 0 20px}
+#quality_assurance_panel table tr td ul li p{ font-weight: normal}
+
+
+
+
+
+/*car care*/
+
+
+#car_care_panel{background-color:#eeeeee;}
+/*#genuine_package_panel{ background: url('../graphic/car_care/bg_car_care.jpg') no-repeat top left; width: 1024px; height: 564px;}*/
+#genuine_package_panel{ background: url('../graphic/car_care/bg_car_care.jpg') no-repeat top left; width: 810px; height: 515px;}
+#genuine_package_panel h1{ font-family: 'Conv_ProximaNova-BoldIt'; font-size: 22px; color: #000; }
+#genuine_package_panel #genuine_package_title{font-size: 30px; color:  #cc0000; font-family: 'Conv_ProximaNova-BoldIt'; margin: 20px 0 20px 0; line-height: 36px;}
+#genuine_package_panel p{ line-height: 27px; color: #000; font-size: 14px;}
+#genuine_package_panel #package_panel{margin: 20px 0 0 0;}
+/*#genuine_package_panel #package_panel img{float:left; margin:0 15px 0 0;}
+#genuine_package_panel #genuine_package_content {width:480px; float:left; margin:90px 0 0 50px;}*/
+#genuine_package_panel #package_panel img{float:left; margin:0 5px 0 0;}
+#genuine_package_panel #genuine_package_content {width:387px; float:left; margin:110px 0 0 5px;}
+.genuine_package_panel_image1024 { padding:160px 37px 0; float:left; }
+
+
+
+/*#standard_package_panel { height: 564px; display:block;}*/
+#standard_package_panel { width: 770px; height: 515px; padding:0 20px 0 20px; display:block;}
+#standard_package_panel #standard_package_main_panel{ margin: 0 auto 0 auto; width: 810px;}
+/*#standard_package_panel #standard_package_content_panel{ float: left; width: 920px ; margin: 60px 100px 0 0 }*/
+#standard_package_panel #standard_package_content_panel{ float: left; width: 770px ; margin: 60px 0px 0 0 }
+#standard_package_panel #standard_package_content_panel img {float:left;}
+/*#standard_package_panel #standard_package_content_panel #standard_package_text_content {float:left; margin-left:50px;}*/
+#standard_package_panel #standard_package_content_panel #standard_package_text_content {float:left; margin-left:20px; width:625px; padding-top: 15px;}
+#standard_package_panel #standard_package_content_panel p{ line-height: 20px; margin: 20px 0 0 0; font-size: 13px}
+#standard_package_panel #standard_package_title{  font-size: 30px; color:  #cc0000; font-family: 'Conv_ProximaNova-BoldIt'; margin: 0 0 20px 0}
+#standard_package_panel #standard_package_info {margin-top:40px; float:left;}
+#standard_package_panel #standard_package_info li {float:left;}
+#standard_package_panel #standard_package_info li  h4{font-family: 'Conv_ProximaNova-Bold'; font-size:14px; color:#cc0000; letter-spacing:0;}
+#standard_package_panel #standard_package_info li div {float:left;}
+
+/*#standard_package_panel #standard_package_info #info1 {padding-right:40px; width:360px;}*/
+#standard_package_panel #standard_package_info #info1 {padding-right:10px; width:335px;}
+#standard_package_panel #standard_package_info #info1 #text1 {padding:20px 10px 20px 0; width:150px; font-family: 'Conv_ProximaNova-Bold'; font-size:16px;}
+#standard_package_panel #standard_package_info #info1 #text2 {padding:60px 10px; width:10px; font-family: 'Conv_ProximaNova-Bold'; font-size:16px;}
+#standard_package_panel #standard_package_info #info1 #text3 {padding:0 10px 20px; text-align:center; width:125px;}
+
+#standard_package_panel #standard_package_info #info2 {padding: 0 30px; border-left:1px #000 solid; width:125px; height:220px; display:block;}
+#standard_package_panel #standard_package_info #info2 #text1 {font-size:24px; line-height:34px; font-family: 'Conv_ProximaNova-Bold'; font-size:24px;}
+
+#standard_package_panel #standard_package_info #info3 {padding: 0 30px;border-left:1px #000 solid; width:195px; height:220px; display:block;}
+#standard_package_panel #standard_package_info #info3 #text1 {font-size:24px; line-height:34px; font-family: 'Conv_ProximaNova-Bold'; font-size:24px;}
+
+
+
+/*#upgrade_package_panel { height: 564px; display:block;}*/
+#upgrade_package_panel {  width: 770px; height: 515px; padding:0 20px 0 20px; display:block; }
+#upgrade_package_panel #upgrade_package_main_panel{ margin: 0 auto 0 auto; width: 920px;}
+/*#upgrade_package_panel #upgrade_package_content_panel{ float: left; width: 920px ; margin: 40px 100px 0 0 }*/
+#upgrade_package_panel #upgrade_package_content_panel{ float: left; width: 770px ; margin: 40px 100px 0 0 }
+#upgrade_package_panel #upgrade_package_content_panel img {float:left;}
+/*#upgrade_package_panel #upgrade_package_content_panel #upgrade_package_text_content {float:left; margin-left:50px; width:720px;}*/
+#upgrade_package_panel #upgrade_package_content_panel #upgrade_package_text_content {float:left; margin-left:20px; width:625px; padding-top: 15px;}
+#upgrade_package_panel #upgrade_package_content_panel p{ line-height: 20px; margin: 20px 0 0 0; font-size: 13px}
+#upgrade_package_panel #upgrade_package_title{  font-size: 30px; color:  #cc0000; font-family: 'Conv_ProximaNova-BoldIt'; margin: 0 0 20px 0}
+#upgrade_package_panel #upgrade_package_info {margin-top:20px; float:left;}
+#upgrade_package_panel #upgrade_package_info li {float:left;}
+#upgrade_package_panel #upgrade_package_info li  h4{font-family: 'Conv_ProximaNova-Bold'; font-size:14px; color:#cc0000; letter-spacing:0;}
+#upgrade_package_panel #upgrade_package_info li div {float:left;}
+
+/*#upgrade_package_panel #upgrade_package_info #info1 {padding-right:40px; width:360px;}*/
+#upgrade_package_panel #upgrade_package_info #info1 {padding-right:10px; width:335px;}
+#upgrade_package_panel #upgrade_package_info #info1 #text1 {padding:20px 10px 20px 0; width:150px; font-family: 'Conv_ProximaNova-Bold'; font-size:16px;}
+#upgrade_package_panel #upgrade_package_info #info1 #text2 {padding:60px 10px; width:10px; font-family: 'Conv_ProximaNova-Bold'; font-size:16px;}
+#upgrade_package_panel #upgrade_package_info #info1 #text3 {padding:0 10px 20px; text-align:center; width:120px;}
+
+#upgrade_package_panel #upgrade_package_info #info2 {padding: 0 30px; border-left:1px #000 solid; width:125px; height:200px; display:block;}
+#upgrade_package_panel #upgrade_package_info #info2 #text1 {font-size:24px; line-height:34px; font-family: 'Conv_ProximaNova-Bold'; font-size:24px;}
+
+#upgrade_package_panel #upgrade_package_info #info3 {padding: 0 30px;border-left:1px #000 solid; width:195px; height:200px; display:block;}
+#upgrade_package_panel #upgrade_package_info #info3 #text1 {font-size:24px; line-height:34px; font-family: 'Conv_ProximaNova-Bold'; font-size:24px;}
+
+
+
+/*#premium_package_panel { height: 930px; display:block; background: url('../graphic/car_care/bg_premium_package.jpg') no-repeat bottom left;}*/
+#premium_package_panel { width: 760px; height: 1075px; padding:0 20px 0 20px; display:block; background: url('../graphic/car_care/bg_premium_package.jpg') no-repeat bottom left;}
+#premium_package_panel #premium_package_main_panel{ margin: 0 auto 0 auto; width: 920px;}
+/*#premium_package_panel #premium_package_content_panel{ float: left; width: 920px ; margin: 40px 100px 0 0 }*/
+#premium_package_panel #premium_package_content_panel{ float: left; width: 770px ; margin: 40px 100px 0 0 }
+#premium_package_panel #premium_package_content_panel img {float:left;}
+/*#premium_package_panel #premium_package_content_panel #premium_package_text_content {float:left; margin-left:50px; width:720px;}*/
+#premium_package_panel #premium_package_content_panel #premium_package_text_content {float:left; margin-left:20px; width:625px; padding-top: 15px;}
+#premium_package_panel #premium_package_content_panel p{ line-height: 20px; margin: 20px 0 0 0; font-size: 13px}
+#premium_package_panel #premium_package_title{  font-size: 30px; color:  #cc0000; font-family: 'Conv_ProximaNova-BoldIt'; margin: 0 0 20px 0}
+#premium_package_panel #premium_package_info {margin-top:20px; float:left;}
+#premium_package_panel #premium_package_info li {float:left;}
+#premium_package_panel #premium_package_info li  h4{font-family: 'Conv_ProximaNova-Bold'; font-size:14px; color:#cc0000; letter-spacing:0; padding-top: 20px;}
+#premium_package_panel #premium_package_info li div {float:left;}
+
+/*#premium_package_panel #premium_package_info #info1 {padding-right:40px; width:360px;}*/
+#premium_package_panel #premium_package_info #info1 {padding-right:10px; width:335px;}
+#premium_package_panel #premium_package_info #info1 #text1 {padding:20px 10px 20px 0; width:150px; font-family: 'Conv_ProximaNova-Bold'; font-size:16px;}
+#premium_package_panel #premium_package_info #info1 #text2 {padding:60px 10px; width:10px; font-family: 'Conv_ProximaNova-Bold'; font-size:16px;}
+#premium_package_panel #premium_package_info #info1 #text3 {padding:0 10px 20px; text-align:center; width:120px;}
+
+#premium_package_panel #premium_package_info #info2 {padding: 0 30px; border-left:1px #000 solid; width:125px; height:220px; display:block;}
+#premium_package_panel #premium_package_info #info2 #text1 {font-size:24px; line-height:34px; font-family: 'Conv_ProximaNova-Bold'; font-size:24px;}
+
+#premium_package_panel #premium_package_info #info3 {padding: 0 30px;border-left:1px #000 solid; width:195px; height:220px; display:block;}
+#premium_package_panel #premium_package_info #info3 #text1 {font-size:24px; line-height:34px; font-family: 'Conv_ProximaNova-Bold'; font-size:24px;}
+#premium_package_panel #premium_package_info li li {float:left; width:100px;  text-align:center; margin:15px 15px 0 0;}
+#premium_package_panel #premium_package_info li li p {font-size:12px; font-family: 'Conv_ProximaNova-Bold'; }
+
+#premium_package_panel #premium_package_info #info4 {margin-top:20px; display:block;}
+
+
+
+
+/*#ten_reason_panel {background-color:#eeeeee;  height: 1710px; display:block;}
+#ten_reason_content_panel{width: 1024px; position:relative; background: url('../graphic/car_care/img_10reason.jpg') no-repeat top left;}
+#ten_reason_content_panel #btn_car_care {position:absolute; right:100px; top:50px;}*/
+
+#ten_reason_panel {background-color:#eeeeee;  height: 1515px; display:block;}
+#ten_reason_content_panel{width: 855px; position:relative; background: url('../graphic/car_care/img_10reason.jpg') no-repeat top left;}
+#ten_reason_content_panel #btn_car_care {position:absolute; right:25px; top:80px;}
+#ten_reason_content_panel h1{ font-family: 'Conv_ProximaNova-BoldIt'; font-size: 22px; color: #000; }
+#ten_reason_content_panel p #ten_reason_content_title{font-size: 30px; color:  #cc0000; font-family: 'Conv_ProximaNova-BoldIt'; margin: 25px 0 25px 0}
+/*#ten_reason_content_panel p{ line-height: 20px; color: #000; font-size: 14px;}*/
+#ten_reason_content_panel p{ line-height: 15px; color: #000; font-size: 12px;}
+
+/*#ten_reason_content_panel #ten_reason_list {width:1024px; display:block; padding-top:504px;}*/
+#ten_reason_content_panel #ten_reason_list {width:810px; display:block; padding-top:360px;}
+
+/*#reason_item1, #reason_item2, #reason_item3, #reason_item4, #reason_item5, #reason_item6, #reason_item7, #reason_item8, #reason_item9, #reason_item10 {width:512px; height:225px;float:left;}*/
+#reason_item1, #reason_item2, #reason_item3, #reason_item4, #reason_item5, #reason_item6, #reason_item7, #reason_item8, #reason_item9, #reason_item10 {width:405px; height:225px;float:left;}
+#reason_item1 strong, #reason_item2 strong, #reason_item3 strong, #reason_item4 strong, #reason_item5 strong, #reason_item6 strong, #reason_item7 strong, #reason_item8 strong, #reason_item9 strong, #reason_item10 strong {color:#cc0000; }
+#reason_item1 {background: url('../graphic/car_care/bg_no1.png') no-repeat bottom right;}
+#reason_item2 {background: url('../graphic/car_care/bg_no2.png') no-repeat bottom right;}
+#reason_item3 {background: url('../graphic/car_care/bg_no3.png') no-repeat bottom right;}
+#reason_item4 {background: url('../graphic/car_care/bg_no4.png') no-repeat bottom right;}
+#reason_item5 {background: url('../graphic/car_care/bg_no5.png') no-repeat bottom right;}
+#reason_item6 {background: url('../graphic/car_care/bg_no6.png') no-repeat bottom right;}
+#reason_item7 {background: url('../graphic/car_care/bg_no7.png') no-repeat bottom right;}
+#reason_item8 {background: url('../graphic/car_care/bg_no8.png') no-repeat bottom right;}
+#reason_item9 {background: url('../graphic/car_care/bg_no9.png') no-repeat bottom right;}
+#reason_item10 {background: url('../graphic/car_care/bg_no10.png') no-repeat bottom right;}
+/*#ten_reason_content_panel #reason_img {float:left; margin:60px 0 0 12px;}
+#ten_reason_content_panel #reason_text {float:left; margin:110px 0 0 0; width:180px;}*/
+#ten_reason_content_panel #reason_img {float:left; margin:120px 0 0 25px;}
+#ten_reason_content_panel #reason_text {float:left; margin:135px 0 0 0; width:170px;}
+
+
+
+/*genuine parts*/
+#parts_wrapper h1, #parts_wrapper h2, #parts_wrapper h3{font-family: 'Conv_ProximaNova-BoldIt';}
+#parts_wrapper #parts_nav li {font-family: 'Conv_ProximaNova-Bold';}
+#parts_wrapper p {font-family: 'Conv_ProximaNova-Regular';}
+/*#parts_wrapper {width: 1024px;background: #eee}*/
+#parts_wrapper {width: 810px;background: #eee}
+#parts_wrapper h1 {font-size: 28px;}
+#parts_wrapper h2 {font-size: 18px;color: #cc0000; margin-bottom:20px; }
+#parts_wrapper p {font-size: 14px}
+#parts_wrapper a {text-decoration: none;}
+
+/*#parts_title {width: 780px;padding: 60px 0 50px 80px}*/
+#parts_title {width: 720px;padding: 60px 0 50px 40px}
+/*#parts_main {width: 904px;margin:0 0 0 60px;padding-bottom: 50px}*/
+#parts_main {width: 750px;margin:0 0 0 30px;padding-bottom: 50px}
+#parts_nav ul{list-style: none;padding: 0}
+/*#parts_nav ul li{cursor: pointer;width: 186px;height: 32px;float: left;background: #f6f6f6;margin-right:2px;text-align: center;font-size: 16px;padding-top: 12px}*/
+#parts_nav ul li{cursor: pointer;width: 148px;height: 32px;float: left;background: #f6f6f6;margin-right:2px;text-align: center;font-size: 16px;padding-top: 12px}
+#parts_nav ul li:hover {background: white;}
+#parts_nav ul li.active {background: white;}
+/*#parts_contents {clear:both;width: 824px;background: white;padding: 40px}*/
+#parts_contents {clear:both;width: 670px;background: white;padding: 40px}
+/*.parts_contents_box {float: left;width: 260px;height: 424px;border: 1px solid #ccc;margin: 0 6px;*/
+
+.parts_contents_box {float: left;width: 209px;height: 424px;border: 1px solid #ccc;margin: 0 6px;
+background: #e8e8e8; /* Old browsers */
+background: -moz-linear-gradient(top,  #fff 0%, #e8e8e8 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#e8e8e8)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fff 0%,#e8e8e8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fff 0%,#e8e8e8 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fff 0%,#e8e8e8 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fff 0%,#e8e8e8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#e8e8e8',GradientType=0 ); /* IE6-9 */
+box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+}
+h2{font-size: 30px;color: #cc0000} 
+h3{font-size: 26px;color: #cc0000} 
+.parts_contents_box h3 {margin: 0 25px 20px 25px;font-size: 16px; }
+.parts_contents_box p {margin: 0 25px;font-size: 14px;line-height: 20px; height:100px;}
+/*.parts_contents_box_img {height: 148px;width: 200px;margin: 30px}*/
+.parts_contents_box_img {height: 148px;width: 199px;margin: 5px}
+.read_more{color: black;height: 16px;width:60px;margin: 30px 0 0 25px;font-family: 'Conv_ProximaNova-BoldIt';font-size: 12px;padding:5px 25px 0 0;background: url(../graphic/genuine_parts/read_more.png) no-repeat right}
+
+
+#engine_parts_contents {display: none;}
+#pmss_parts_contents {display: none;}
+#batteries_parts_contents {display: none;}
+
+
+/*#engine_parts_main {width: 800px;position: relative; margin: 0 auto}*/
+#engine_parts_main {width: 755px;position: relative; margin: 0 auto}
+/*#engine_parts_main h2{ font-size:36px;color:#cc0000;padding:10px 0; font-family: 'Conv_ProximaNova-BoldIt';}*/
+#engine_parts_main h2{ font-size:36px;color:#cc0000;padding:20px 0 10px 0; font-family: 'Conv_ProximaNova-BoldIt';}
+#engine_parts_main h3{ font-size:26px;color:#cc0000;padding:10px 0; font-family: 'Conv_ProximaNova-BoldIt';}
+#engine_parts_main p {line-height: 26px}
+.back {background: url(../graphic/genuine_parts/back.png) no-repeat right;padding-right: 20px;width: 35px;height: 20px;padding-top: 10px;font-size: 12px;position: absolute;right: 10px;top:50px;cursor: pointer; color: #000; font-family:'Conv_ProximaNova-BoldIt';}
+#engine_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}
+/*#engine_parts_contents2 {height:1928px}
+#engine_parts_contents3 {height:115px;width:800px;background:#c00;color: white;}
+#engine_parts_contents4 {height:250px;width:824px;border-bottom:1px solid #666}
+#engine_parts_contents5 {height:300px;width:824px;border-bottom:1px solid #666}
+#engine_parts_contents6 {height:720px;width:824px;}
+#engine_parts_contents7 {height:300px;width:824px;}*/
+#engine_parts_contents2 {height:1850px}
+#engine_parts_contents3 {height:76px;width:755px;background:#c00;color: white;}
+#engine_parts_contents4 {height:250px;width:755px;border-bottom:1px solid #666}
+#engine_parts_contents5 {height:300px;width:755px;border-bottom:1px solid #666}
+#engine_parts_contents6 {height:720px;width:755px;}
+#engine_parts_contents7 {height:300px;width:755px;}
+/*#engine_parts_contents2 > div{height: 860px;margin:20px 0;width: 380px;float: left;}*/
+#engine_parts_contents2 > div{height: 860px;margin:20px 0;width: 357px;float: left; padding: 0 10px;}
+#engine_parts_contents2 h4 {font-size: 16px;color: #c00}
+#engine_parts_contents2 h5,#engine_parts_contents2 p,#engine_parts_contents2 ul li {font-size: 14px;line-height: 20px;margin: 5px 0;clear:both}
+#engine_parts_contents3 p{font-size: 14px;color: white;padding: 20px}
+/*#engine_parts_contents4 div{width: 400px;float: left;}*/
+#engine_parts_contents4 div{width: 367px;float: left;}
+#engine_parts_contents4 h6, #engine_parts_contents4 p, #engine_parts_contents5 h6, #engine_parts_contents5 p{font-size: 14px}
+/*#engine_parts_contents5 div{width: 400px;float: left;}*/
+#engine_parts_contents5 div{width: 367px;float: left;}
+/*#engine_parts_contents6 ul {list-style:none;padding:50px 0}
+#engine_parts_contents6 ul li {width: 380px;margin-right: 30px;float: left;height: 200px}*/
+#engine_parts_contents6 ul {list-style:none;padding:30px 0}
+#engine_parts_contents6 ul li {width: 347px;margin-right: 30px;float: left;height: 200px}
+#engine_parts_contents6 ul h2{float:left;font-size:56px;color:black;width:50px;height:160px;margin:30px 20px 20px 20px;font-family: 'ProximaNova-Regular';font-style:normal;line-height:30px}
+#engine_parts_contents6 ul h3 {font-size:16px;color:#cc0000;padding:10px;}
+#engine_parts_contents6 ul p {font-size:14px;color:black;margin-bottom:50px;line-height:26px}
+#engine_parts_contents7 div{float: left}
+/*#engine_parts_contents7 .left {width: 200px;padding: 10px 30px;}*/
+#engine_parts_contents7 .left {width: 165px;padding: 10px 30px;}
+#engine_parts_contents7 .right {width: 470px;padding: 10px 30px;}
+
+.grade {height: 210px}
+.grade img{float: left;}
+/*.grade #grade_left {float: left;width: 170px;height: 190px;border-right:solid 1px #666 }
+.grade #grade_right {float: left;width: 180px;height: 190px;padding-left: 20px}*/
+
+.grade #grade_left {float: left;width: 168px;height: 190px;border-right:solid 1px #666 }
+.grade #grade_right {float: left;width: 168px;height: 190px;padding-left: 20px}
+
+/*#brake_parts_main {width: 880px;position: relative; margin: 0 auto}*/
+#brake_parts_main {width: 760px;position: relative; margin: 0 auto}
+#brake_parts_main h2{ font-size:36px;color:#cc0000;padding:10px 0; font-family: 'Conv_ProximaNova-BoldIt';}
+#brake_parts_main h3{ font-size:26px;color:#cc0000;padding:10px 0; font-family: 'Conv_ProximaNova-BoldIt';}
+/*#brake_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}*/
+#brake_parts_contents1 {border-bottom:1px solid #666;padding:40px 20px 40px 20px;}
+#brake_parts_contents2 {padding:40px 20px 40px 20px;}
+#brake_parts_contents2 ul {list-style:none;padding:50px 0}
+/*#brake_parts_contents2 ul li {width: 260px;margin-right: 30px;float: left;height: 200px}*/
+#brake_parts_contents2 ul li {width: 235px;margin-right: 5px;float: left;height: 200px}
+#brake_parts_contents2 ul h2{float:left;font-size:56px;color:black;width:50px;height:160px;margin:30px 20px 20px 20px;font-style:normal;line-height:30px}
+#brake_parts_contents2 ul p {font-size:14px;color:black;margin-bottom:50px;line-height:26px}
+
+/*#wiper_parts_main {width: 800px;position: relative; margin: 0 auto; padding: 40px 0}*/
+#wiper_parts_main {width: 760px;position: relative; margin: 0 auto; padding: 40px 0}
+#wiper_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}
+#wiper_parts_contents2 ul {list-style:none;padding:50px 0}
+/*#wiper_parts_contents2 ul li {width: 380px;margin-right: 20px;float: left;height: 360px}*/
+#wiper_parts_contents2 ul li {width: 360px;margin-right: 20px;float: left;height: 360px}
+#wiper_parts_contents2 ul h2{float:left;font-size:56px;color:black;width:50px;height:200px;margin:140px 20px 20px 20px;font-family: 'ProximaNova-BoldIt';font-style:normal;line-height:30px}
+#wiper_parts_contents1 h2{font-size:36px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#wiper_parts_contents2 h3{font-size:26px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#wiper_parts_contents2 ul h3 {font-size:16px;color:#cc0000;padding:10px; }
+#wiper_parts_contents2 ul p {font-size:14px;color:black;margin-bottom:50px;line-height:26px}
+
+
+#cleaner_parts_main {width: 755px;position: relative; margin: 0 auto}
+#cleaner_parts_main  h2{ font-size:36px;color:#cc0000;padding:10px 0; font-family: 'Conv_ProximaNova-BoldIt';}
+#cleaner_parts_main  h3{ font-size:26px;color:#cc0000;padding:10px 0; font-family: 'Conv_ProximaNova-BoldIt';}
+#cleaner_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}
+
+/*.cleaner_circle {width: 130px;height: 130px;float:left;margin: 15px;text-align: center;*/
+.cleaner_circle {width: 130px;height: 130px;float:left;margin: 10px;text-align: center;
+border-radius: 130px;
+background: #fe0000; /* Old browsers */
+background: -moz-linear-gradient(top,  #fe0000 0%, #cd0000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fe0000), color-stop(100%,#cd0000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fe0000 0%,#cd0000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fe0000 0%,#cd0000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fe0000 0%,#cd0000 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fe0000 0%,#cd0000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fe0000', endColorstr='#cd0000',GradientType=0 ); /* IE6-9 */
+
+}
+.cleaner_circle p {color:white;font-size: 15px;padding: 40px 10px 0 10px; text-align: center; line-height: 22px !important}
+/*.cleaner_box {width: 398px;height: 600px;border: solid 1px #999;float: left;text-align: center;margin-bottom: 50px}*/
+.cleaner_box {width: 375px;height: 600px;border: solid 1px #999;float: left;text-align: center;margin-bottom: 50px; margin-top: 20px;}
+.cleaner_box h4 {color: #c00;font-size: 26px;font-family: 'Conv_ProximaNova-BoldIt';}
+.cleaner_box img{margin: 20px 0}
+.cleaner_box p {margin: 5px 70px}
+
+/*#batterym_parts_main {width: 880px;position: relative; margin:  0 auto}*/
+#batterym_parts_main {width: 755px;position: relative; margin:  0 auto}
+#batterym_parts_main  h2{ font-size:36px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#batterym_parts_main  h3{ font-size:26px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+
+#batterym_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}
+.batterym_box {width: 370px;float: left;margin:0 50px 0 0}
+.batterym_box h4 {font-size: 16px;color:#c00;}
+.batterym_box ul li, .batterym_box p {font-size: 12px;}
+#batterym_parts_contents2 h5, #batterym_parts_contents2 p {font-size: 14px;line-height: 20px}
+#batterym_parts_contents2 p {margin-bottom: 50px}
+
+/*#battery_parts_main{width: 880px;position: relative; margin: 0 auto}*/
+#battery_parts_main{width: 755px;position: relative; margin: 0 auto}
+#battery_parts_main  h2{ font-size:36px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#battery_parts_main  h3{ font-size:26px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#battery_parts_main p {line-height: 26px}
+#battery_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}
+/*#battery_parts_contents2 > div{height: 450px;margin:20px 0;width: 380px;float: left;}*/
+#battery_parts_contents2 > div{height: 410px;margin:20px 0;width: 380px;float: left;}
+#battery_parts_contents2 h4 {font-size: 16px;color: #c00}
+#battery_parts_contents2 h5,#battery_parts_contents2 p,#battery_parts_contents2 ul li {font-size: 14px;line-height: 20px;margin: 5px 0;clear:both}
+
+/*#pmss_parts_main {width: 880px;position: relative; margin: 0 auto}*/
+#pmss_parts_main {width: 755px; position: relative; margin: 0 auto; }
+#pmss_parts_main h2{ font-size:36px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#pmss_parts_main h3{ font-size:26px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#pmss_parts_main p {line-height: 26px}
+#pmss_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}
+#oil_filter_point ul {list-style:none;padding:20px 0}
+/*#oil_filter_point ul li {width: 250px;margin-right: 30px;float: left;height: 200px}*/
+#oil_filter_point ul li {width: 225px;margin-right: 20px;float: left;height: 200px}
+#oil_filter_point ul h2{float:left;font-size:56px;color:black;width:10px;height:160px;margin:30px 20px 20px 20px;font-family: 'ProximaNova-Regular';font-style:normal;line-height:30px}
+#oil_filter_point ul h3 {font-size:16px;color:#cc0000;padding:5px;}
+#oil_filter_point ul p {font-size:14px;color:black;margin-bottom:50px;line-height:20px}
+
+/*#coolant_parts_main {width: 880px;position: relative; margin: 0 auto}*/
+#coolant_parts_main {width: 755px;position: relative; margin: 0 auto}
+#coolant_parts_main  h2{ font-size:36px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#coolant_parts_main  h3{ font-size:26px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+
+#coolant_parts_main p {line-height: 26px}
+#coolant_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}
+/*.coolant_circle {width: 170px;height: 170px;float:left;margin: 15px;text-align: center;*/
+.coolant_circle {width: 170px;height: 170px;float:left;margin: 9px;text-align: center;
+border-radius: 170px;
+background: #fe0000; /* Old browsers */
+background: -moz-linear-gradient(top,  #fe0000 0%, #cd0000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fe0000), color-stop(100%,#cd0000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fe0000 0%,#cd0000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fe0000 0%,#cd0000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fe0000 0%,#cd0000 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fe0000 0%,#cd0000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fe0000', endColorstr='#cd0000',GradientType=0 ); /* IE6-9 */
+
+}
+.coolant_circle p {color:white;font-size: 14px;padding: 30px 10px 0 10px; width: 70%; margin: 0 auto; text-align: center; line-height: 22px !important}
+/*.coolant_box {width: 190px;float: left;text-align: center;margin:0 10px 50px 0}*/
+.coolant_box {width: 178px;float: left;text-align: center;margin:0 10px 50px 0}
+.coolant_box h4 {color: #c00;font-size: 26px;}
+.coolant_box img{margin: 20px 0}
+.coolant_box p {margin: 5px 10px}
+
+/*#plugs_parts_main {width: 880px;position: relative; margin: 0 auto}*/
+#plugs_parts_main {width: 755px;position: relative; margin: 0 auto}
+#plugs_parts_main h2{ font-size:36px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#plugs_parts_main h3{ font-size:26px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+#plugs_parts_main p {line-height: 26px}
+#plugs_parts_contents1 {border-bottom:1px solid #666;padding:40px 0;}
+/*.plugs_float {height: 400px;margin:20px 50px 20px 0;width: 380px;float: left;}*/
+.plugs_float {height: 400px;margin:20px 20px 20px 0;width: 357px;float: left;}
+#plugs_parts_contents1 h4,#plugs_parts_contents2 h4 ,#plugs_parts_contents3 h4 {font-size: 16px;color: #c00}
+#plugs_parts_contents1 h5,#plugs_parts_contents1 p,#plugs_parts_contents1 ul li {font-size: 14px;line-height: 20px;margin: 5px 0;clear:both}
+#plugs_parts_contents2 {height: 370px;border-bottom:1px solid #666;}
+#plugs_parts_contents3 .plugs_float {height: 300px}
+
+/*#transmission_parts_main {width: 880px;position: relative; margin: 0 auto; padding: 40px 0}*/
+#transmission_parts_main {width: 755px;position: relative; margin: 0 auto; padding: 40px 0}
+#transmission_parts_main p {line-height: 26px}
+#transmission_parts_contents1 {padding:40px 0;}
+#transmission_parts_contents1 h2{font-size:36px;color:#cc0000;padding:10px 0;font-family: 'Conv_ProximaNova-BoldIt';}
+
+
+#transmission_parts_contents2 table tr th{ background: #000; color: #FFF; padding: 20px; width: 50%; text-align: center}
+#transmission_parts_contents2 table tr td{ padding: 20px; text-align: center; background: #FFF}
+#transmission_parts_contents2 table tr td.odd_row{ background: #f6f6f6}
+/*#transmission_parts_contents2 div{float: left}*/
+/*#transmission_parts_contents2 .left {width: 350px;padding: 10px 30px;text-align: center;}
+#transmission_parts_contents2 .right {width: 350px;padding: 10px 30px;text-align: center;}*/
+#transmission_parts_contents2 .left {width: 318px;padding: 10px 30px;text-align: center;}
+#transmission_parts_contents2 .right {width: 317px;padding: 10px 30px;text-align: center;}
+#transmission_parts_contents2 {border-bottom:1px solid #666;padding-bottom:20px}
+/*#transmission_parts_contents3 {height: 200px}*/
+/*#transmission_parts_contents3 {height: 90px}*/
+#transmission_parts_contents3 h3{font-size:26px;color:#cc0000;padding:10px 0; }
+
+.main_content_scrollable{ background: #eeeeee}
+
+/*Product Update*/
+.productupdateoverlay{position: fixed;top: 0;left: 0;width: 100%;background: rgba(0,0,0,0.3);height: 100%;display: none;z-index: 1;}
+.loading_overlay{position: fixed;background: url('../img/loading.gif') no-repeat center;width: 100%;height: 100%;display: none;z-index: 1}
+.productupdatemain{min-height:435px}
+.validvincontainer{position:absolute;width:50%;left:25%;height:auto;top:15%;background:#fff;padding:30px 20px;display:none;z-index: 1}
+.notvalidvincontainer{position:absolute;width:50%;left:25%;height:auto;top:20%;background:#fff;padding:20px;display:none;z-index: 1}
+.updateemailform label{display: block;}
+.productupdatepopupclose, .productupdatepopupclose_mobile_hub {position:absolute;top:5px;right:5px;color:#cc0000;}
+.productupdatemain h1{color: #cc0000;    font-family: "Conv_ProximaNova-BoldIt";   font-size: 40px;line-height: 46px;   }
+.productupdatemain h2{font-family: "Conv_ProximaNova-Bold";   font-size: 20px; color:#000;}
+.productupdatecontainer{margin:20px 0;}
+.parastyle1,.productupdatecontainer p{color: #666666;    font-size: 13px;    line-height: 24px;   width: 100%;}
+.productupdatemain_parent input[type=text]{border: 1px solid #cccccc;    height: 23px;    padding: 5px 15px;    width: 300px;display:block;/*margin:20px 0;*/}
+.updateemailform input[type=text]{width:80%;margin: 0 0 10px;}
+.fulllengthinput{width:100%;}
+.updateemailform label.halflengthinput{width:49%;display: inline-block;}
+
+.update_checkbox { margin-top: 20px; margin-bottom: 40px; }
+.update_checkbox input[type=checkbox] { width: 20px; height: 20px; background: #fff; margin: 0 3px 0 0; vertical-align: middle; }
+.update_checkbox label { font-weight: bold; padding: 0 30px 0 5px; }
+.product_type { margin-right: 20px; }
+.vin_wrapper { margin-top: 20px; margin-bottom: 50px; }
+label.error { color: #f00; display: none; font-size: 13px; font-style: italic; font-weight: normal; line-height: 20px; position: absolute; }
+
+.productupdatecontainer input[type=submit]{width:99px;height:38px;display: inline-block;line-height: 38px;background-color:#cc0000;color:#fff;border:none;font-family: "Conv_ProximaNova-Bold";font-size: 1em;margin:0; cursor: pointer; }
+.validcontainerlinkstyle{width:99px;height:38px;line-height: 38px;background-color:#cc0000;color:#fff;border:none;font-family: "Conv_ProximaNova-Bold";font-size: 1em;margin:10px 0;display:inline-block;text-align: center;vertical-align: middle; cursor: pointer; }
+.validvincontainer span{font-family: "Conv_ProximaNova-Bold";display: inline-block;margin: 5px 0;}
+#pricing_notes_panel{ background: none repeat scroll 0 0 #eeeeee;
+    margin: 10px 0 0;
+    max-width: 810px;
+    /*min-width: 95%;*/
+    padding: 30px;}
+.productupdatemain #pricing_notes_panel li,.productupdatemain #pricing_notes_panel p{font-size: 14px !important;}
+
+
+.mandatory{color:#cc0000;display:inline-block;}
+.productupdatemain>p{margin-bottom:15px;}
+#wiper_parts_main.productupdatemain{width: auto; background:#eeeeee;padding:0;}
+.productupdatemain_padding{max-width: 760px;margin: 0 auto;}
+.productupdatemain h1{margin-bottom:30px;padding:0;}
+.productupdatemain p{font-size: 14px !important;}
+.productupdatemain p.header_desc {font-size: 14px !important;padding: 0 110px 16px 110px;/*font-weight: 600;*/}
+.vin_container{margin-top:35px;text-align: center;padding-bottom:40px;}
+.vin_container>*{vertical-align: middle;}
+.u-inlineblock{display: inline-block;}
+.pu_imgdesc{font-weight: 700;font-size: 16px;}
+.u-textcenter{text-align: center;}
+.pu_or{font-weight: 700;font-size:24px;margin:0 90px;}
+.vindetails_container{background:#dedede;padding-top:40px;}
+.vin_fillin_container{padding:60px 0 50px;}
+.h2--styleh1{color: #cc0000 !important;font-family: "Conv_ProximaNova-BoldIt" !important; font-size: 28px !important;margin-bottom:30px !important;}
+.hr--processflow{height:1px;border: none;background:#2b2d30;margin:40px 0;}
+.articlelink{text-decoration: underline;color:#cc0000;}
+.productupdatemain h2.sub_title{font-family: "Conv_ProximaNova-BoldIt",sans-serif;font-size: 18px !important;margin-top:35px !important;color:#000000 !important;}
+.pu_scrollbar{height:515px;}
+.mCSB_scrollTools .mCSB_dragger,.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{height:50px !important;}
+.pu_topheader{background:#dedede;}
+h3.pu_topheader_title{font-size: 22px !important;color:#cc0000;line-height: 58px !important;text-align: center;font-family: 'Conv_ProximaNova-Bold';}
+.h2--margin30{margin-bottom:30px;}
+.pu_productupdate_container{padding-top:50px;padding-bottom:50px;background:#dedede;}
+.u-bold{font-weight: 700;}
+.vin_instruct_parent{margin:30px 0 20px;}
+.pu_contact_parent{width:625px;height:50px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;text-align: center;margin:0 auto;background:#cc0000;text-align: center;}
+.pu_contact_text{font-size: 16px;color:#fff;text-align: center;padding-top:7px;}
+
+.pu_list{
+	background: url('../img/update-list.png') no-repeat top left;
+	height: 800px;
+}
+
+.pu_list h2{
+	color: white;
+	font-size: 28px !important;
+	padding-left: 35px;
+    padding-top: 40px;
+}
+
+
+.list_airbag{
+	padding-top: 43px;
+	padding-left: 85px;
+}
+
+.list_airbag h3{
+	color: white;
+	font-size: 18px !important;
+	font-weight: 600;
+}
+
+.list_cvt{
+	padding-top: 158px;
+	padding-left: 85px;
+}
+
+.list_cvt h3{
+	color: white;
+	font-size: 18px !important;
+	font-weight: 600;
+}
+
+.list_battery{
+	padding-top: 110px;
+	padding-left: 85px;
+}
+
+.list_battery h3{
+	color: white;
+	font-size: 18px !important;
+	font-weight: 600;
+}
+
+.list_battery h4{
+	color: white;
+	font-size: 18px !important;
+}
+
+.col_1{
+	position: absolute;
+	padding-top: 25px;
+	color: white;
+	font-size: 14px;
+}
+
+.col_1b{
+	position: absolute;
+	padding-top: 84px;
+    padding-left: 215px;
+	color: white;
+	font-size: 14px;
+}
+
+.col_2b{
+	position: absolute;
+	padding-top: 84px;
+    padding-left: 620px;
+	color: white;
+	font-size: 14px;
+}
+
+.col_1 ul{
+	list-style-type: disc;
+}
+
+.col_2{
+	position: absolute;
+	padding-left: 365px;
+	padding-top: 25px;
+	color: white;
+	font-size: 14px;
+}
+
+.col_2 ul{
+	list-style-type: disc;
+}
+
+.col_t{
+	text-align: center;
+	position: absolute;
+	padding-top: 23px;
+	color: white;
+	font-size: 14px;
+}
+
+.col_t table, tr, td{
+	width: 640px;
+	border: solid 1px white !important;
+	color: white;
+	font-size: 14px;
+	text-align: center;
+}
+
+.list_total{
+	padding-top: 218px;
+	padding-left: 85px;
+}
+
+.list_total h3{
+	color: white;
+	font-size: 18px !important;
+	font-weight: 600;
+}
+
+.check-stock {
+    width: 98px;
+    height: 38px;
+    display: inline-block;
+    line-height: 38px;
+    background-color: rgb(204, 0, 0);
+    color: rgb(255, 255, 255);
+    font-family: Conv_ProximaNova-Bold;
+    font-size: 1em;
+    cursor: pointer;
+    vertical-align: top;
+    margin: 0px 0px 0px 20px;
+    padding: 0px 30px;
+}

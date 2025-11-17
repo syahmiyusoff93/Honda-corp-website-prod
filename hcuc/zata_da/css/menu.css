@@ -1,0 +1,277 @@
+.nav {
+    transition: .4s all ease;
+    font-family: var(--font-nav);
+    line-height: 1;
+    font-weight: inherit
+}
+
+
+.nav * {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.nav a {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 992px) {
+    .nav a {
+        font-size: var(--nav-fs)
+    } 
+    .nav li.active > a,
+    .nav li > a:hover {
+        color: var(--nav-ahov-clr);
+
+        padding: 0 20px;
+    }
+
+    /* .nav li.active,
+    .nav li:hover {
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #CECECE;
+            -webkit-transform: skew(-7deg);
+            -ms-transform: skew(-7deg);
+            -o-transform: skew(-7deg);
+            transform: skew(324deg);
+            z-index: 0;
+            -o-transition: .3s background ease;
+            transition: .3s background ease;
+            z-index: -2;
+        }
+    } */
+
+    .nav li.active:not(:first-child)::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #CECECE;
+        -webkit-transform: skew(323deg);
+        -ms-transform: skew(323deg);
+        -o-transform: skew(323deg);
+        transform: skew(323deg);
+        z-index: -2;
+        transition: 0.3s ease-out;
+    }
+
+    .nav li:not(:first-child)::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        background: #CECECE;
+        -webkit-transform: skew(323deg);
+        -ms-transform: skew(323deg);
+        -o-transform: skew(323deg);
+        transform: skew(323deg);
+        z-index: -2;
+        transition: 0.3s ease-out;
+    }
+
+    li:not(:first-child):hover::after {
+        right: 0;
+    }
+
+    .nav > ul {
+        z-index: 10;
+        position: relative;
+        text-align: right;
+        padding: 0;
+        margin: 0;
+        -webkit-transition: ease all .4s;
+        transition: ease all .4s;
+    }
+
+    .nav > ul > li {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav > ul > li > a {
+        position: relative;
+        display: table;
+        padding: 15px 0;
+        /* color: var(--nav-a-clr);  */
+        color: #615F62;
+        text-transform: uppercase;
+        margin: 0 0 0 35px;
+    }
+    .nav > ul > li:last-child > a {
+        margin-right: 0
+    }
+    
+    .nav > ul > li:last-child > a {
+        margin-right: 0
+    }
+
+    .nav > ul > li.active a,
+    .nav > ul > li a:hover {
+        /*        color: var(--nav-a-clr) !important;*/
+    }
+
+    .nav > ul > li > a + ul {
+        position: absolute;
+        display: block;
+        padding: 10px 5px;
+        margin: 0 0;
+        width: 250px;
+        text-align: left;
+        left: 0;
+        background-color: rgba(255, 255, 255, 1);
+        transform: scale(1, 0);
+        -webkit-transform: scale(1, 0);
+        transform-origin: top;
+        -webkit-transform-origin: top;
+        box-shadow: -3px 3px 9px rgba(0, 0, 0, .1);
+    }
+
+    .nav > ul > li:hover > a + ul {
+        transform: scale(1, 1);
+        -webkit-transform: scale(1, 1);
+    }
+
+    .nav > ul > li > a + ul > li {
+        position: relative;
+        display: block;
+        padding: 0 0;
+        margin: 0 0;
+        width: 100%;
+    }
+
+    .nav > ul > li > a + ul > li > a {}
+
+    .nav > ul > li > a + ul > li a {
+        position: relative;
+        display: table;
+        width: 100%;
+        padding: 5px 13px;
+        color: inherit;
+    }
+
+    .nav > ul > li:hover {
+        z-index: 10;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .nav .logo {
+        display: none
+    }
+    .nav > .close,
+    nav > .close {
+        text-align: right;
+        font-size: 25px;
+        opacity: 1;
+        color: var(--nav-a-clr);
+    }
+
+    .nav a,
+    nav a {
+        color: inherit;
+        cursor: pointer;
+        text-align: left;
+    }
+    .nav li + li {
+        border-top: 1px solid #ccc
+    }
+
+    .nav ul,
+    nav ul {
+        display: block;
+        margin: 0 0;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav > ul,
+    nav > ul {
+        width: 500px;
+        max-width: 100%;
+    }
+
+
+    .nav > ul > li,
+    nav > ul > li {
+        display: block;
+        padding: 0;
+    }
+
+    div.med > a,
+    .nav > ul > li > a,
+    nav > ul > li > a {
+        position: relative;
+        display: table;
+        padding: 12px 18px;
+        width: 100%;
+        background-color: transparent;
+        text-transform: uppercase;
+        /* font-size: 170%; */
+        font-size: 0.875rem !important;
+    }
+
+    div.med > a:hover,
+    .nav > ul > li > a:hover,
+    nav > ul > li > a:hover { 
+        color: var(--clr01);
+    }
+
+    .nav > ul > li > a + ul > li {
+        padding: 0;
+        border-top: 1px dotted #f8f8f8;
+    }
+
+    .nav > ul > li > a + ul > li:last-child {
+        border-bottom: 1px dotted #f8f8f8;
+    }
+
+    .nav > ul > li > a + ul,
+    nav > ul > li > a + ul {
+        padding: 0;
+        overflow: hidden;
+        display: none;
+    }
+
+    .nav > ul > li > a + ul > li > a {
+        font-size: 120%;
+        font-family: var(--font-t1);
+    }
+
+
+    .nav > ul > li > a + ul > li a {
+        position: relative;
+        display: table;
+        padding: 10px 15px 10px 35px;
+        color: #fff;
+        width: 100%;
+    }
+
+    .nav > ul > li > a + ul > li > a + ul {
+        display: none;
+    }
+
+    .nav > ul > li > a + ul ul a {
+        padding: 10px 15px 10px 55px;
+    }
+
+    .nav > ul > li > a + ul > li > a:hover,
+    nav > ul > li > a + ul > li > a:hover {
+        background-color: var(--clr01);
+    }
+
+}

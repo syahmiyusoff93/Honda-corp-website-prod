@@ -1,0 +1,119 @@
+{
+    "varianceList": [
+        "title",
+        "model",
+        "price",
+        "manufacturingYr",
+        "registrationDate",
+        "bodyType",
+        "drivenWheel",
+        "engineCapacity",
+        "transmission",
+        "mileage",
+        "color",
+        "warranty",
+        "regno",
+        "recent",
+        "location",
+        "lmileage",
+        "lprice",
+        "spec",
+        "hist"
+    ],
+    "variance": {
+        "title": {
+            "name": "Title"
+        }, 
+        "regno": {
+            "name": "Registration Number"
+        },
+        "model": {
+            "name": "Model"
+        },
+        "price": {
+            "name": "Price (RM)"
+        },
+        "manufacturingYr": {
+            "name": "Manufacturing Year"
+        },
+        "registrationDate": {
+            "name": "Registration Date"
+        },
+        "bodyType": {
+            "name": "Body Type",
+            "opt": [
+                "Convertible",
+                "Coupe",
+                "Hatchback",
+                "Mini SUV",
+                "MPF",
+                "Pickup Truck",
+                "Saloon",
+                "Sedan",
+                "Sports Car",
+                "SUV",
+                "Van",
+                "Wagon"
+            ]
+        },
+        "drivenWheel": {
+            "name": "Driven Wheel",
+            "opt": [
+                "FWD"
+            ]
+        },
+        "engineCapacity": {
+            "name": "Engine Capacity"
+        },
+        "transmission": {
+            "name": "Transmission",
+            "opt": [
+                "Automatic"
+            ]
+        },
+        "mileage": {
+            "name": "Mileage (km)"
+        },
+        "color": {
+            "name": "Colour",
+            "opt": [
+                "White",
+                "Green",
+                "Gray",
+                "Blue",
+                "Silver",
+                "Red",
+                "Black"
+            ]
+        },
+        "warranty": {
+            "name": "Warranty"
+        },
+        "location": {
+            "name": "Location"
+        },
+        "status": {
+            "name": "Publish"
+        },
+        "featured": {
+            "name": "Featured"
+        },
+        "recent": {
+            "name": "Recently Added"
+        },
+        "lmileage": {
+            "name": "Lowest Mileage"
+        },
+        "lprice": {
+            "name": "Lowest Price"
+        },
+        "spec": {
+            "name": "Specification"
+        },
+        "hist": {
+            "name": "History"
+        }
+    }
+}
+
+

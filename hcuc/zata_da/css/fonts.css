@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Poppins-Regular';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/Poppins-Regular.otf') format('truetype') ;
+} 
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/Poppins-Bold.otf') format('truetype') ;
+}  
+
+@font-face {
+    font-family: 'Poppins-Light';
+    font-weight: normal;
+    font-style: normal;
+    src:  url('../fonts/Poppins-Light.otf') format('truetype') ;
+}
+ 
+
+/*
+@font-face {
+    font-family: 'arial-Light';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/arial-Light.eot') format('embedded-opentype'),
+        url('../fonts/arial-Light.woff') format('woff'),
+        url('../fonts/arial-Light.ttf') format('truetype'),
+        url('../fonts/arial-Light.svg') format('svg');
+}
+*/
