@@ -6,8 +6,8 @@ set -e
 
 # Configuration
 AWS_REGION=ap-southeast-5
-ECR_REGISTRY=119071858278.dkr.ecr.ap-southeast-5.amazonaws.com
-REPOSITORY_NAME="hmsbcorpwebdev"
+ECR_REGISTRY=023048595064.dkr.ecr.ap-southeast-5.amazonaws.com
+REPOSITORY_NAME="hmsbcorpwebprd"
 IMAGE_TAG=${1:-latest}
 
 echo "🚀 Starting ECR deployment for Honda Dev Laravel application..."
