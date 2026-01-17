@@ -16,8 +16,11 @@ $labellagend = $data['payload'];
 //grouped legends for table generation
 $data = file_get_contents($APIPATH.'spec_legend_grouped.json', false, $honda_api_context);
 $data = json_decode($data);
-$groupedlegend = $data->payload;
+$currentSpecType = 'regular';
+$groupedlegend = $data->payload->by_type->{$currentSpecType} ?? $data->payload->all ?? [];
 
+// Just dont show any label overrides for now
+$labelOverrides = [];
 
 @endphp
 @extends('layouts.base')

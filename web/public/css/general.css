@@ -164,7 +164,7 @@ header.mobile-stick { top: 0;}
 #mainmenu li a { color: #615F62;}
 /*#mainmenu li a ,*/#mainmenu li {color: #615F62; list-style: none; display: inline-block; padding: 0 15px; text-transform: uppercase; vertical-align:middle; font-weight: 500; line-height: 1.25em; letter-spacing: 1.5px;}
 #mainmenu li a:hover, #mainmenu li:hover {color: #e32119; cursor: pointer;}
-#mainmenu li a.text-red, #mainmenu .text-red {color: #e32119 !important; font-weight: 500;}
+#mainmenu li a.text-red, #mainmenu .text-red {color: #e32119 !important; font-weight: 600;}
 #mainmenu li.hasdd img { margin-left: 8px; margin-top: 2px; transition: all 0.4s ease;}
 /* #mainmenu li.hasdd:after { content: url(../img/interface/triangle-down-red.svg); padding-left:5px; vertical-align:middle;} */
 #mainmenu li.hasdd img.active  {transform: rotateZ(-180deg); margin-top: -2px;}
@@ -181,7 +181,7 @@ header.mobile-stick { top: 0;}
 #mainmenu ul.model li .note {color: #1769ed; font-weight: 500; letter-spacing: 1.3px; text-transform: capitalize;}
 #mainmenu .ddshopping { text-align: center;}
 #mainmenu .ddshopping .ddshopping-title{ color: #282a2f; font-weight: 500; letter-spacing: 1.5px; margin-bottom: 10px;}
-#mainmenu .ddshopping a { width: 24.5%; width:calc(100%/5 - 5px); display: inline-block; color: #282a2f;; font-weight: 500; font-size: 0.875rem; letter-spacing: 1px; padding-bottom: 15px; background-color: #f5f5f5; /*border-bottom: 3px solid #f5f5f5;*/ }
+#mainmenu .ddshopping a { width: 24.5%; width:calc(100%/5 - 5px); display: inline-block; color: #282a2f;; font-weight: 500; font-size: 0.875rem; letter-spacing: 1px; padding-bottom: 15px; background-color: #f5f5f5; margin-top: 5px;/*border-bottom: 3px solid #f5f5f5;*/ }
 #mainmenu .ddshopping a:after { background: none repeat scroll 0 0 transparent; bottom: 0; content: ""; display: block; height: 3px; left: 50%; position: absolute; background: #e01327; transition: width 0.3s ease 0s, left 0.3s ease 0s; width: 0;}
 #mainmenu .ddshopping a:hover:after { width: 100%; left: 0; color: #e01327;}
 #mainmenu .ddshopping img{display: block; margin: 0 auto; /*transform: scale(0.5);*/ padding: 40px; max-width:145px;}
@@ -623,6 +623,7 @@ footer li {display:inline-block;}
         #mainmenu .mobile-menu:after { right: 16px }
         #mainmenu ul.model li { padding: 5px 16px;}
         #mainmenu li a, #mainmenu li { padding: 0;}
+        .mobile-menu-link a { color: #282A2F;}
 
         #modelmenu ul li a.active, #modelmenu ul li a:hover { border: none; }
         #modelmenu ul li, #modelmenu ul li:first-child,

@@ -2,10 +2,7 @@
 .DS_Store
 tests
 coverage
-cms/storage
-cms/public/pixelvault
-cms/public/api
 web/storage
-web/public/api
+# web/public/api
 web/public/build
 hcuc/zata_da/src

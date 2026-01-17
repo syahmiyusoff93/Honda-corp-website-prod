@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon_Mail</title>
+    <g id="07.-PRESS-RELEASE-✅-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="14.1-PRESS-RELEASE-_-INNER-_-DESKTOP" transform="translate(-730.000000, -304.000000)" fill="#999B9B">
+            <g id="Social-Media" transform="translate(640.000000, 304.000000)">
+                <path d="M115,0 L115,25 L90,25 L90,0 L115,0 Z M108.125,7.03125 L96.875,7.03125 C96.1015625,7.03125 95.4757812,7.64648437 95.4757812,8.3984375 L95.46875,16.6015625 C95.46875,17.3535156 96.1015625,17.96875 96.875,17.96875 L108.125,17.96875 C108.898438,17.96875 109.53125,17.3535156 109.53125,16.6015625 L109.53125,8.3984375 C109.53125,7.64648437 108.898438,7.03125 108.125,7.03125 Z M108.125,8.3984375 L108.125,9.765625 L102.5,13.1835937 L96.875,9.765625 L96.875,8.3984375 L102.5,11.8164062 L108.125,8.3984375 Z" id="Mail"></path>
+            </g>
+        </g>
+    </g>
+</svg>

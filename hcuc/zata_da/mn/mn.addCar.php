@@ -56,7 +56,7 @@ $stmt -> bind_param('sssssssssssssss',  $mainImg, $gallery, $title, $model, $pri
 if(!$stmt -> execute()){ 
     exit('Data not saved.');
 } else {
-    $NID = $stmt->insert_id;
+    $NID = $CON->lastInsertId();
     $res = $CON->query("SELECT * FROM car WHERE id='$NID';");
 
     while($info = $res->fetch_assoc()){

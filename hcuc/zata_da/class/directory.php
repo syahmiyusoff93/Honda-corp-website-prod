@@ -78,7 +78,7 @@ class go_direct{
 
     public function viaUrl($CON){
         include 'zata_da/class/base.php';
-        include 'zata_da/class/cleanurl.class.php';
+        include 'cleanurl.class.php';
     
         $que = explode('&', $_SERVER['QUERY_STRING']);
         $first_segment = isset($que[0]) ? $que[0] : '';

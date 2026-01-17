@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="125px" height="43px" viewBox="0 0 125 43" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <linearGradient x1="-0.0484111123" y1="0.03687409" x2="0.625177741" y2="0.614524" id="gradient_1">
+      <stop offset="0" stop-color="#CD1225" />
+      <stop offset="1" stop-color="#E01327" stop-opacity="0.745098054" />
+    </linearGradient>
+  </defs>
+  <g id="COMPARE-CARS-ICON">
+    <path d="M61 10L61.0355 2C61.0355 2 64.4949 2.02557 69.9392 2.62537C75.3834 3.22517 79.9983 5.36605 84.0057 7.48892C88.0131 9.6118 85.7379 10 79.357 10L61 10ZM57 2.00001C57 2.00001 45.6748 2.66032 43.6041 3.60521C41.5335 4.5501 30.4767 10 35.1344 10L57 10L57 2.00001Z" transform="translate(26 0)" id="Combined-Shape-Copy-2" fill="#D7D8D8" fill-rule="evenodd" stroke="none" />
+    <path d="M61 10L61.0355 2C61.0355 2 64.4949 2.02557 69.9392 2.62537C75.3834 3.22517 79.9983 5.36605 84.0057 7.48892C88.0131 9.6118 85.7379 10 79.357 10L61 10ZM58 2.00001C58 2.00001 46.6748 2.66032 44.6041 3.60521C42.5335 4.5501 31.4767 10 36.1344 10L58 10L58 2.00001Z" transform="translate(0 8)" id="Combined-Shape" fill="url(#gradient_1)" fill-rule="evenodd" stroke="none" />
+  </g>
+</svg>

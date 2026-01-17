@@ -7,12 +7,12 @@
     $model_info = $data->model;
     $variant_info = $data->payload;
 
-    $data = file_get_contents($APIPATH.'model_'.$model_slug.'_gallery_ext360.json', false, $honda_api_context);
-    $data = json_decode($data);
+    $ext360_json = file_get_contents($APIPATH.'model_'.$model_slug.'_gallery_ext360.json', false, $honda_api_context);
+    $data = json_decode($ext360_json);
 
     $accessories = file_get_contents($APIPATH.'model_'.$model_slug.'_accessories.json', false, $honda_api_context);
     $accessories = json_decode($accessories);
-    $accessories = $accessories->payload;
+    $accessories = $accessories->payload ?? [];
 
     //dd($accessories);
 
@@ -21,12 +21,12 @@
         $accindexed[$item->id] = $item;
     }
 
-    $asset_url = $data->meta->asset_url;
+    $asset_url = $data->meta->asset_url ?? '';
     $asset_url = '';
     
     if (($model_slug != 'city-hatchback') && ($model_slug != 'civic-modulo') && ($model_slug != 'wr-v')  ) {
-    $out = $data->payload[0];
-        if(count(@$out->sprite)>0){
+        $out = $data->payload[0] ?? null;
+        if($out && count(@$out->sprite)>0){
             $sprites = [];
             foreach($out->sprite as $item){
                 $sprites[] = $asset_url.$item;

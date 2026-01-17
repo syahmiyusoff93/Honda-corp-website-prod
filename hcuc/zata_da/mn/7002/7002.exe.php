@@ -6,7 +6,7 @@ $disp = array(0=>'',1=>'');
 $q = "SELECT * FROM lists
       WHERE list_fid = '".$id."' AND list_type = 'i' AND list_status = '1'";
 $res = $CON->query($q);
-$count = mysqli_num_rows($res)/$lim;
+$count = $res->num_rows/$lim;
 $count = is_int($count)?$count-0.1:$count;
 $pgEtks = floor($count) + 1;
 for($i=0;$i<$pgEtks;$i++){

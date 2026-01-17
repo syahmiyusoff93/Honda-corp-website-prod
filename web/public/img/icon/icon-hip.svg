@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="45px" height="49px" viewBox="0 0 45 49" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <linearGradient x1="0.5" y1="0.9701884" x2="0.5" y2="-0.176519856" id="gradient_1">
+      <stop offset="0" stop-color="#E01327" stop-opacity="0.7137255" />
+      <stop offset="1" stop-color="#CD1225" />
+    </linearGradient>
+    <path d="M0.0948896 9.21064C-0.427662 9.22407 1.20015 28.5173 5.17373 35.8437C9.1473 43.1701 19.2177 49 22.3044 49C25.9946 49 36.4593 42.5942 39.8545 34.9961C43.2496 27.3981 44.0949 9.72393 44.0949 9.72393C35.1344 10.9713 23.1256 0 22.3044 0C21.4833 0 16.6596 8.78512 0.0948896 9.21064Z" id="path_1" />
+    <path d="M0.0796218 7.70687C-0.358851 7.7181 1.00705 23.8614 4.34127 29.9917C7.67549 36.1219 16.1256 41 18.7156 41C21.8121 41 30.5929 35.64 33.4419 29.2825C36.2908 22.9249 37 8.13635 37 8.13635C29.4812 9.18004 19.4047 0 18.7156 0C18.0266 0 13.979 7.35082 0.0796218 7.70687Z" transform="translate(3 4)" id="path_2" />
+    <clipPath id="mask_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+    <clipPath id="mask_2">
+      <use xlink:href="#path_2" />
+    </clipPath>
+  </defs>
+  <g id="HIP-ICON">
+    <g id="Group-11-Copy">
+      <path d="M0.0948896 9.21064C-0.427662 9.22407 1.20015 28.5173 5.17373 35.8437C9.1473 43.1701 19.2177 49 22.3044 49C25.9946 49 36.4593 42.5942 39.8545 34.9961C43.2496 27.3981 44.0949 9.72393 44.0949 9.72393C35.1344 10.9713 23.1256 0 22.3044 0C21.4833 0 16.6596 8.78512 0.0948896 9.21064Z" id="Path-4" fill="url(#gradient_1)" stroke="none" />
+      <g clip-path="url(#mask_1)">
+        <path d="M0 0L26 0L26 53L0 53L0 0Z" transform="translate(22 -1)" id="Rectangle" fill="#D8D8D8" fill-opacity="0.1" stroke="none" />
+      </g>
+      <path d="M0.0796218 7.70687C-0.358851 7.7181 1.00705 23.8614 4.34127 29.9917C7.67549 36.1219 16.1256 41 18.7156 41C21.8121 41 30.5929 35.64 33.4419 29.2825C36.2908 22.9249 37 8.13635 37 8.13635C29.4812 9.18004 19.4047 0 18.7156 0C18.0266 0 13.979 7.35082 0.0796218 7.70687Z" transform="translate(3 4)" id="Path-4" fill="none" stroke="none" />
+      <path d="M0 0L29 0L29 29L0 29L0 0Z" transform="translate(-7 -4)" id="Rectangle" fill="#D8D8D8" fill-opacity="0.27222842" stroke="none" />
+      <path d="M0 0L29 0L29 29L0 29L0 0Z" transform="translate(22 25)" id="Rectangle-Copy-26" fill="#D8D8D8" fill-opacity="0.27222842" stroke="none" />
+    </g>
+    <path d="M0 6.39046L3.858 8.5094L9.77518 -9.44733e-16" transform="translate(17 20)" id="Path-11-Copy" fill="none" stroke="#FFFFFF" stroke-width="2" />
+  </g>
+</svg>

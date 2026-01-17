@@ -181,14 +181,18 @@ Route::post('press-release/search', function(){
             'verify' => false
         ]);
 
-        $domain = config('global.STAGE')=='live' ? 'https://stg.honda.com.my/deltaecho/api/' : config('global.APIPATH');
+        $domain = getenv('APP_API_URL');
         $url = $domain.'press-release/search';
+        $jwt = getenv('JWT_SECRET');
 
         $response = $client->post($url,  [
             'form_params'=>[
                 'keyword' => $keyword,
             ],
-            'auth' => [$auth[0],$auth[1]]
+            'headers' => [
+                'Authorization' => 'Bearer ' . $jwt,
+                'Accept'        => 'application/json',
+            ]
         ]);
 
         $data = json_decode($response->getBody()->getContents());

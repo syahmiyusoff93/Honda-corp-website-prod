@@ -49,16 +49,19 @@
                             </div> --> --}}
                             <div class="car-photo"><img src="{{$item->icon}}" alt="{{$item->name}}"></div>
                             <div class="car-cta">
-                                <a href="{{$item->brochure}}" class="prime-cta-white">
-                                    <span>Download</span>
-                                    <div class="overlay"></div>
-                                </a>
+                                @if (!empty($item->brochure_file))
+                                    <a href="{{$item->brochure_file}}" class="prime-cta-white">
+                                        <span>Download</span>
+                                        <div class="overlay"></div>
+                                    </a>
+                                @else
+                                    <span class="prime-cta-white" style="opacity: 0.5; cursor: not-allowed;">
+                                        <span>Not Available</span>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                     </li>
-                    @if ($item->slug != 'type-r')
-
-                    @endif
 
                 @endforeach
 

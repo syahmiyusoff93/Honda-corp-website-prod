@@ -71,8 +71,10 @@
             break;
 
         case 'spec':
+        case 'price':
             $modelmenu = [];
             $modelmenu[] = ['Specifications','spec','/spec','#spec-price'];
+            $modelmenu[] = ['Pricing','pricing','/pricing','#pricing', ''];
             break;
         }
 
@@ -94,31 +96,8 @@
     @if($route_name == 'modellanding')
 
         <script>
-            var menus = JSON.parse('{!!json_encode($modelmenu)!!}');
-
             $(function(){
-                function __subnavhighlighting(){
-                    var scrolltop = $(document).scrollTop();
-                    var offset = 200;
-                    //console.log('scrolltop', $(document).scrollTop());
-                    var last;
-                    $('.sai-navitem a').removeClass('active');
-                    menus.forEach(function(item, i){
-
-                        if(scrolltop > $(item[3]).position().top - offset){
-                            //console.log('pos', item[1]);
-                            last = item;
-                        }
-
-                    })
-                    if(last!=undefined){
-                        $('.sai-navitem-'+last[1]+' a').addClass('active');
-                    }
-                }
-
-                $(document).scroll(__subnavhighlighting);
-                __subnavhighlighting();
-
+                $('.sai-navitem-{{@$inner_section}} a').addClass('active');
             })
         </script>
 
@@ -194,6 +173,10 @@
             <div class="clearfix"></div>
 
             <div class="for-desktop smooth-slide btn-shopping-tools {{ ($route_name == 'modellanding') ? 'modal-landing-st' : '' }}">
+                {{--  BOOK TEST DRIVE LINK FOR DESKTOP  --}}
+                <div class="book-test-drive-desktop" >
+                <a id="booknowtools" href="https://prebook.honda.com.my/getintouch"><span>BOOK A TEST DRIVE</span></a>
+                </div>
                 {{--  SHOPPING TOOL LINK FOR DESKTOP  --}}
                 <a id="shoppingtools" href="{{$__link}}" class=""><span>{{$__linkname}}<img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></span></a>
             </div>
@@ -240,8 +223,13 @@
         $(function(){
             var url = window.location.href
 			var hash = url.split('#')[1];
+            console.log("Current page hash:", hash);
 			if(hash=='shopping-tools'){
                 $('#shoppingtools span').trigger('click');
+            }
+            else if(hash=='book-testdrive'){
+                console.log("Redirecting to test drive booking page");
+                window.location.href = "https://prebook.honda.com.my/getintouch";
             }
 
             // 20200904-SAI:  MIGRATED FROM GLOBAL FOOTER TO ONLY APPLIES TO MODEL PAGES.
@@ -254,6 +242,14 @@
     <style>
         .back-icon {bottom:3px;}
         .modellanding-back-link {padding-right:0px;}
+        
+        .book-test-drive-desktop {
+            display: inline-block;
+            padding: 0px 8px;
+        }
+        .book-test-drive-desktop:hover {
+            background-color: #343434;
+        }
 
 
         @media only screen and (max-width:640px){

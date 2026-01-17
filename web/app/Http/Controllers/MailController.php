@@ -254,14 +254,21 @@ class MailController extends Controller
             } 
             else if(config('global.webconfig')->email_hip == $withoutexplode_toemail){
                 $mail->isSMTP();                                            // Send using SMTP
-                $mail->Hostname = env('MAIL_HONDA_HOSTNAME', 'www.honda.com.my');
+                $mail->Hostname = env('MAIL_HONDA_HOSTNAME');
                 $mail->Helo = $mail->Hostname;
-                $mail->Host       = env('MAIL_HONDA_HOST', 'mail.honda.com.my');
-                $mail->SMTPAuth   = true;
-                $mail->Username   = env('MAIL_HONDA_USERNAME', 'no-reply@honda.com.my');
+                $mail->Host       = env('MAIL_HONDA_HOST');
+                $mail->SMTPAuth   = false;
+                $mail->Username   = env('MAIL_HONDA_USERNAME');
                 $mail->Password   = env('MAIL_HONDA_PASSWORD');
-                $mail->SMTPSecure = env('MAIL_HONDA_ENCRYPTION', 'tls');
-                $mail->Port       = env('MAIL_HONDA_PORT', 587);
+                $mail->SMTPSecure = env('MAIL_HONDA_ENCRYPTION');
+                $mail->Port       = env('MAIL_HONDA_PORT');
+                $mail->SMTPOptions = [
+                    'ssl' => [
+                        'verify_peer'       => false,
+                        'verify_peer_name'  => false,
+                        'allow_self_signed' => true,
+                    ],
+                ];
                 $mail->SMTPDebug = 2; // Options: 0 = off, 1 = client messages, 2 = client and server messages, 3 = more verbose, 4 = extreme
                 $mail->Debugoutput = 'error_log'; // Log to PHP error_log
                 $mail->setFrom(env('MAIL_HONDA_FROM_ADDRESS', 'no-reply@honda.com.my'), env('MAIL_HONDA_FROM_NAME', 'HondaMY Webmaster'));
@@ -269,14 +276,43 @@ class MailController extends Controller
             }
             else if(config('global.webconfig')->email_enquiry == $withoutexplode_toemail){
                 $mail->isSMTP();                                            // Send using SMTP
-                $mail->Hostname = env('MAIL_HONDA_HOSTNAME', 'www.honda.com.my');
+                $mail->Hostname = env('MAIL_HONDA_HOSTNAME');
                 $mail->Helo = $mail->Hostname;
-                $mail->Host       = env('MAIL_HONDA_HOST', 'mail.honda.com.my');
-                $mail->SMTPAuth   = true;
-                $mail->Username   = env('MAIL_HONDA_USERNAME', 'no-reply@honda.com.my');
+                $mail->Host       = env('MAIL_HONDA_HOST');
+                $mail->SMTPAuth   = false;
+                $mail->Username   = env('MAIL_HONDA_USERNAME');
                 $mail->Password   = env('MAIL_HONDA_PASSWORD');
-                $mail->SMTPSecure = env('MAIL_HONDA_ENCRYPTION', 'tls');
-                $mail->Port       = env('MAIL_HONDA_PORT', 587);
+                $mail->SMTPSecure = env('MAIL_HONDA_ENCRYPTION');
+                $mail->Port       = env('MAIL_HONDA_PORT');
+                $mail->SMTPOptions = [
+                    'ssl' => [
+                        'verify_peer'       => false,
+                        'verify_peer_name'  => false,
+                        'allow_self_signed' => true,
+                    ],
+                ];
+                $mail->SMTPDebug = 2; // Options: 0 = off, 1 = client messages, 2 = client and server messages, 3 = more verbose, 4 = extreme
+                $mail->Debugoutput = 'error_log'; // Log to PHP error_log
+                $mail->setFrom($from,$from_name);
+                // $from = env('MAIL_HONDA_FROM_ADDRESS', 'no-reply@honda.com.my');
+            }
+            else if(config('global.webconfig')->email_corpfleetsale == $withoutexplode_toemail){
+                $mail->isSMTP();                                            // Send using SMTP
+                $mail->Hostname = env('MAIL_HONDA_HOSTNAME');
+                $mail->Helo = $mail->Hostname;
+                $mail->Host       = env('MAIL_HONDA_HOST');
+                $mail->SMTPAuth   = false;
+                $mail->Username   = env('MAIL_HONDA_USERNAME');
+                $mail->Password   = env('MAIL_HONDA_PASSWORD');
+                $mail->SMTPSecure = env('MAIL_HONDA_ENCRYPTION');
+                $mail->Port       = env('MAIL_HONDA_PORT');
+                $mail->SMTPOptions = [
+                    'ssl' => [
+                        'verify_peer'       => false,
+                        'verify_peer_name'  => false,
+                        'allow_self_signed' => true,
+                    ],
+                ];
                 $mail->SMTPDebug = 2; // Options: 0 = off, 1 = client messages, 2 = client and server messages, 3 = more verbose, 4 = extreme
                 $mail->Debugoutput = 'error_log'; // Log to PHP error_log
                 $mail->setFrom($from,$from_name);

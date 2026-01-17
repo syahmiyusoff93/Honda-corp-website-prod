@@ -17,6 +17,7 @@ $data = file_get_contents($APIPATH.'model_'.$model_slug.'_page_landing.json', fa
 $data = json_decode($data);
 $story = $data->payload;
 
+
 @endphp
 
 @extends('layouts.modelinner')

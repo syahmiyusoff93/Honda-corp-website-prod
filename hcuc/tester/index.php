@@ -23,7 +23,7 @@
     <link href="../zata_da/css/theme.css" rel="stylesheet" type="text/css">
     <link href="../zata_da/css/products.css" rel="stylesheet" type="text/css">
     <link href="../zata_da/css/fields.css" rel="stylesheet" type="text/css">
-    <script src="../zata_da/plug-in/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="../zata_da/plug-in/jquery.min.js" type="text/javascript"></script>
     <script src="../zata_da/plug-in/parallaxie.js" type="text/javascript"></script>
     <script src="../zata_da/plug-in/smooth-scrollbar.js" type="text/javascript"></script>
     <script src="../zata_da/plug-in/jquery.lettering.js" type="text/javascript"></script>

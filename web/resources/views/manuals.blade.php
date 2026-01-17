@@ -1,4 +1,4 @@
-@php
+﻿@php
 $APIPATH = config('global.APIPATH');
 $honda_api_context = config('global.APICONTEXT');
 
@@ -270,7 +270,7 @@ $ym_item = [];
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 26%;
+    height: 25%;
     padding: 0px 10px;
     text-align: center;
 }
@@ -288,9 +288,6 @@ $ym_item = [];
 
 .connectsidebar > div:nth-child(1) img {
      transition-delay: 200ms;
-
-     /* width: 92px;
-     height: 45px; */
 }
 
 .connectsidebar.e-booklet-two-btn > div:nth-child(1) img {
@@ -355,16 +352,25 @@ $ym_item = [];
 .maintenance-container .mt-section ul.download-section li.custom-style{
     border-bottom: unset !important;
 }
-.maintenance-container .mt-section ul.download-section li.custom-style-four-btn{
-    height: 164px;
+
+.maintenance-container .mt-section ul.download-section li { 
+    display: inline-block; 
+    border: 1px solid #d8d8d8; 
+    border-bottom: 2px solid #e01327; 
+    padding: 38px 0  0px 0; 
+    background-color: #fff; width: calc(25% - 12px); 
+    margin-right: 12px; 
+    -webkit-transition: all 0.2s ease; 
+    transition: all 0.2s ease; 
+    margin-bottom: 12px;
 }
 
 .car-info{
-    height: 116%;
+    height: 100%;
     border-bottom: 2px solid #e01327;
 }
 .car-info-four-btn{
-    height: 113%;
+    height: 100%;
     border-bottom: 2px solid #e01327;
 }
 
@@ -377,24 +383,22 @@ $ym_item = [];
     display: none;
 }
 
-@media only screen and (min-width: 576px) {
-    .three-btn-img-size{
-        width: 92px;
-        height: 45px;
-    }
+.three-btn-img-size{
+    width: 92px;
+    height: 50px;
+}
 
-    .four-btn-img-size {
-        width: 85px;
-        height: 37px;
-    }
+.four-btn-img-size {
+    width: 85px;
+    height: 37px;
+}
 
-    .car-info-two-btn{
-        height: 115% !important;
-    }
+.car-info-two-btn{
+    height: 100% !important;
+}
 
-    .connectsidebar > div:nth-child(3) a.four-btn-text {
-        font-size: 12px !important;
-    }
+.connectsidebar > div:nth-child(3) a.four-btn-text {
+    font-size: 12px !important;
 }
 
 @media only screen and (max-width: 575px) {
@@ -422,9 +426,6 @@ $ym_item = [];
     .maintenance-container .mt-section ul.download-section li.custom-style .connectsidebar{
         z-index: 1;
     }
-    .three-btn-overall-container-mobile{
-        height: 169px;
-    }
     .download-section .withconnect {
         min-height: 105px;
         padding-top: 40px !important;
@@ -435,10 +436,7 @@ $ym_item = [];
         padding-right: 120px !important;
     }
     .download-section .withconnect:hover > .connectsidebar {
-        width: 105px !important;
-    }
-    .download-section .withconnect:hover img {
-        width: 100%;
+        width: 150px !important;
     }
 
     .four-btn-img-size {
@@ -535,11 +533,6 @@ $ym_item = [];
                         {{-- <div class="select-title">2020-Current</div> --}}
                         <div class="select-title">2020-2023</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/ACCORD 2020-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">ACCORD</div>
-                                        <div class="year">Model Code : CV1</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -549,19 +542,14 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/ACCORD 2020-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/ACCORD 2020-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
                         </ul>
                         <div class="select-title">2016-2020</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/ACCORD 2016-2020.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">ACCORD</div>
-                                        <div class="year">Model Code : CR1/CR2</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -571,8 +559,8 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/ACCORD 2020-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/ACCORD 2016-2020.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
@@ -587,11 +575,6 @@ $ym_item = [];
                         {{-- <div class="select-title">2020-Current</div> --}}
                         <div class="select-title">2020-2023</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/BR-V 2020-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">BR-V</div>
-                                        <div class="year">Model Code : DG1</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -601,8 +584,8 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/BR-V 2020-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/BR-V 2020-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
@@ -613,23 +596,6 @@ $ym_item = [];
               <div class="mt-section js-pdflist js-list-city">
                         <div class="select-title">2024-Current</div>
                         <ul class="download-section ">
-                            {{-- <li class="withconnect three-btn-overall-container-mobile custom-style">
-                                <div class="car-info">
-                                    <a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY</div>
-                                        <div class="year">Model Code : GN2</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                </div>
-                                <div class="connectsidebar">
-                                    <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div> --}}
-                                    {{-- <div><a href="/pdf/connect/Honda Connect Dealer Operation Manual Version 1.0.1 - GN2.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div> --}}
-                                    {{-- <div class="three-btn-display"><a href="/manuals/42T00R300_web-City 1.5 Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div><a href="/manuals/dummies.pdf"  target="_blank">Google Automotive Services</a></div>
-                                </div>
-                                <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                <div class="red-line"></div>
-                            </li> --}}
                             <li class="withconnect three-btn-overall-container-mobile custom-style">
                                 <div class="car-info">
                                     <a href="#" onclick="return false;" target="_blank">
@@ -639,52 +605,13 @@ $ym_item = [];
                                     </a>
                                 </div>
                                 <div class="connectsidebar e-booklet orange-bg">
-                                    <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div class="three-btn-display"><a href="/manuals/42T00R300_web-City 1.5 Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/42T00R300_web-City 1.5 Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                 </div>
                                 <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                 <div class="red-line"></div>
                             </li>
-                            {{-- Original --}}
-                            {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                    <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY</div>
-                                    <div class="year">Model Code : GN2</div>
-                                    <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a>
-                                <div class="connectsidebar">
-                                    <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                    <div><a href="/manuals/42T00R300_web-City 1.5 Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                </div>
-                                <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                            </li> --}}
-                            {{-- Original --}}
-
-                            {{-- <li><a href="/manuals/42T00R300_web-City 1.5 Owner's Manual.pdf" target="_blank">
-                                    <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY</div>
-                                    <div class="year">Model Code : GN2</div>
-                                    <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a>
-                                
-                            </li> --}}
-                            
-                            {{-- <li class="withconnect three-btn-overall-container-mobile custom-style">
-                                <div class="car-info">
-                                    <a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY Hybrid</div>
-                                        <div class="year">Model Code : GN3</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                </div>
-                                <div class="connectsidebar">
-                                    <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div> --}}
-                                    {{-- <div><a href="/pdf/connect/Honda_CONNECT_User_Manual_Version1.0.1.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div> --}}
-                                    {{-- <div class="three-btn-display"><a href="/manuals/42T03T300_web-City 1.5 eHEV Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div><a href="/manuals/dummies.pdf"  target="_blank">Google Automotive Services</a></div>
-                                </div>
-                                <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                <div class="red-line"></div>
-                            </li> --}}
 
                             <li class="withconnect three-btn-overall-container-mobile custom-style">
                                 <div class="car-info">
@@ -695,54 +622,16 @@ $ym_item = [];
                                     </a>
                                 </div>
                                 <div class="connectsidebar e-booklet orange-bg">
-                                    <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div class="three-btn-display"><a href="/manuals/42T03T300_web-City 1.5 eHEV Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/42T03T300_web-City 1.5 eHEV Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                 </div>
                                 <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                 <div class="red-line"></div>
                             </li>
-                            {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                    <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY Hybrid</div>
-                                    <div class="year">Model Code : GN3</div>
-                                    <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a>
-                                <div class="connectsidebar">
-                                    <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                    <div><a href="/manuals/42T03T300_web-City 1.5 eHEV Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                </div>
-                                <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                            </li> --}}
                         </ul>
-                        {{-- <ul class="download-section ">
-                                <li><a href="/manuals/42T00R300_web-City 1.5 Owner's Manual.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY</div>
-                                        <div class="year">Model Code : GN2</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    
-                                </li>
-                                <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY Hybrid</div>
-                                        <div class="year">Model Code : GN3</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    <div class="connectsidebar">
-                                        <div><a href="/pdf/connect/Honda_CONNECT_User_Manual_Version1.0.1.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                        <div><a href="/manuals/42T03T300_web-City 1.5 eHEV Owner's Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                </li>
-                        </ul> --}}
                         <div class="select-title">2022-2023</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/CITY 2022-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY</div>
-                                        <div class="year">Model Code : GN2</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    
-                                </li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -752,29 +641,11 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/CITY 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CITY 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
-
-                                {{-- <li class="withconnect three-btn-overall-container-mobile custom-style">
-                                    <div class="car-info">
-                                        <a href="#" onclick="return false;" target="_blank">
-                                            <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY Hybrid</div>
-                                            <div class="year">Model Code : GN3</div>
-                                            <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                        </a>
-                                    </div>
-                                    <div class="connectsidebar">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div> --}}
-                                        {{-- <div><a href="/pdf/connect/Honda_CONNECT_User_Manual_Version1.0.1.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div> --}}
-                                        {{-- <div class="three-btn-display"><a href="/manuals/CITY Hybrid 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div><a href="/manuals/dummies.pdf"  target="_blank">Google Automotive Services</a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                    <div class="red-line"></div>
-                                </li> --}}
 
                                 <li class="withconnect three-btn-overall-container-mobile custom-style">
                                     <div class="car-info">
@@ -785,34 +656,16 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet orange-bg">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div class="three-btn-display"><a href="/manuals/CITY Hybrid 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CITY Hybrid 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                     <div class="red-line"></div>
                                 </li>
-                                {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY Hybrid</div>
-                                        <div class="year">Model Code : GN3</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    <div class="connectsidebar">
-                                        <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                        <div><a href="/manuals/CITY Hybrid 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                </li> --}}
                         </ul>
                         <div class="select-title">2021-2022</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/CITY 2021-2022.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY</div>
-                                        <div class="year">Model Code : GN2</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    
-                                </li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -822,29 +675,11 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/CITY 2021-2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CITY 2021-2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
-
-                                {{-- <li class="withconnect three-btn-overall-container-mobile custom-style">
-                                    <div class="car-info">
-                                        <a href="#" onclick="return false;" target="_blank">
-                                            <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY Hybrid</div>
-                                            <div class="year">Model Code : GN3</div>
-                                            <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                        </a>
-                                    </div>
-                                    <div class="connectsidebar">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div> --}}
-                                        {{-- <div><a href="/pdf/connect/Honda_CONNECT_User_Manual_Version1.0.1.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div> --}}
-                                        {{-- <div class="three-btn-display"><a href="/manuals/CITY Hybrid 2021-2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div><a href="/manuals/dummies.pdf"  target="_blank">Google Automotive Services</a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                    <div class="red-line"></div>
-                                </li> --}}
 
                                 <li class="withconnect three-btn-overall-container-mobile custom-style">
                                     <div class="car-info">
@@ -855,28 +690,17 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet orange-bg">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div class="three-btn-display"><a href="/manuals/CITY Hybrid 2021-2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CITY Hybrid 2021-2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                     <div class="red-line"></div>
                                 </li>
-                                {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY Hybrid</div>
-                                        <div class="year">Model Code : GN3</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    <div class="connectsidebar">
-                                        <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                        <div><a href="/manuals/manuals/CITY Hybrid 2021-2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                </li> --}}
                         </ul>
                         <div class="select-title">2018-2021</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/CITY Hybrid 2018-2021.pdf" target="_blank">
+                                {{-- <li><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CITY Hybrid 2018-2021.pdf" target="_blank">
                                         <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY Hybrid</div>
                                         <div class="year">Model Code : GM7</div>
                                         <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
@@ -893,21 +717,14 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/CITY Hybrid 2018-2021.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CITY Hybrid 2018-2021.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
                         </ul>
                         <div class="select-title">2017-2021</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/CITY 2017-2021.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY</div>
-                                        <div class="year">Model Code : GM6</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                   
-                                </li> --}}
 
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
@@ -918,8 +735,8 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/CITY 2017-2021.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CITY 2017-2021.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
@@ -931,13 +748,6 @@ $ym_item = [];
               <div class="mt-section js-pdflist js-list-city-hb">
                         <div class="select-title">2024-Current</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/423P2T200_web.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY HATCHBACK</div>
-                                        <div class="year">Model Code : GN5</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    
-                                </li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -947,23 +757,11 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/423P2T200_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/423P2T200_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
-
-                                {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY HATCHBACK Hybrid</div>
-                                        <div class="year">Model Code : GN6</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    <div class="connectsidebar">
-                                        <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                        <div><a href="/manuals/423P3T200_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                </li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style">
                                     <div class="car-info">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -973,24 +771,16 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet orange-bg">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div class="three-btn-display"><a href="/manuals/423P3T200_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/423P3T200_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                     <div class="red-line"></div>
                                 </li>
                         </ul>
-                        {{-- <div class="select-title">2022-Current</div> --}}
                         <div class="select-title">2022-2023</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/423P2R100_CITY HATCHBACK_GN5_final_web.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY HATCHBACK</div>
-                                        <div class="year">Model Code : GN5</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    
-                                </li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1000,23 +790,11 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/423P2R100_CITY HATCHBACK_GN5_final_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/423P2R100_CITY HATCHBACK_GN5_final_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
-
-                                {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CITY HATCHBACK Hybrid</div>
-                                        <div class="year">Model Code : GN6</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    <div class="connectsidebar">
-                                        <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                        <div><a href="/manuals/CITY 2022 Hybrid 2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                </li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style">
                                     <div class="car-info">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1026,9 +804,9 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet orange-bg">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div class="three-btn-display"><a href="/manuals/CITY 2022 Hybrid 2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CITY 2022 Hybrid 2022.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                     <div class="red-line"></div>
@@ -1049,10 +827,10 @@ $ym_item = [];
                                 </a>
                             </div>
                             <div class="connectsidebar green-bg">
-                                <div class="four-btn-display"><a href="/pdf/connect/Doc_1_23M_Apps_User_Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="four-btn-img-size" ></a></div>
-                                <div class="four-btn-display"><a href="/manuals/civic-petrol-2025.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="four-btn-img-size" ></a></div>
-                                <div class="four-btn-height four-btn-display"><a href="/pdf/Google Automotive Services (GAS)_Manual.pdf"  target="_blank" class="four-btn-text">Google Automotive Services</a></div>
-                                <div class="four-btn-display"><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                <div class="four-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Doc_1_23M_Apps_User_Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="four-btn-img-size" ></a></div>
+                                <div class="four-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/civic-petrol-2025.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="four-btn-img-size" ></a></div>
+                                <div class="four-btn-height four-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Google Automotive Services (GAS)_Manual.pdf"  target="_blank" class="four-btn-text">Google Automotive Services</a></div>
+                                <div class="four-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                             </div>
                             <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                             <div class="red-line"></div>
@@ -1066,16 +844,15 @@ $ym_item = [];
                                 </a>
                             </div>
                             <div class="connectsidebar green-bg">
-                                <div class="four-btn-display"><a href="/pdf/connect/Doc_1_23M_Apps_User_Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="four-btn-img-size" ></a></div>
-                                <div class="four-btn-display"><a href="/manuals/civic-hev-2025.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="four-btn-img-size" ></a></div>
-                                <div class="four-btn-height four-btn-display"><a href="/pdf/Google Automotive Services (GAS)_Manual.pdf"  target="_blank" class="four-btn-text">Google Automotive Services</a></div>
-                                <div class="four-btn-display"><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                <div class="four-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Doc_1_23M_Apps_User_Manual.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="four-btn-img-size" ></a></div>
+                                <div class="four-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/civic-hev-2025.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="four-btn-img-size" ></a></div>
+                                <div class="four-btn-height four-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Google Automotive Services (GAS)_Manual.pdf"  target="_blank" class="four-btn-text">Google Automotive Services</a></div>
+                                <div class="four-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                             </div>
                             <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                             <div class="red-line"></div>
                         </li>
                     </ul>
-                    {{-- <div class="select-title">2023-Current</div> --}}
                     <div class="select-title">2023-2024</div>
                     <ul class="download-section ">
                         <li class="withconnect three-btn-overall-container-mobile custom-style">
@@ -1087,45 +864,16 @@ $ym_item = [];
                                 </a>
                             </div>
                             <div class="connectsidebar e-booklet orange-bg">
-                                <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                <div class="three-btn-display"><a href="/manuals/civic-fe4-210923.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/civic-fe4-210923.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                             </div>
                             <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                             <div class="red-line"></div>
                         </li>
-                        {{-- <li class="withconnect three-btn-overall-container-mobile custom-style">
-                            <div class="car-info">
-                                <a href="#" onclick="return false;" target="_blank">
-                                    <div class="variant" style="margin-bottom:10px; font-weight:bold;">CIVIC e:HEV RS</div>
-                                    <div class="year">Model Code : FE4</div>
-                                    <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a>
-                            </div>
-                            <div class="connectsidebar green-bg">
-                                <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                <div class="three-btn-display"><a href="/manuals/civic-fe4-210923.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                <div><a href="/pdf/Google Automotive Services (GAS)_Manual.pdf"  target="_blank">Google Automotive Services</a></div>
-                            </div>
-                            <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                            <div class="red-line"></div>
-                        </li> --}}
                     </ul>
-                    {{-- <div class="select-title">2022-Current</div> --}}
                     <div class="select-title">2022-2023</div>
                     <ul class="download-section ">
-                        {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                <div class="variant" style="margin-bottom:10px; font-weight:bold;">CIVIC</div>
-                                <div class="year">Model Code : FE1</div>
-                                <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                            </a>
-                            <div class="connectsidebar">
-                                <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                <div><a href="/manuals/42T20T031_CIVIC FE1_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                            </div>
-                            <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                        </li> --}}
-
                         <li class="withconnect three-btn-overall-container-mobile custom-style">
                             <div class="car-info">
                                 <a href="#" onclick="return false;" target="_blank">
@@ -1135,25 +883,13 @@ $ym_item = [];
                                 </a>
                             </div>
                             <div class="connectsidebar e-booklet orange-bg">
-                                <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                <div class="three-btn-display"><a href="/manuals/42T20T031_CIVIC FE1_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                <div><a href="/pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/42T20T031_CIVIC FE1_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                             </div>
                             <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                             <div class="red-line"></div>
                         </li>
-
-                        {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                <div class="variant" style="margin-bottom:10px; font-weight:bold;">CIVIC e:HEV RS</div>
-                                <div class="year">Model Code : FE4</div>
-                                <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                            </a>
-                            <div class="connectsidebar">
-                                <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                <div><a href="/manuals/Civic HEV 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                            </div>
-                            <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                        </li> --}}
 
                         <li class="withconnect three-btn-overall-container-mobile custom-style">
                             <div class="car-info">
@@ -1164,9 +900,9 @@ $ym_item = [];
                                 </a>
                             </div>
                             <div class="connectsidebar e-booklet orange-bg">
-                                <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                <div class="three-btn-display"><a href="/manuals/Civic HEV 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Civic HEV 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                             </div>
                             <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                             <div class="red-line"></div>
@@ -1174,11 +910,6 @@ $ym_item = [];
                     </ul>
                     <div class="select-title">2016-2021</div>
                     <ul class="download-section ">
-                        {{-- <li><a href="/manuals/CIVIC 2016-Current.pdf" target="_blank">
-                                <div class="variant" style="margin-bottom:10px; font-weight:bold;">CIVIC</div>
-                                <div class="year">Model Code : FC1/FC6</div>
-                                <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                        </a></li> --}}
                         <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                             <div class="car-info car-info-two-btn">
                                 <a href="#" onclick="return false;" target="_blank">
@@ -1188,8 +919,8 @@ $ym_item = [];
                                 </a>
                             </div>
                             <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                <div><a href="/manuals/CIVIC 2016-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CIVIC 2016-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                             </div>
                             <div class="red-line"></div>
                         </li>
@@ -1198,20 +929,8 @@ $ym_item = [];
             
               <!-- CR-V -->
               <div class="mt-section js-pdflist js-list-crv">
-                        {{-- <div class="select-title">2024-Current</div> --}}
                         <div class="select-title">2023-2024</div>
                         <ul class="download-section ">
-                            {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                    <div class="variant" style="margin-bottom:10px; font-weight:bold;">CR-V</div>
-                                    <div class="year">Model Code : RS3/RS4</div>
-                                    <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a>
-                                <div class="connectsidebar">
-                                    <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                    <div><a href="/manuals/423A0T040_CR-V_Pet.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                </div>
-                                <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                            </li> --}}
                             <li class="withconnect three-btn-overall-container-mobile custom-style">
                                 <div class="car-info">
                                     <a href="#" onclick="return false;" target="_blank">
@@ -1221,25 +940,14 @@ $ym_item = [];
                                     </a>
                                 </div>
                                 <div class="connectsidebar e-booklet orange-bg">
-                                    <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div class="three-btn-display"><a href="/manuals/423A0T040_CR-V_Pet.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/423A0T040_CR-V_Pet.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                 </div>
                                 <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                 <div class="red-line"></div>
                             </li>
 
-                            {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                    <div class="variant" style="margin-bottom:10px; font-weight:bold;">CR-V e:HEV RS</div>
-                                    <div class="year">Model Code : RS5</div>
-                                    <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a>
-                                <div class="connectsidebar">
-                                    <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                    <div><a href="/manuals/423D4T030_CR-V_HEV.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                </div>
-                                <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                            </li> --}}
                             <li class="withconnect three-btn-overall-container-mobile custom-style">
                                 <div class="car-info">
                                     <a href="#" onclick="return false;" target="_blank">
@@ -1249,22 +957,16 @@ $ym_item = [];
                                     </a>
                                 </div>
                                 <div class="connectsidebar e-booklet orange-bg">
-                                    <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div class="three-btn-display"><a href="/manuals/423D4T030_CR-V_HEV.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/423D4T030_CR-V_HEV.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                 </div>
                                 <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                 <div class="red-line"></div>
                             </li>
                         </ul>
-                        {{-- <div class="select-title">2017-Current</div> --}}
                         <div class="select-title">2017-2023</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/CR-V 2017-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CR-V</div>
-                                        <div class="year">Model Code : RW</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1274,8 +976,8 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/CR-V 2017-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CR-V 2017-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
@@ -1286,11 +988,6 @@ $ym_item = [];
               <div class="mt-section js-pdflist js-list-hrv">
                         <div class="select-title">2025-Current</div>
                         <ul class="download-section ">
-                                {{-- <li class="withconnect"><a href="/manuals/HRV 2022- Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">HR-V</div>
-                                        <div class="year">Model Code : RV3</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1300,25 +997,14 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet orange-bg">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div class="three-btn-display"><a href="/manuals/423M06320_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png"  class="three-btn-img-size"></a></div>
-                                        <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/423M06320_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png"  class="three-btn-img-size"></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                     <div class="red-line"></div>
                                 </li>
 
-                                {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">HR-V Hybrid</div>
-                                        <div class="year">Model Code : RV5</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    <div class="connectsidebar">
-                                        <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                        <div><a href="/manuals/HRV Hybrid 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                </li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style">
                                     <div class="car-info">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1328,9 +1014,9 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet orange-bg">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div class="three-btn-display"><a href="/manuals/423N06220_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/423N06220_web.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                     <div class="red-line"></div>
@@ -1339,11 +1025,6 @@ $ym_item = [];
                         </ul>
                         <div class="select-title">2022-2025</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/HRV 2022- Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">HR-V</div>
-                                        <div class="year">Model Code : RV3</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1353,23 +1034,11 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/HRV 2022- Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/HRV 2022- Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Grey (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
-
-                                {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">HR-V Hybrid</div>
-                                        <div class="year">Model Code : RV5</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                    </a>
-                                    <div class="connectsidebar">
-                                        <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                        <div><a href="/manuals/HRV Hybrid 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                    </div>
-                                    <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                                </li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style">
                                     <div class="car-info">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1379,24 +1048,17 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet orange-bg">
-                                        <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div class="three-btn-display"><a href="/manuals/HRV Hybrid 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                        <div><a href="/pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/HRV Hybrid 2022-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/Rev1 Unification WSB Digitalization Format Combine BROWN Final.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                     <div class="red-line"></div>
                                 </li>
                                  
                         </ul>
-                        {{-- <div class="select-title">2020-Current</div> --}}
                         <div class="select-title">2020-2021</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/HR-V Hybrid 2020-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">HR-V Hybrid</div>
-                                        <div class="year">Model Code : RU3</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
-                            
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1406,20 +1068,14 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/HR-V Hybrid 2020-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/HR-V Hybrid 2020-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
                         </ul>
-                        {{-- <div class="select-title">2018-Current</div> --}}
                         <div class="select-title">2018-2019</div>
                          <ul class="download-section ">
-                                 {{-- <li><a href="/manuals/HR-V 2018-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">HR-V</div>
-                                        <div class="year">Model Code : RU5</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1429,8 +1085,8 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/HR-V 2018-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/HR-V 2018-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
@@ -1441,18 +1097,6 @@ $ym_item = [];
                 <div class="mt-section js-pdflist js-list-wrv">
                     <div class="select-title">2023-Current</div>
                     <ul class="download-section ">
-                        {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                <div class="variant" style="margin-bottom:10px; font-weight:bold;">WR-V</div>
-                                <div class="year">Model Code : DG4</div>
-                                <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                            </a>
-                            <div class="connectsidebar">
-                                <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                <div><a href="/manuals/WRV 2023- Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                            </div>
-                            <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                        </li> --}}
-                             
                         <li class="withconnect three-btn-overall-container-mobile custom-style">
                             <div class="car-info">
                                 <a href="#" onclick="return false;" target="_blank">
@@ -1462,9 +1106,9 @@ $ym_item = [];
                                 </a>
                             </div>
                             <div class="connectsidebar e-booklet orange-bg">
-                                <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                <div class="three-btn-display"><a href="/manuals/WRV 2023- Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/WRV 2023- Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                             </div>
                             <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                             <div class="red-line"></div>
@@ -1474,14 +1118,8 @@ $ym_item = [];
                
                <!-- Jazz -->
                <div class="mt-section js-pdflist js-list-jazz">
-                        {{-- <div class="select-title">2017-Current</div> --}}
                         <div class="select-title">2017-2021</div>
                         <ul class="download-section ">
-                                 {{-- <li><a href="/manuals/JAZZ 2017-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">JAZZ</div>
-                                        <div class="year">Model Code : GK5</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1491,17 +1129,12 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/JAZZ 2017-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/JAZZ 2017-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
-
-                                {{-- <li><a href="/manuals/JAZZ Hybrid 2017-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">JAZZ Hybrid</div>
-                                        <div class="year">Model Code : GP5</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
+                                
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1511,8 +1144,8 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/JAZZ Hybrid 2017-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/JAZZ Hybrid 2017-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
@@ -1522,14 +1155,8 @@ $ym_item = [];
             
                <!-- Odyssey -->
                <div class="mt-section js-pdflist js-list-odyssey">
-                        {{-- <div class="select-title">2014-Current</div> --}}
                         <div class="select-title">2019-2021</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/ODYSSEY 2014-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">ODYSSEY</div>
-                                        <div class="year">Model Code : RC1</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
 
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn">
@@ -1540,8 +1167,8 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/ODYSSEY 2014-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/ODYSSEY 2014-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Half Blue (Non-Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
@@ -1552,19 +1179,6 @@ $ym_item = [];
                <div class="mt-section js-pdflist js-list-type-r">
                         <div class="select-title">2023-Current</div>
                         <ul class="download-section ">
-                            {{-- <li class="withconnect"><a href="#" onclick="return false;" target="_blank">
-                                    <div class="variant" style="margin-bottom:10px; font-weight:bold;">CIVIC TYPE R</div>
-                                    <div class="year">Model Code : FL5</div>
-                                    <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a>
-                                <div class="connectsidebar">
-                                    <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div>
-                                    <div><a href="/manuals/type-r-2023.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                </div>
-                                <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
-                            </li> --}}
-                            {{-- <div><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.2-210923.pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" ></a></div> --}}
-
                             <li class="withconnect three-btn-overall-container-mobile custom-style">
                                 <div class="car-info">
                                     <a href="#" onclick="return false;" target="_blank">
@@ -1574,23 +1188,16 @@ $ym_item = [];
                                     </a>
                                 </div>
                                 <div class="connectsidebar e-booklet orange-bg">
-                                    <div class="three-btn-display"><a href="/pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div class="three-btn-display"><a href="/manuals/type-r-2023.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
-                                    <div><a href="/pdf/20250217_DSD_Full Black (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/connect/Honda CONNECT User Manual_Version 1.0.3 .pdf"  target="_blank"><img src="../img/aftersales/icon/connect-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div class="three-btn-display"><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/type-r-2023.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" class="three-btn-img-size" ></a></div>
+                                    <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Full Black (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                 </div>
                                 <div class="connectbadge"><img src="../img/aftersales/icon/connect-badge.png"></div>
                                 <div class="red-line"></div>
                             </li>
                         </ul>
-                        {{-- <div class="select-title">2017-Current</div> --}}
                         <div class="select-title">2017-2022</div>
                         <ul class="download-section ">
-                                {{-- <li><a href="/manuals/CIVIC TYPE R 2017-Current.pdf" target="_blank">
-                                        <div class="variant" style="margin-bottom:10px; font-weight:bold;">CIVIC TYPE R</div>
-                                        <div class="year">Model Code : FK8</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
-                                </a></li> --}}
-
                                 <li class="withconnect three-btn-overall-container-mobile custom-style custom-style-two-btn">
                                     <div class="car-info car-info-two-btn orange-bg">
                                         <a href="#" onclick="return false;" target="_blank">
@@ -1600,8 +1207,8 @@ $ym_item = [];
                                         </a>
                                     </div>
                                     <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                        <div><a href="/manuals/CIVIC TYPE R 2017-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                        <div><a href="/pdf/20250217_DSD_Full Black (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/CIVIC TYPE R 2017-Current.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                        <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/20250217_DSD_Full Black (Turbo).pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                                     </div>
                                     <div class="red-line"></div>
                                 </li>
@@ -1621,8 +1228,8 @@ $ym_item = [];
                                 </a>
                             </div>
                             <div class="connectsidebar e-booklet-two-btn orange-bg">
-                                <div><a href="/manuals/eN1-owner-manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
-                                <div><a href="/pdf/eN1-warranty-service-e-booklet.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
+                                <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/eN1-owner-manual.pdf"  target="_blank"><img src="../img/aftersales/icon/owners-manual.png" ></a></div>
+                                <div><a href="{{ getenv('AWS_CLOUDFRONT_URL')}}pdf/eN1-warranty-service-e-booklet.pdf"  target="_blank">Service Warranty <br> e-Booklet</a></div>
                             </div>
                             <div class="red-line"></div>
                         </li>
@@ -1659,6 +1266,17 @@ $ym_item = [];
     .select-title {margin-top:20px;}
     .js-pdflist {display: none;}
     .maintenance-container {margin-bottom:0;padding-bottom:20px;}
+    .maintenance-container .mt-section ul.download-section li .btn-cta{
+        color: white !important;
+        background: black;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    @media only screen and (max-width: 576px) {
+     .maintenance-container .mt-section ul.download-section li {
+        width: 80%;
+     }
+    }
 </style>
 
 <script>

@@ -14,6 +14,8 @@ cms/.env
 cms/.env.local
 cms/.env.staging
 cms/.env.production
+cms/public/api
+cms/public/pixelvault
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -29,6 +31,8 @@ storage/framework/sessions/*
 storage/framework/testing/*
 storage/framework/views/*
 storage/logs/*
+cms/storage/*
+web/storage/*
 bootstrap/cache/*
 .phpunit.cache
 
@@ -47,9 +51,9 @@ bootstrap/cache/*
 # Frontend build artifacts
 web/public/hot
 web/public/api/*
-web/public/img/*
 web/public/storage
 web/public/build/*
+web/public/uploads/*
 .docker/.htpasswd
 docker/.htpasswd
 web/public/mix-manifest.json
@@ -113,16 +117,6 @@ docker/ssl/*.pem
 # Backup files
 *.bak
 *.backup
-
-# Compiled assets
-public/css/
-public/js/
-public/fonts/
-
-# Keep important public directories
-!public/css/.gitkeep
-!public/js/.gitkeep
-!public/fonts/.gitkeep
 
 # AWS and deployment
 .aws/

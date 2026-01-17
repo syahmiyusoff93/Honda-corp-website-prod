@@ -45,8 +45,7 @@
             <div class="overlay"></div>
             </a> -->
 
-            <a href="{{url('pdf/HiP Booklet 2024.pdf')}}" target="_blank" class="prime-cta-white">
-            {{-- <a href="{{url('pdf/hip_booklet.pdf')}}" target="_blank" class="prime-cta-white"> --}}
+            <a href="{{ getenv('AWS_CLOUDFRONT_URL').'pdf/HiP Booklet 2024.pdf' }}" target="_blank" class="prime-cta-white">
             <span>DOWNLOAD BROCHURE</span>
             <div class="overlay"></div>
             </a>

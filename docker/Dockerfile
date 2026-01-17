@@ -38,6 +38,7 @@ RUN apk add --no-cache \
     php84-phar \
     php84-posix \
     php84-sockets \
+    php84-redis \
     php84-soap \
     php84-xmlwriter \
     php84-xmlreader \
@@ -46,7 +47,10 @@ RUN apk add --no-cache \
     git \
     nodejs \
     npm \
-    nano
+    nano \
+    redis \
+    busybox-extras \
+    composer
 
 # Install ImageMagick and build dependencies for PECL imagick
 RUN apk add --no-cache imagemagick imagemagick-dev php84-pear php84-dev autoconf g++ make && \
@@ -91,12 +95,14 @@ RUN if [ "$ENVIRONMENT" = "staging" ]; then \
 
 # Create storage directories for all applications
 RUN mkdir -p /var/www/web/storage/logs /var/www/web/storage/framework/views /var/www/web/storage/framework/sessions /var/www/web/storage/framework/cache && \
-    mkdir -p /config && \
-    mkdir -p /config/assets && \
-    touch /var/www/web/storage/logs/laravel.log /var/www/cms/storage/logs/laravel.log || true
+    touch /var/www/web/storage/logs/laravel.log && \
+    composer install --working-dir=/var/www/web --no-dev --no-interaction --prefer-dist --optimize-autoloader && \
+    composer install --working-dir=/var/www/hcuc/zata_da --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 # Set permissions for all applications
 RUN mkdir -p /var/www/web/bootstrap/cache && \
+    chown -R nginx:nginx /var/www/web/storage && \
+    chmod -R 775 /var/www/web/storage && \
     chown -R nginx:nginx /var/www/web/bootstrap/cache && \
     chmod -R 775 /var/www/web/bootstrap/cache && \
     # Create storage link for web app if it doesn't exist

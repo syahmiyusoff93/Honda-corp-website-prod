@@ -6,7 +6,7 @@ class MNC7003 extends INFOEXT {
         $q="SELECT * FROM lists
             WHERE list_fid='$INFO[id]' AND ".TIS1sql.OBLPsql.";";
         $res = $CON->query($q);
-        $count = mysqli_num_rows($res);
+        $count = $res->num_rows;
 
         $i=0;
         while($item = $res->fetch_object()){

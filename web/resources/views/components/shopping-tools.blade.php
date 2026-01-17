@@ -34,7 +34,15 @@
     @foreach ($mobileTools as $m)
         <a href="{{$m[1]}}" class="mst-item" title="{{$m[0]}}" aria-label="{{$m[0]}}">
             <img src="{{ versioned_asset('img/icon/'.$m[2]) }}" alt="{{$m[0]}}" />
-            <span>{{$m[0]}}</span>
+            <?php 
+                $toolLabel = $m[0];
+                // Format multi-word labels for mobile display
+                $toolLabel = str_replace('New Car Pre-Booking', 'New Car<br>Pre-Booking', $toolLabel);
+                $toolLabel = str_replace('Loan Calculator', 'Loan<br>Calculator', $toolLabel);
+                $toolLabel = str_replace('Download Brochure', 'Download<br>Brochure', $toolLabel);
+                $toolLabel = str_replace('Book A Test Drive', 'Book A<br>Test Drive', $toolLabel);
+            ?>
+            <span>{!! $toolLabel !!}</span>
         </a>
     @endforeach
 </div>

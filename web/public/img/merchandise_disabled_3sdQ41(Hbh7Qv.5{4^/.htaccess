@@ -1,0 +1,3 @@
+# .htaccess (place inside /public/img/specific/)
+Order Allow,Deny
+Deny from all

@@ -1,0 +1,13 @@
+{
+    "name": "honda/hcuc",
+    "description": "A project using PHPMailer for email sending",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

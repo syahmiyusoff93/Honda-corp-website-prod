@@ -72,14 +72,14 @@ function __cleanupURL($text){
 
 
 <div class="btn-banner navNext nextbtn">
+    <div class="thumbnail">
+        <span><img class="banner-thumb" src="{{$cscreeens[1]->img_thumb}}"  alt=""></span>
+    </div>
     <div class="arrow">
         <a href="" class="prime-cta-black">
         <span><div class="white-arrow"></div></span>
         <div class="overlay"></div>
         </a>
-    </div>
-    <div class="thumbnail">
-        <span><img class="banner-thumb" src="{{$cscreeens[1]->img_thumb}}"  alt=""></span>
     </div>
 </div>
 
@@ -96,10 +96,54 @@ function __cleanupURL($text){
 </div>
 
 <style>
-    @media only screen and (device-width: 768px) {
-        /* For general iPad layouts */
-
+    /* Hide pagination (dots) by default for desktop */
+    .landing-hero.owl-carousel .owl-dots {
+        display: none;
     }
+
+    @media only screen and (max-width: 480px) {
+        .landing-hero.owl-carousel .owl-dots {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        .landing-hero.owl-carousel .owl-dots span{
+            display: none;
+        }
+        
+        .landing-hero.owl-carousel .owl-dots .owl-dot {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: rgb(255 255 255);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .landing-hero.owl-carousel .owl-dots .owl-dot.active{
+            background-color: #E01327 !important;
+        }
+        
+        .landing-hero.owl-carousel .owl-dots .owl-dot.active {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.2);
+        }
+        
+        .landing-hero.owl-carousel .owl-dots .owl-dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .owl-theme .owl-nav.disabled+.owl-dots {
+            bottom: 110px;
+        }
+    }
+
     @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
         /* For landscape layouts only */
         .owl-carousel {background: white;}
@@ -113,8 +157,18 @@ function __cleanupURL($text){
         .coverbg {background-size:contain; }
     }
 
-    /* Mobile styles - make buttons side by side */
-    @media only screen and (max-width: 480px) {
+     @media only screen and (max-width: 767px) {
+        .navNext{
+            display: none !important;
+        }
+        .navPrev{
+            display: none !important;
+        }
+    }
+
+    
+    @media only screen and (min-width: 768px) {
+
         .btn-container {
             display: flex;
             flex-direction: row;
@@ -125,9 +179,77 @@ function __cleanupURL($text){
 
         .btn-container a {
             flex: 1;
-            max-width: calc(50% - 5px);
+            max-width: calc(50% - 300px);
             min-width: 120px;
         }
+
+        /* Position nav buttons and thumbnails. Keep HTML structure unchanged.
+        - navPrev is on the left, thumbnail shown on the left
+        - navNext is on the right, thumbnail shown on the right
+        On hover the arrow moves slightly toward the center to reveal thumbnail. */
+        .btn-banner {
+            position: absolute;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            pointer-events: auto;
+        }
+
+    
+        /* Left (previous) button */
+        .navPrev {
+            left: -103px;
+            justify-content: flex-start;
+            display: flex;
+        }
+
+        /* Right (next) button - keep thumbnail on the right by reversing direction */
+        .navNext {
+            display: flex;
+            right: -103px;
+            justify-content: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        /* Thumbnail hidden by default, fades in on hover */
+        .btn-banner .thumbnail {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            max-width: 140px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Arrow movement transition */
+        .btn-banner .arrow {
+            transition: transform 0.25s ease;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+        }
+
+        /* Hover states: reveal thumbnail and nudge arrow toward center */
+        .navPrev:hover .thumbnail {
+            opacity: 1;
+            visibility: visible;
+            margin-right: 8px;
+            right: -105px;
+        }
+        .navPrev:hover .arrow {
+            transform: translateX(100px);
+        }
+
+        .navNext:hover .thumbnail {
+            opacity: 1;
+            visibility: visible;
+            margin-left: 8px;
+            left: -105px;
+        }
+        .navNext:hover .arrow {
+            transform: translateX(-100px);
+        }
+            
     }
 
 </style>

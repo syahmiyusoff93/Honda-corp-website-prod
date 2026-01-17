@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="sys-gen-en" content="sai=barium">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('page-title', 'The Power of Dreams') | Honda Malaysia</title>
@@ -106,5 +107,254 @@
 
     <script src="{{asset('js/lazysizes.min.js')}}" async=""></script>
     <script src="{{versioned_asset('js/hondaweb_global_footer.js')}}"></script>
+
+    <!-- Heatmap JWT Token (generated from CMS) -->
+    <script>
+        // This token should be generated from CMS admin panel and embedded here
+        window.HEATMAP_JWT_TOKEN = '{{ config("global.heatmap_jwt_token", "") }}';
+        window.HEATMAP_API_URL = '{{ config("global.heatmap_api_url", "") }}';
+    </script>
+
+    <!-- Heatmap Tracking Script -->
+    <script>
+    (function() {
+        // Configuration
+        var HEATMAP_API_URL = '{{ config("global.heatmap_api_url", "") }}'; // Fallback to hardcoded if config not set
+        var JWT_AUTH_URL = '{{ config("global.jwt_auth_url", "") }}';
+        var JWT_TOKEN_KEY = '{{ config("global.heatmap_jwt_token", "") }}';
+        var SESSION_ID = Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        var PAGE_URL = window.location.pathname;
+        var PAGE_TITLE = document.title;
+        var jwtToken = null;
+
+        // Get JWT token
+        function getJwtToken() {
+            return new Promise(function(resolve, reject) {
+                // Check if we already have a valid token in localStorage
+                var storedToken = localStorage.getItem(JWT_TOKEN_KEY);
+                if (storedToken) {
+                    jwtToken = storedToken;
+                    resolve(storedToken);
+                    return;
+                }
+
+                // Use the embedded token from CMS
+                var embeddedToken = window.HEATMAP_JWT_TOKEN;
+                if (!embeddedToken) {
+                    reject(new Error('No heatmap JWT token configured'));
+                    return;
+                }
+
+                // Verify the token is valid by making a test request
+                fetch(JWT_AUTH_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + embeddedToken
+                    }
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        jwtToken = embeddedToken;
+                        localStorage.setItem(JWT_TOKEN_KEY, jwtToken);
+                        resolve(jwtToken);
+                    } else {
+                        throw new Error('Token validation failed');
+                    }
+                })
+                .catch(function(error) {
+                    console.log('JWT authentication error:', error);
+                    reject(error);
+                });
+            });
+        }
+
+        // Queue events locally and flush periodically (every 10s)
+        var HEATMAP_QUEUE_KEY = 'heatmap_event_queue';
+        var FLUSH_INTERVAL_MS = 10000; // 10 seconds
+
+        function readQueue() {
+            try {
+                var raw = localStorage.getItem(HEATMAP_QUEUE_KEY);
+                return raw ? JSON.parse(raw) : [];
+            } catch (e) {
+                console.warn('heatmap: corrupt queue, resetting', e);
+                localStorage.removeItem(HEATMAP_QUEUE_KEY);
+                return [];
+            }
+        }
+
+        function writeQueue(arr) {
+            try {
+                localStorage.setItem(HEATMAP_QUEUE_KEY, JSON.stringify(arr));
+            } catch (e) {
+                console.warn('heatmap: failed to write queue', e);
+            }
+        }
+
+        function enqueueEvent(evt) {
+            var q = readQueue();
+            q.push(evt);
+            writeQueue(q);
+        }
+
+        // Build event object and enqueue — we no longer send immediately
+        function trackEvent(eventType, x, y, additionalData) {
+            var data = {
+                page_url: PAGE_URL,
+                page_title: PAGE_TITLE,
+                event_type: eventType,
+                x_coordinate: (typeof x !== 'undefined') ? x : null,
+                y_coordinate: (typeof y !== 'undefined') ? y : null,
+                viewport_width: window.innerWidth,
+                viewport_height: window.innerHeight,
+                user_agent: navigator.userAgent,
+                session_id: SESSION_ID,
+                additional_data: additionalData || {},
+                created_at: new Date().toISOString()
+            };
+
+            enqueueEvent(data);
+        }
+
+        // Initialize token + start regular flush loop
+        function ensureJwtThenFlush() {
+            if (jwtToken) return Promise.resolve(jwtToken);
+            return getJwtToken().then(function(token) {
+                console.log('Heatmap tracking initialized with JWT');
+                return token;
+            });
+        }
+
+        // Send queued events in batches every FLUSH_INTERVAL_MS
+        var flushTimer = null;
+
+        function flushQueueOnce() {
+            var q = readQueue();
+            if (!q.length) return Promise.resolve();
+
+            return ensureJwtThenFlush().then(function() {
+                var queueCopy = q.slice();
+
+                // Send entire batch in one request to the batch endpoint
+                return fetch(HEATMAP_API_URL + '/batch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + jwtToken
+                    },
+                    body: JSON.stringify(queueCopy)
+                }).then(function(response) {
+                    if (!response.ok) return Promise.reject(response.status);
+                    return response.json().catch(function(){ return {}; });
+                }).then(function(res) {
+                    // on success clear queue
+                    writeQueue([]);
+                }).catch(function(err) {
+                    console.warn('heatmap: batch flush failed', err);
+                    // leave queue intact for retry
+                });
+            }).catch(function(err){
+                // couldn't get jwtToken; leave queue intact and retry next interval
+                console.log('heatmap: cannot flush, no JWT token yet', err);
+            });
+        }
+
+        function startFlushLoop() {
+            if (flushTimer) return;
+            flushTimer = setInterval(flushQueueOnce, FLUSH_INTERVAL_MS);
+            // try an immediate flush too
+            setTimeout(flushQueueOnce, 1000);
+        }
+
+        // final attempt to flush before unload — use sendBeacon when possible
+        function flushOnUnload() {
+            var q = readQueue();
+            if (!q.length) return;
+
+            try {
+                // If jwtToken available, attach Authorization header via fetch is not supported by sendBeacon
+                // Instead attempt sendBeacon with the raw JSON payload (server must accept it without JWT on unload), fallback is a synchronous fetch.
+                var payload = JSON.stringify(q);
+                if (navigator.sendBeacon) {
+                    // Use an endpoint `/heatmap/batch` if server supports; otherwise fall back to single-event beacon per entry
+                    navigator.sendBeacon(HEATMAP_API_URL + '/batch', payload);
+                } else {
+                    // synchronous request fallback
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', HEATMAP_API_URL + '/batch', false);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    if (jwtToken) xhr.setRequestHeader('Authorization', 'Bearer ' + jwtToken);
+                    xhr.send(payload);
+                }
+                // On best-effort, clear queue
+                localStorage.removeItem(HEATMAP_QUEUE_KEY);
+            } catch (e) {
+                console.warn('heatmap: flushOnUnload failed', e);
+            }
+        }
+
+        // Start the flushing loop as soon as we initialize
+        ensureJwtThenFlush().finally(startFlushLoop);
+
+        // ensure we attempt a flush at page unload
+        window.addEventListener('beforeunload', flushOnUnload);
+
+        // Track mouse clicks
+        document.addEventListener('click', function(e) {
+            trackEvent('click', e.clientX, e.clientY);
+        });
+
+        // Track mouse movements (throttled)
+        var lastMoveTime = 0;
+        document.addEventListener('mousemove', function(e) {
+            var now = Date.now();
+            if (now - lastMoveTime > 100) { // Throttle to every 100ms
+                trackEvent('move', e.clientX, e.clientY);
+                lastMoveTime = now;
+            }
+        });
+
+        // Track scrolling
+        var lastScrollTime = 0;
+        window.addEventListener('scroll', function() {
+            var now = Date.now();
+            if (now - lastScrollTime > 500) { // Throttle to every 500ms
+                trackEvent('scroll', window.scrollX, window.scrollY, {
+                    scrollTop: window.scrollY,
+                    scrollLeft: window.scrollX
+                });
+                lastScrollTime = now;
+            }
+        });
+
+        // Track page visibility changes
+        document.addEventListener('visibilitychange', function() {
+            trackEvent('visibility', null, null, {
+                visible: !document.hidden,
+                timestamp: Date.now()
+            });
+        });
+
+        // Track page load
+        window.addEventListener('load', function() {
+            trackEvent('page_load', null, null, {
+                loadTime: Date.now(),
+                referrer: document.referrer
+            });
+            // ensure loop started
+            startFlushLoop();
+        });
+
+        // Track time spent on page
+        var pageStartTime = Date.now();
+        window.addEventListener('beforeunload', function() {
+            var timeSpent = Date.now() - pageStartTime;
+            trackEvent('page_unload', null, null, {
+                timeSpent: timeSpent
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

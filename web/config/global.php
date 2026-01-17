@@ -4,18 +4,8 @@
 
     $sname = @$_SERVER['HTTP_HOST'];
     
-    // Check if ?live=true is passed in query string
-    $isTest = isset($_GET['test']) && $_GET['test'] === 'true';
-    
-    if ($isTest) {
-        // Use local app paths when ?test=true
-        $SAI_API_PATH = $_ENV['APP_URL'].'/deltaecho/api/';
-        $SAI_ASSET_PATH = $_ENV['AWS_CLOUDFRONT_URL'].'pixelvault/';
-    } else {
-        // Use CloudFront/S3 paths when ?test=false
-        $SAI_API_PATH = $_ENV['AWS_CLOUDFRONT_URL'].'api/';
-        $SAI_ASSET_PATH = $_ENV['AWS_CLOUDFRONT_URL'].'pixelvault/';
-    }
+    $SAI_API_PATH = $_ENV['CMS_DIRECTORY'];
+    $SAI_ASSET_PATH = $_ENV['AWS_CLOUDFRONT_URL'].'pixelvault/';
     
     $SAI_USE_JSON = false;
     $SAI_STAGE = $_ENV['APP_ENV'];
@@ -88,7 +78,7 @@
         ['Compare Models',          '/compare',                          'icon-compare.png',     'tool-compare'],
         ['Honda Insurance Plus',    '/discover/honda-insurance-plus',    'icon-hip.png',         'tool-hip'],
         ['New Car Pre-Booking',     'https://prebook.honda.com.my',          'NewCarPreBooking.svg', 'tool-newcarbooking inverted'],
-        ['Book A Test Drive',     'https://prebook.honda.com.my',          'BookTestDrive.svg', 'tool-booktestdrive']
+        ['Book A Test Drive',     'https://prebook.honda.com.my/getintouch',          'BookTestDrive.svg', 'tool-booktestdrive']
     ];
 
     # BRAND
@@ -146,7 +136,13 @@ return [
 
     'menus' => $__menu,
 
-    'desired' => ['Download Brochure','Loan Calculator','New Car Pre-Booking','Book A Test Drive']
+    'desired' => ['Download Brochure','Loan Calculator','New Car Pre-Booking','Book A Test Drive'],
+
+    // Heatmap JWT Token for tracking authentication
+    'heatmap_jwt_token' => $_ENV['HEATMAP_JWT_TOKEN'],
+    'heatmap_api_url' => $_ENV['HEATMAP_API_URL'],
+    'jwt_auth_url' => $_ENV['JWT_AUTH_URL'],
+
 ]
 
 ?>

@@ -74,7 +74,7 @@ if( !$stmt -> execute() ){
     printf("Error: %s.\n", $stmt->error);
     exit('Data not saved.');
 } else {
-    $NID = $stmt->insert_id;
+    $NID = $CON->lastInsertId();
     $res = $CON->query("SELECT * FROM car WHERE id='$NID';");
 
     while( $info = $res->fetch_assoc() ){

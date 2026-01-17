@@ -22,8 +22,8 @@ $stmt -> prepare("SELECT * FROM dist WHERE dist_email=?;");
 $stmt -> bind_param('s', $name);
 if($stmt -> execute()){
     $res = $stmt -> get_result();
-    if(mysqli_num_rows($res) > 0) {
-        $row = mysqli_fetch_assoc($res);
+    if($res->num_rows > 0) {
+        $row = $res->fetch_assoc();
 
         $pwdcheck = password_verify($pass, $row['dist_pass']);
         if($pwdcheck == false) {

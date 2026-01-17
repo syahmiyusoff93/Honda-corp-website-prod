@@ -89,7 +89,7 @@ if(isset($_POST['formid'])){
     mysqli_stmt_prepare($stmt, $q);
     mysqli_stmt_bind_param($stmt, 'ss', $formid, $info);
     if(mysqli_stmt_execute($stmt)){
-         $IDN = $stmt->insert_id;
+         $IDN = $CON->lastInsertId();
          $FEED='400'; $MSG='<h2>Mail Not Sent</h2>';
     }else{$FEED='400'; $MSG='<h2>Failed Submission</h2>';}
     

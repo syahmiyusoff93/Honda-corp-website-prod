@@ -9,9 +9,9 @@
 
     I'm pretty fed up and I'm just gonna hard code things here for the sake of my own sanity. This is a battle we just could not win.
 
-    NAT 20220214 
+    NAT 20220214
 
-    LOL 
+    LOL
 
     */
     $DEFAULT_REGION = 'peninsular-malaysia';
@@ -67,7 +67,7 @@
 <script src="/js/currency.min.js"></script>
 <script> // 05052021_004 natrev
     var __APIPATH = '{{$APIPATH}}';
-    __APIPATH = '/api/';
+    __APIPATH = '/deltaecho/api/';
     var pricings = JSON.parse('{!!json_encode($allpricings)!!}');
     //console.log('alldata', pricings);
 
@@ -89,7 +89,7 @@
             ['Honda Recommended Advanced 360 HD Camera',  3300,     ['brv']],
             // [' Ultra Glass Body Coating',  2716,     ['civic-modulo', 'civic']]
             [' Ultra Glass Body Coating',  2399,     ['civic-modulo', 'civic']]
-            
+
         ];
 
         var alltint = [
@@ -135,7 +135,7 @@
             // ['Ray Barrier 6+', 2263],
             // ['Ray Barrier 6 Black Pearl', 2275]
         ];
-        
+
         var alltint_civic = [
             // ['Ray Barrier 4 Black Pearl', 1617],
             // ['Ray Barrier 4+', 1666],
@@ -250,7 +250,7 @@
         }
         __resetcalc();
 
-        function __generateAccHTML(eleid, elename, price,title){
+        function __generateAccHTML(eleid, elename, price,title,notes){
             console.log("v:"+__variant );
             console.log("id:"+ eleid );
 
@@ -264,7 +264,7 @@
                 if (eleid == "package2047" ) return false;
                 if (eleid == "package2050" ) return false;
             }
-            
+
             else if (( __variant == "42" ) || ( __variant == "43" )) {
                  if (eleid == "package1685" ) return false;
                  if (eleid == "package1687" ) return false;
@@ -274,7 +274,7 @@
                  if (eleid == "package1683" ) return false;
                  if (eleid == "package1684" ) return false;
             }
-            
+
             else if (( __variant == "8" ) || ( __variant == "9" )) {
                  if (eleid == "package2175" ) return false;
                  if (eleid == "package2176" ) return false;
@@ -298,10 +298,15 @@
                 t +=' <p>';
                 t += '<input class="package-item" type="radio" id="'+eleid+'" name="'+elename+'" data-price="'+price+'">';
                 t += '<label for="'+eleid+'">'+title+' (+ '+__displayPrice(price)+')</label>';
+                if (notes !== undefined && notes !== null && notes !== "" && eleid == 'package2592') {
+                    if ( __variant == "12" || __variant == "53") {
+                        t += '<p for="'+eleid+'" style="font-size:14px;">'+notes+'</p>';
+                    }
+                }
                 t += '</p>';
                 $('#package-select').append(t);
             }
-           
+
         }
 
         function __loadaccessories(){
@@ -340,7 +345,7 @@
                             // t += '</p>';
                             // $('#package-select').append(t);
                             if (data.title.trim() != 'Digital Video Recorder') {
-                                __generateAccHTML('package'+data.id, gg, data.price_clean,data.title);
+                                __generateAccHTML('package'+data.id, gg, data.price_clean,data.title,data.notes);
                             }
                         }
                     }
@@ -351,10 +356,10 @@
                         console.log(i, acc_additional[i]);
                         for(var j in acc_additional[i][2]){
                             if(acc_additional[i][2][j] == __mslug){
-                                
+
                                 if(acc_additional[i][2][j] == "brv")  {
                                   if (__variant != 16 ) {
-                                    if ( i<2)  
+                                    if ( i<2)
                                     __generateAccHTML('package-additional-'+i+j, 'radio-group-additional-'+i+j, acc_additional[i][1],acc_additional[i][0]);
                                   }
                                   else {
@@ -362,10 +367,10 @@
                                   }
                                 }
                                 else {
-                                  __generateAccHTML('package-additional-'+i+j, 'radio-group-additional-'+i+j, acc_additional[i][1],acc_additional[i][0]);  
+                                  __generateAccHTML('package-additional-'+i+j, 'radio-group-additional-'+i+j, acc_additional[i][1],acc_additional[i][0]);
                                 }
-                                
-                               
+
+
                             }
                         }
                     }
@@ -381,16 +386,16 @@
                         case 'type-r':
                             tintlis = alltint_typer;
                             break;
-                        case 'city-hatchback':    
+                        case 'city-hatchback':
                             tintlis = alltint_cityhatchback;
                             break;
-                        case 'civic-modulo':    
+                        case 'civic-modulo':
                             tintlis = alltint_civicmodulo;
                             break;
-                        case 'civic':    
+                        case 'civic':
                             tintlis = alltint_civic;
                             break;
-                        case 'en1':    
+                        case 'en1':
                             tintlis = alltint_en1;
                             break;
                         default:
@@ -459,7 +464,7 @@
             $('.choose-region-copy').html($(this).find('a').html())
             console.log('region', __region);
             console.log('__variant', __variant)
-            
+
              // Hide or show the specific model based on region
             if (__region !== 'peninsular-malaysia') {
                 $('li[data-modelid="37"][data-modelslug="en1"]').hide();
@@ -632,9 +637,9 @@
                                     @foreach ($allmodels as $item)
                                         <script> console.log("{{$item->slug}}") </script>
                                         @if (!in_array($item->slug, $excluded_model_slug))
-                                           
+
                                             <li data-modelid="{{$item->id}}" data-modelslug="{{$item->slug}}">{{$item->name}}</li>
-                                           
+
                                         @endif
                                     @endforeach
                                 </ul>
@@ -811,29 +816,33 @@
             //CRV
 
             // $("#variant-select > li:nth-child(12)").insertBefore("#variant-select > li:nth-child(11)");
-            
-              @php  
+
+              @php
                     if  (config('global.STAGE')=='dev') {
-                        
-                        echo '$( "#variant-select > li:nth-child(19)").insertBefore("#variant-select > li:nth-child(18)");'; // civic modulo 
+
+                        echo '$( "#variant-select > li:nth-child(19)").insertBefore("#variant-select > li:nth-child(18)");'; // civic modulo
                         echo '$( "#variant-select > li:nth-child(8)").insertBefore("#variant-select > li:nth-child(7)");';
                         //echo '$("#variant-select>li[data-variantid=41]").remove();';
                     }
                     else {
                         // echo '$("#variant-select > li:nth-child(12)").insertBefore("#variant-select > li:nth-child(11)");'; // CITY HATCHBACK
-        
+
                      //   echo '$( "#variant-select li:nth-child(18)").insertBefore("#variant-select li:nth-child(15)" ); ' // civic modulo to change on STG
                         echo '$( "#variant-select > li:nth-child(9)").insertBefore("#variant-select > li:nth-child(8)");';
                        // echo '$( "[data-variantid=62]").insertBefore("[data-variantid=61]");';
                        // echo '$( "[data-variantid=54]").insertBefore("[data-variantid=41]");';
                         // echo '$("#variant-select>li[data-variantid=61]").remove();';
                     }
-              @endphp 
+              @endphp
 
          console.log("loan calc v04");
     })
 </script>
 
+<section class="shopping-tools body-copy grey container section-gap" id="shopping-tools" style="padding-top: 40px; margin-top: 40px;padding-bottom: 40px; margin-bottom: 40px;">
+    <h2>SHOPPING TOOLS</h2>
+    @include('components.shopping-tools')
+    <div class="clearfix"></div>
+</section>
 
 @stop
-

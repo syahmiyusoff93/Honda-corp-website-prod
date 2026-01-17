@@ -668,6 +668,21 @@ if(isset($story->hero)){
         #performance {margin-top: 100px;}
     }
 
+    @media only screen and (min-width: 769px) {
+        a.prime-cta-black {
+            width: 261px;
+            height: 56px;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        a.prime-cta-black {
+            height: 56px;
+            width: 261px;
+        }
+    }
+
+
     @media only screen and (max-width:768px){
         .typer-custom .hero-container .herocopyholder-1 {position: relative;}
         /* hero image */

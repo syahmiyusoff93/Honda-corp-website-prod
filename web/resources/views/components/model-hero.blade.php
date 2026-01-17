@@ -58,5 +58,18 @@
             max-width: calc(50% - 5px);
             min-width: 120px;
         }
+        a.prime-cta-black {
+            height: 75px;
+        }
+        .hero-cta-container a:nth-of-type(2) span {
+            vertical-align: sub;
+        }
+    }
+    /* Desktop styles for hero CTA buttons */
+    @media only screen and (min-width: 769px) {
+        a.prime-cta-black {
+            width: 261px;
+            height: 56px;
+        }
     }
 </style>

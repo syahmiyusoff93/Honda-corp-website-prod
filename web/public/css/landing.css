@@ -7,7 +7,7 @@ body { overflow-x: hidden; image-rendering: auto;}
 .hero2{ background-image:url('../img/mock/landing-hero.png'); background-size: cover; background-position: center;}
 .hero-copy .intro-title { padding-top:0; font-weight: 400;}
 .hero-copy .punchline { margin:50px 10px; margin-bottom: 10px; }
-.hero-copy .btn-container { left: 50%; transform: translate(-50%, 0); position: absolute;  bottom: 6px; margin: 55px auto; text-align: center; width: 100%; }
+.hero-copy .btn-container { left: 50%; transform: translate(-50%, 0); position: absolute;  bottom: 6px; margin: 55px auto; text-align: center; width: 70%; }
 a.prime-cta-black { position: relative; z-index: 2;}
 .hero-copy .btn-container a { margin: 10px;}
 a.prime-cta-black, a.prime-cta-white {padding: 20px 30px;}
@@ -733,7 +733,7 @@ a.btn-close:after { transform: rotate(-45deg);}
 
 /* FIND A DEALER */
 .find-a-dealer { overflow: hidden; height: calc(100vh - 86px);}
-.find-a-dealer .info-container { float: left; width: 387px; background-color:  #f3f3f5; box-sizing: border-box; /* min-height: calc(100vh - 258px);*/ height: 100vh; }
+.find-a-dealer .info-container { float: left; width: 40%; max-width: 800px; background-color:  #f3f3f5; box-sizing: border-box; /* min-height: calc(100vh - 258px);*/ height: 100vh; }
 .find-a-dealer .info-container .search-container { background-color: #e9e9ec; padding: 40px 30px;  }
 .find-a-dealer .info-container .search-container .total-result { display: block; color: #282a2f; font-size: 1rem; font-weight: 500; line-height: 1.5rem; text-transform: uppercase; letter-spacing: 2px; padding-bottom: 20px;}
 .find-a-dealer .info-container .search-container .title { display: none; }
@@ -851,12 +851,8 @@ a.btn-close:after { transform: rotate(-45deg);}
 
 
 
-
-
-
-
 /* INNER PAGE */
-.innerpage { /*border:1px solid transparent;*/ background-color: #ececec; margin-top: -71px; /*min-height: calc(100vh - 187px);*/min-height: calc(100vh - 147px); }
+.innerpage { /*border:1px solid transparent;*/ background-color: #ececec; margin-top: -71px; /*min-height: calc(100vh - 187px);min-height: calc(100vh - 147px);*/ }
 .inner-container .intro { margin: 130px auto 30px auto;}
 .inner-container .extrapadding { padding-top: 70px;}
 .inner-container .intro .intro-title { font-weight: 400; text-align: center; text-transform: unset; max-width: 730px; margin: auto;}
@@ -957,7 +953,7 @@ a.btn-close:after { transform: rotate(-45deg);}
 .maintenance-container .mt-section .outline-drop ul.dropdown-menu { max-width: 350px; width: 101%; z-index: 1;}
 .maintenance-container .mt-section .outline-drop ul.dropdown-menu  li { padding: 10px 40px 10px 20px; }
 .maintenance-container .mt-section ul.download-section { list-style: none; display: inline-flex; width: 100%; flex-wrap: wrap;}
-.maintenance-container .mt-section ul.download-section li { display: inline-block; border: 1px solid #d8d8d8; border-bottom: 2px solid #e01327; padding: 38px 0  14px 0; background-color: #fff; width: calc(25% - 12px); margin-right: 12px; -webkit-transition: all 0.2s ease; transition: all 0.2s ease; margin-bottom: 12px;}
+.maintenance-container .mt-section ul.download-section li { display: inline-block; border: 1px solid #d8d8d8; border-bottom: 2px solid #e01327; padding: 38px 0  0px 0; background-color: #fff; width: calc(25% - 12px); margin-right: 12px; -webkit-transition: all 0.2s ease; transition: all 0.2s ease; margin-bottom: 12px;}
 .maintenance-container .mt-section ul.download-section li:hover { background-color: #f8f8f8; cursor: pointer;}
 .maintenance-container .mt-section ul.download-section li:nth-child(4) { margin-right: 0}
 .maintenance-container .mt-section ul.download-section li a { color: #282a2f; font-size: 0.875rem; text-align: center; letter-spacing: 0.35px; }
@@ -1134,6 +1130,10 @@ input.input-text:focus{ outline: none;}
 @media (max-width: 1024px) {
     .dropdown-select .sai-dd-label { width: 200px; }
 }
+@media (min-width: 1024px) and (max-width: 1280px) {
+    a.prime-cta-black, a.prime-cta-white {padding: 20px 30px; font-size:0.625rem; text-transform:uppercase; font-weight:500; cursor: pointer; overflow: hidden;  display: inline-block;}
+}
+
 
 
 .model-inner-container .details-container ul li.xoutline-drop{ padding: 0;}
@@ -1627,7 +1627,7 @@ ul.package-container .expand-content ul li:nth-child(8) { margin: 10px 0 auto 0;
     .find-a-dealer .info-container { float: none; width: 100%;  min-height: unset; height: auto; }
     .find-a-dealer .info-container .search-container { padding: 46px 30px 26px 30px; }
     .find-a-dealer .info-container .search-container .total-result { display:none;}
-    .find-a-dealer .info-container .search-container .title { display: block; color: #282a2f; font-size: 1.1875rem; font-weight: 500; line-height: 2rem; text-align: center; text-transform: uppercase; letter-spacing: 1.425px; padding-bottom: 35px; }
+    .find-a-dealer .info-container .search-container .title { display: block; color: #282a2f; font-size: 1.1875rem; font-weight: 500; line-height: 2rem; text-align: center; text-transform: uppercase; letter-spacing: 1.425px;}
     .find-a-dealer .info-container .search-container .m-total-result { display: block; color: #282a2f; font-size: 1rem; font-weight: 500; line-height: 24px; text-transform: uppercase; letter-spacing: 2px; margin-top: 3px;}
     .find-a-dealer .search-result { overflow: hidden; }
     .find-a-dealer .search-result .result-title { padding: 20px 30px;}
@@ -1670,18 +1670,18 @@ ul.package-container .expand-content ul li:nth-child(8) { margin: 10px 0 auto 0;
     /* .loan-inner .loan-container .loan-section .error-- {padding-left: 20px;} */
     .loan-inner .loan-container .loan-section .outline-drop ul.dropdown-menu { width: 100.4%; }
 
-    .maintenance-container { padding-top: 20px;}
+    /* .maintenance-container { padding-top: 20px;}
     .maintenance-inner { padding: 0 20px;}
     .maintenance-container .mt-section {padding-bottom: 0; margin-top: 22px}
     .maintenance-container .mt-section .mt-item { margin-bottom: 25px;}
     .maintenance-container .mt-section .mt-item,
     .maintenance-container .mt-section .outline-drop .dropdown-select { max-width: unset; width: 100%;}
-    .maintenance-container .mt-section .outline-drop ul.dropdown-menu { max-width: unset; width: 100.5%;}
-    .maintenance-container .mt-section ul.download-section li { width: 100%; max-width: unset; margin-bottom: 22px; padding: 20px 17px; margin-right: 0;}
+    .maintenance-container .mt-section .outline-drop ul.dropdown-menu { max-width: unset; width: 100.5%;} */
+    /* .maintenance-container .mt-section ul.download-section li { width: 100%; max-width: unset; margin-bottom: 22px; padding: 20px 17px; margin-right: 0;}
     .maintenance-container .mt-section ul.download-section li div { display: inline-block;}
-    .maintenance-container .mt-section ul.download-section li .year { padding-bottom: 0;}
-    .maintenance-container .mt-section ul.download-section li .btn-cta { float: right;}
-    .maintenance-container .mt-section ul.download-section li .btn-cta span { display: none;}
+    .maintenance-container .mt-section ul.download-section li .year { padding-bottom: 0;} */
+    /* .maintenance-container .mt-section ul.download-section li .btn-cta { float: right;}
+    .maintenance-container .mt-section ul.download-section li .btn-cta span { display: none;} */
 
     .happenings-landing .details-container .des .sub-title { height: 80px; }
 
@@ -1742,9 +1742,9 @@ ul.package-container .expand-content ul li:nth-child(8) { margin: 10px 0 auto 0;
     #mainmenu .ddshopping a .ddshopping-text { font-size: 0.7rem }
 
     .btn-banner { display: none;}
-    .hero-copy .btn-container { bottom: 10px;}
-    .hero-copy .btn-container a { width: 80%;}
-    .hero-copy .btn-container a.prime-cta-black, .hero-copy .btn-container a.prime-cta-white { padding: 20px;}
+    .hero-copy .btn-container { bottom: 28px;}
+    .hero-copy .btn-container a { width: 40%;}
+    .hero-copy .btn-container a.prime-cta-black, .hero-copy .btn-container a.prime-cta-white { padding: 20px;font-size: 8px;}
     /* .hero-container .car-model{ margin-top: -15px;} */
     .hero-container .car-model{ width: 90%; /*margin-top: -30px;*/}
     .ticker-box { height: 55px;}

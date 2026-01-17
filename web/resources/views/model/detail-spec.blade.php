@@ -21,9 +21,6 @@ foreach($variants as $v){
     $variantids[] = $v->id;
 }
 
-
-//dd($variants);
-
 $APIPATH = config('global.APIPATH');
 $honda_api_context = config('global.APICONTEXT');
 
@@ -31,15 +28,25 @@ $data = file_get_contents($APIPATH.'variants.json', false, $honda_api_context);
 $data = json_decode($data);
 $allvariants = $data->payload;
 
-// all label legend
+// Get spec_type from model variants JSON
+$isEvModel = isset($model_info->spec_type) && $model_info->spec_type === 'ev';
+$currentSpecType = $isEvModel ? 'ev' : 'regular';
+
+// all label legend - get the appropriate type based on model spec_type
 $data = file_get_contents($APIPATH.'spec_legend.json', false, $honda_api_context);
 $data = json_decode($data, true);
-$labellagend = $data['payload'];
+$labellagend = $data['payload']['by_type'][$currentSpecType] ?? $data['payload']['all'] ?? [];
 
-//grouped legends for table generation
+//grouped legends for table generation - get the appropriate type based on model spec_type
 $data = file_get_contents($APIPATH.'spec_legend_grouped.json', false, $honda_api_context);
 $data = json_decode($data);
-$groupedlegend = $data->payload;
+$groupedlegend = $data->payload->by_type->{$currentSpecType} ?? $data->payload->all ?? [];
+
+// Get custom label overrides for this model
+$labelOverrides = $model_info->spec_label_overrides ?? [];
+
+// Get custom disclaimer for this model
+$customDisclaimer = $model_info->spec_disclaimer ?? null;
 
 $ownvariantonly = true;
 
@@ -86,12 +93,11 @@ foreach ($desired as $d) {
     <section class="model-inner-container stage-contained spec-inner drop-table">
         <div class="intro first">
             <h2>SPECIFICATIONS</h2>
-            @if ($model_slug == "en1")
+            @if ($isEvModel)
             <div class="intro-title grey"></div>
             @else
             <div class="intro-title grey">Select your desired Honda variants for a specs comparison.</div>
             @endif
-            {{-- <div class="intro-title grey">Select your desired Honda variants for a specs comparison.</div> --}}
         </div>
 
         <div class="details-container">
@@ -100,101 +106,25 @@ foreach ($desired as $d) {
     </section>
 
     {{--  -------- COMPARE TABLE & FUNCTIONALITIES -------------------  --}}
-    <?php if ($model_slug == "en1")  { ?>
+    @if ($isEvModel)
         @include('components.spec-compare-ev')
-    <!--- everything else  -->
-    <?php } else { ?>
+    @else
         @include('components.spec-compare')
-    <?php } ?>
+    @endif
 
-    <?php if ($model_slug == "city-hatchback")  { ?>
+    {{-- Disclaimer Section - Fully CMS Driven --}}
+    @if ($customDisclaimer)
     <div class="stage-contained">
         <div class="note-container">
             <div class="note-title more">DISCLAIMERS</div>
             <div class=" expand-content" style="display: none;">
                 <ul class="note">
-                    <li>1. <img src="{{url('img/interface/icn-tick-black.png')}}"> Standard</li>
-                    <li>2. ^Combination Leather</li>
-                    <li>3. Actual model, features and specifications may vary in detail from image shown. Subject to change without prior notice.</li>
-                    <li>4. Colours are subject to stock availability. *Android Auto™ will be available upon official launch of the service in Malaysia.</li>
-                    
+                    {!! $customDisclaimer !!}
                 </ul>
             </div>
         </div>
     </div>
-
-   <!--- civic hev  -->
-   <?php } else if ($model_slug == "civic") { ?>
-    <div class="stage-contained">
-        <div class="note-container">
-            <div class="note-title more">DISCLAIMERS</div>
-            <div class=" expand-content" style="display: none;">
-                <ul class="note">
-                    <li>1. <img src="{{url('img/interface/icn-tick-black.png')}}"> Standard</li>
-                    <li>2. ^Combination Leather</li>
-                    <li>3. Actual model, features and specifications may vary in detail from image shown. Subject to change without prior notice.</li>
-                    <li>4. Colours are subject to stock availability. *Android Auto™ will be available upon official launch of the service in Malaysia.</li>
-                    
-                </ul>
-            </div>
-        </div>
-    </div>
-   <!-- civic end -->
-
-   <!--- hrv  -->
-   <?php } else if ($model_slug == "hrv") { ?>
-    <div class="stage-contained">
-        <div class="note-container">
-            <div class="note-title more">DISCLAIMERS</div>
-            <div class=" expand-content" style="display: none;">
-                <ul class="note">
-                    <li>1. <img src="{{url('img/interface/icn-tick-black.png')}}"> Standard</li>
-                    <li>2. ^Combination Leather</li>
-                    <li>3. Actual model, features and specifications may vary in detail from images shown.</li>
-                    <li>4. Subject to change without prior notice.</li>
-                    <li>5. Colours are subject to stock and availability.</li>
-                    <li>6. *Android Auto<sup style="font-size: 0.8em;">™</sup>  will be available upon official launch of the service in Malaysia.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-   <!-- hrv end -->
-
-   <!-- ev start -->
-<?php } else if ($model_slug == "en1") { ?>
-    <div class="stage-contained">
-        <div class="note-container">
-            <div class="note-title more">DISCLAIMERS</div>
-            <div class=" expand-content" style="display: none;">
-                <ul class="note">
-                    <li>1. <img src="{{url('img/interface/icn-tick-black.png')}}"> Standard</li>
-                    <li>2. Actual model, features and specifications may vary in detail from images shown.</li>
-                    <li>3. Subject to change without prior notice.</li>
-                    <li>4. Colours are subject to stock availability.</li>
-                    <li>5. *Terms and conditions apply.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-   <!-- ev end -->
-
-   <!--- everything else  -->
-   <?php } else { ?>
-        <div class="stage-contained">
-        <div class="note-container">
-            <div class="note-title more">DISCLAIMERS</div>
-            <div class=" expand-content" style="display: none;">
-                <ul class="note">
-                    <li>1. <img src="{{url('img/interface/icn-tick-black.png')}}"> Standard</li>
-                    <li>2. ^Combination Leather</li>
-                    <li>3. Actual model, features and specifications may vary in detail from images shown.</li>
-                    <li>4. Subject to change without prior notice. Colours are subject to stock availability.</li>
-                    <li>5. *Android Auto<sup style="font-size: 0.8em;">™</sup> will be available upon official launch of the service in Malaysia.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-   <?php } ?>
+    @endif
 
    <section class="shopping-tools body-copy grey container section-gap" id="shopping-tools" style="padding-top: 40px; margin-top: -40px;">
         <h2 style="padding-top:40px;">SHOPPING TOOLS</h2>
@@ -212,7 +142,15 @@ foreach ($desired as $d) {
             @foreach ($mobileTools as $m)
                 <a href="{{$m[1]}}" class="mst-item" title="{{$m[0]}}" aria-label="{{$m[0]}}">
                     <img src="{{ versioned_asset('img/icon/'.$m[2]) }}" alt="{{$m[0]}}" />
-                    <span>{{$m[0]}}</span>
+                    <?php 
+                        $toolLabel = $m[0];
+                        // Format multi-word labels for mobile display
+                        $toolLabel = str_replace('New Car Pre-Booking', 'New Car<br>Pre-Booking', $toolLabel);
+                        $toolLabel = str_replace('Loan Calculator', 'Loan<br>Calculator', $toolLabel);
+                        $toolLabel = str_replace('Download Brochure', 'Download<br>Brochure', $toolLabel);
+                        $toolLabel = str_replace('Book A Test Drive', 'Book A<br>Test Drive', $toolLabel);
+                    ?>
+                    <span>{!! $toolLabel !!}</span>
                 </a>
             @endforeach
         </div>

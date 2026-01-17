@@ -34,8 +34,8 @@
 
 <script>
     var asset_url = '<?php echo env('AWS_CLOUDFRONT_URL'); ?>';
-    var color_api = '{{url("/api/model/$model_slug/colors")}}';
-    var accessories_api = '{{url("/api/model/$model_slug/accessories")}}';
+    var color_api = '{{url("/api/model_".$model_slug."_colors.json")}}';
+    var accessories_api = '{{url("/api/model_".$model_slug."_accessories.json")}}';
 </script>
 <script src="{{versioned_asset('js/page/model_ext360.js')}}"></script>
 

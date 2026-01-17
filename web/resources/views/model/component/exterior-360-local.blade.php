@@ -28,7 +28,7 @@
 
 <script>
     var asset_url = '<?php echo env('AWS_CLOUDFRONT_URL'); ?>';
-    var theapi = '{{url("/api/model/$model_slug/gallery/ext360")}}';
+    var theapi = '{{url("/api/model_'.$model_slug.'_gallery_ext360.json")}}';
 </script>
 <script src="{{versioned_asset('js/page/model_ext360_local.js')}}"></script>
 

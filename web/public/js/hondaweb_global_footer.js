@@ -277,7 +277,7 @@ $(document).ready(function(){
             autoplayTimeout: 8000, /* was 5000, changed at 20201202 */
             // lazyLoad: true,
             loop: true,
-            dots: false,
+            dots: true,
             items: 1,
             smartSpeed: 500,
         });

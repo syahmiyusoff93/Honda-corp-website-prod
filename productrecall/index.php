@@ -26,10 +26,10 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="vendor/bootstrap-3.3.7/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="vendor/bootstrap-3.3.7/dist/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/jquery-ui.css">
 		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" href="css/fontawesome.min.css" />
 		<link rel="stylesheet" href="css/style.css?v=2.1.4<?=@$anticache?>">
 		<style>
 
@@ -276,22 +276,22 @@
 				<div class="productupdateoverlay"></div>
 				<div class="loading_overlay"></div>
 				<a href="" class="logo-link"><div class="logo"></div></a>
-				<a href="javascript:;" class="useful-guides"><img src="img/guide-icon-sm.svg"/><span class="mobile-hide">USEFUL GUIDES</span><span class="glyph-guide glyphicon glyphicon-triangle-bottom" aria-hidden="true" style="margin-left: 10px;top: 2px;"></a>
+				<a href="javascript:;" class="useful-guides"><img src="img/guide-icon-sm.svg"/><span class="mobile-hide">USEFUL GUIDES</span><i class="fas fa-chevron-down" style="margin-left: 10px;top: 2px;"></i></a>
 				<div class="guide-expanded">
 					<img class="bubble-top" src="img/bubble-top.png"/>
 					<ul class="dark-gray">
 						<li class="close-guide-mobile"><a href="javascript:;">CLOSE X</a></li>
-						<li style="border-bottom: solid 1px #bfc4cf;padding: 0px 0 5px 0;"><a href="faq/FAQ.pdf" target="_blank" class="guide-link">Frequently Asked Questions<span class="glyphicon glyphicon-arrow-right hidden" aria-hidden="true" style="margin-left: 10px;top: 2px;"></span></a></li>
-						<li style="padding: 5px 0 0px 0;"><a href="img/Scenario-merged.jpg" target="_blank" class="guide-link">Process Flow Scenarios<span class="glyphicon glyphicon-arrow-right hidden" aria-hidden="true" style="margin-left: 10px;top: 2px;"></span></a></li>
+						<li style="border-bottom: solid 1px #bfc4cf;padding: 0px 0 5px 0;"><a href="faq/FAQ.pdf" target="_blank" class="guide-link">Frequently Asked Questions<i class="fas fa-arrow-right hidden" style="margin-left: 10px;top: 2px;"></i></a></li>
+						<li style="padding: 5px 0 0px 0;"><a href="img/Scenario-merged.jpg" target="_blank" class="guide-link">Process Flow Scenarios<i class="fas fa-arrow-right hidden" style="margin-left: 10px;top: 2px;"></i></a></li>
 					</ul>
 					<ul class="white">
 						<li style="border-bottom: solid 1px #bfc4cf;padding-bottom: 5px;">
-							<p style="margin: 5px 0;line-height: 0px;font-weight: 800;"><span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin-right: 10px;top: 2px;"></span>CALL US</p>
+							<p style="margin: 5px 0;line-height: 0px;font-weight: 800;"><i class="fas fa-phone" style="margin-right: 10px;top: 2px;"></i>CALL US</p>
 							<p style="color: #cc0000;font-size: 16px;font-weight: 800;margin: 0;"><a href="tel:1800882020">1800 88 2020</a> <span style="color: black;font-size: 14px;font-weight: 200;">or</span> <a href="tel:0379532000">03 7953 2000</a></p>
 						</li>
 					</ul>
 					<ul class="light-gray">
-						<p style="margin: 0px 0 5px 0;line-height: 0px;font-weight: 800;"><span class="glyphicon glyphicon-time" aria-hidden="true" style="margin-right: 10px;top: 2px;"></span>OPERATING HOURS</p>
+						<p style="margin: 0px 0 5px 0;line-height: 0px;font-weight: 800;"><i class="fas fa-clock" style="margin-right: 10px;top: 2px;"></i>OPERATING HOURS</p>
 						<!-- <p style="font-weight: 800;">Mon - Fri&nbsp;&nbsp;|&nbsp;&nbsp;<span style="font-size: 16px;color: #cc0000;">9:00am - 5:00pm</span></p>
 						<p style="font-weight: 800;line-height: 20px;margin: 0;">Closed for lunch</p>
 						<p style="line-height: 20px;">Mon - Thu&nbsp;&nbsp;|&nbsp;&nbsp;12:40pm - 2:30pm<br>Fri&nbsp;&nbsp;|&nbsp;&nbsp;12:40pm - 2:30pm</p> -->
@@ -409,14 +409,14 @@
 							<p><?=@$landing_copy?></p>
 						
 						<h2>Does your vehicle require a Product Update?</h2>
-						<a href="javascript:;" class="start-btn">Check your vehicle</a><span class="glyphicon glyphicon-menu-right" aria-hidden="true" style="top: 3px;color: white;"></span>
+						<a href="javascript:;" class="start-btn">Check your vehicle</a><i class="fas fa-chevron-right" style="top: 3px;color: white;margin-left: 8px;"></i>
 						<p style="font-weight: 500;">If you are an owner of a <span style="font-weight: 800;">reconditioned model</span>,<br>kindly visit any of our Honda Authorised Dealers for further assistance.</p>
 					</div>
 				</div>
 				<div class="affected">
 					<div class="affected-title">
 						<h2>List of affected vehicles</h2>
-						<a href="javascript:;" class="affected-close"><span class="mobile-hide">CLOSE </span>X</a>
+						<a href="javascript:;" class="affected-close"><span class="mobile-hide">CLOSE </span><i class="fas fa-times"></i></a>
 					</div>
 					<div class="affected-nav desktop-hide">
 						<p><span class="affected-nav-model">MODEL</span><span class="affected-nav-yearmodel">&nbsp;&nbsp;>&nbsp;&nbsp;YEAR MODEL</span><span class="affected-nav-parts">&nbsp;&nbsp;>&nbsp;&nbsp;AFFECTED PARTS</span></p>
@@ -492,7 +492,7 @@
 						<div class="affected-parts part-cta">
 							<p>Please confirm the status of your vehicle using the Vehicle Identification Number (VIN / CHASSIS Number).</p>
 							<a href="javascript:;" class="start-btn">Check your vehicle</a>
-							<span class="glyphicon glyphicon-menu-right" aria-hidden="true" style="top: 3px;color: white;"></span>
+						<i class="fas fa-chevron-right" style="top: 3px;color: white;margin-left: 8px;"></i>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -524,7 +524,7 @@
 							<li><a href="https://www.facebook.com/hondamalaysia/" class="fb-icon" target="_blank"><img src="img/icon_facebook.svg" style="height: 25px;margin-top: 2px;"/></a></li>
 							<li><a href="https://www.instagram.com/hondamalaysia" class="insta-icon" target="_blank"><img src="img/icon_instagram.svg" style="height: 25px;margin-top: 2px;"/></a></li>
 							<li><a href="https://www.youtube.com/user/MyHondaTV" class="youtube-icon" target="_blank"><img src="img/icon_youtube.svg" style="height: 25px;width: 25px;margin-top: 2px;"/></a></li>
-							<li><a href="https://www.honda.com.my" class="corporate-link" target="_blank">www.honda.com.my</a></li>
+							<li><a href="https://staging.honda.com.my" class="corporate-link" target="_blank">www.honda.com.my</a></li>
 						</ul>
 						<div class="social-rights">
 							<p>&copy; <?=date('Y')?> Honda Malaysia Sdn. Bhd.<br>(200001029513) (532120-D) All Rights Reserved</p>
@@ -558,7 +558,7 @@
 						<div class="howto" id="trypage">
 							<div class="howto-title">
 								<h3>Locate VIN / CHASSIS Number</h3>
-								<a href="javascript:;" id="close-howto">CLOSE X</a>
+								<a href="javascript:;" id="close-howto">CLOSE <i class="fas fa-times"></i></a>
 							</div>
 							<div class="howto-content">
 								<p>VIN or chassis number is available on the JPJ Registration Card, Service Booklet or Body of Vehicle.</p>
@@ -690,7 +690,7 @@
 						<div class="mobile-pagination">
 							<p>STEP 1 / 2</p>
 						</div>
-						<a href="javascript:;" class="prev-btn"><span class="glyphicon glyphicon-menu-left" aria-hidden="true" style="margin-right: 10px;top: 2px;position: relative;width: auto;"></span>Back</a>
+						<a href="javascript:;" class="prev-btn"><i class="fas fa-chevron-left" style="margin-right: 10px;top: 2px;position: relative;width: auto;"></i>Back</a>
 						<ul>
 							<li class="active nav-1">1</li><span class="active nav-title-1">Enter VIN Number</span>
 							<li class="nav-2">2</li><span class="nav-title-2">View vehicle status</span>
@@ -698,8 +698,8 @@
 							<li class="nav-4">4</li><span class="nav-title-4">Enter contact details</span>
 							<li class="nav-5">5</li><span class="nav-title-5">Request submitted</span>
 						</ul>
-						<a href="javascript:;" class="next-btn">Next<span class="glyphicon glyphicon-menu-right" aria-hidden="true" style="margin-left: 10px;top: 2px;position: relative;width: auto;"></span></a>
-						<a href="javascript:;" class="home-btn"><span class="glyphicon glyphicon-home" aria-hidden="true" style="margin-right: 20px;top: 2px;position: relative;width: auto;"></span>Back To Main</a>
+						<a href="javascript:;" class="next-btn">Next<i class="fas fa-chevron-right" style="margin-left: 10px;top: 2px;position: relative;width: auto;"></i></a>
+						<a href="javascript:;" class="home-btn"><i class="fas fa-home" style="margin-right: 20px;top: 2px;position: relative;width: auto;"></i>Back To Main</a>
 					</div>
 				</div>
 			</section>
@@ -778,9 +778,10 @@
        
 
 		</script>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-		<script src="vendor/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+        <script src="js/jquery-migrate.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/main.js?v=<?=microtime()?>"></script>

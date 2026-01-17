@@ -22,23 +22,17 @@ foreach ($allmaintenance as $key => $value) {
     }
 }
 
-$_allmodel['accord'] = 'Accord';
-$_allmodel['brv'] = 'BR-V';
-$_allmodel['city'] = 'City';
-// Hide city hatchback on live
-$_allmodel['city-hatchback'] = 'City Hatchback';
-$_allmodel['civic'] = 'Civic';
-$_allmodel['crv'] = 'CR-V';
-$_allmodel['crz'] = 'CR-Z';
-$_allmodel['en1'] = 'e:N1';
-$_allmodel['freed'] = 'Freed';
-$_allmodel['hrv'] = 'HR-V';
-$_allmodel['insight'] = 'Insight';
-$_allmodel['jazz'] = 'Jazz';
-$_allmodel['odyssey'] = 'Odyssey';
-$_allmodel['stream'] = 'Stream';
-$_allmodel['type-r'] = 'Type R';
-$_allmodel['wr-v'] = 'WR-V';
+// Extract unique models from maintenance data and build dynamic model list
+$_allmodel = [];
+$availableModelSlugs = [];
+
+foreach ($allmaintenance as $item) {
+    if (!in_array($item->model_slug, $availableModelSlugs)) {
+        $availableModelSlugs[] = $item->model_slug;
+        // Use model_name from maintenance data if available, otherwise use slug
+        $_allmodel[$item->model_slug] = $item->model_name ?? ucfirst($item->model_slug);
+    }
+}
 
 // MAINTENANCE ITEM REGROUPING - 20200715
 $ym_arr = [];
@@ -166,7 +160,7 @@ rsort($ym_arr);
                                         @endif
                                         {{-- <div class="variant" style="margin-bottom:10px; font-weight:bold;">{{ $item->variant }}</div> --}}
                                         <div class="year">{{ $item->year_model }}</div>
-                                        <div class="btn-cta"><span>View</span> <img src="{{url('img/interface/arrow-short-right-red.svg')}}" alt=""></div>
+                                        <div class="btn-cta"><span>View</span></div>
                                     </a>
                                 </li>
                             @endforeach
@@ -185,6 +179,16 @@ rsort($ym_arr);
     .select-title {margin-top:20px;}
     .js-pdflist {display: none;}
     .maintenance-container {margin-bottom:0;padding-bottom:20px;}
+    .maintenance-container .mt-section ul.download-section li .btn-cta{
+        color: white !important;
+        background: black;
+        padding: 10px;
+    }
+    @media only screen and (max-width: 640px) {
+        .maintenance-container .mt-section ul.download-section li{
+            width: calc(70% - 12px);
+        }
+    }
 </style>
 
 <script>

@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 if(!class_exists('MAIL')){
 class MAIL { 
@@ -205,34 +205,22 @@ class MAIL {
 
     public function sendmailto($to,$subject,$body){
         $mail = new PHPMailer(true);
-        $mail->isSMTP();                                            // Send using SMTP
-        // $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-        // $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        // $mail->Username   = 'hondasmtpmail@gmail.com';                     // SMTP username
-        // $mail->Password   = 'ubqmmqxqridduulf';                               // SMTP password
-        // $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        // $mail->Port       = 465;
-        // //$mail->setFrom('hondasmtpmail@gmail.com', 'HondaMY Webmaster');
-        // $mail->setFrom('hcuc@honda.net.my', 'HondaMY Webmaster');
-
-        // $mail->SMTPDebug  = 3;  
-        // $mail->Host       = 'smtp.office365.com';
-        // $mail->SMTPAuth   = true;
-        // $mail->Username   = 'mrahimi.hangzahed@honda.net.my';
-        // $mail->Password   = 'Qwerty123456';
-        // $mail->SMTPSecure = 'tls';
-        // $mail->Port       = 587;
-        // $mail->setFrom("hcurc@honda.net.my", "HondaMY Webmaster");
-
-        // $mail->SMTPDebug  = 3;  
+        $mail->isSMTP();           
         $mail->Hostname = "www.honda.com.my";
         $mail->Helo = $mail->Hostname;
-        $mail->Host       = 'mail.honda.com.my';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'hcuc@honda.com.my';
-        $mail->Password   = 'BO!lw#ylWR94';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
+        $mail->Host       = '10.118.4.77'; 
+        $mail->SMTPAuth   = false;
+        $mail->Username   = '';
+        $mail->Password   = '';
+        $mail->SMTPSecure = '';
+        $mail->Port       = 25;
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer'       => false,
+                'verify_peer_name'  => false,
+                'allow_self_signed' => true,
+            ],
+        ];
         $mail->SMTPDebug = 2; // Options: 0 = off, 1 = client messages, 2 = client and server messages, 3 = more verbose, 4 = extreme
         $mail->Debugoutput = 'error_log'; // Log to PHP error_log
         $mail->setFrom("hcuc@honda.com.my", "HondaMY Webmaster");

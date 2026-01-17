@@ -1,6 +1,6 @@
  
 
-<script src="zata_da/plug-in/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="zata_da/plug-in/jquery.min.js" type="text/javascript"></script>
 
 <input type="text" name="tester" value="<?php echo htmlspecialchars('{"max": 1000, "min": 300}'); ?>">
 

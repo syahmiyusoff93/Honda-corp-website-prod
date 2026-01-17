@@ -1,0 +1,434 @@
+.dont-know-vin {
+    font-size: 14px;
+    color: #cc0000;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    margin-top: -5px;
+    cursor: pointer;
+    text-align: right;
+    float: right;
+}
+
+
+
+ .not-required, .howto {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 20%;
+    bottom: 0;
+    text-align: left;
+    display: none;
+    max-width: 768px;
+}
+
+.not-title, .howto-title {
+    background: #cc0000;
+    color: white;
+    padding: 10px 20px;
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-topright: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.not-title h3, .howto-title h3 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.howto-content {
+    overflow-y: hidden
+    height: auto;
+    
+}
+
+.howto-content {
+    background: white;
+    padding: 20px;
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+
+.howto-content p {
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+   
+}
+
+
+.howto-title a {
+    right: 0;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    margin: 7px 20px;
+    color: white;
+}
+
+
+
+.vin-instruct {
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 100%;
+    height: 100%;
+    background: url(../img/aftersales/vin-popup.png) no-repeat center top;
+    background-size: cover;
+    min-height: 580px;
+}
+
+
+.not-required-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+.dont-know-vin-container {
+
+    float: left;
+    position: relative;
+    height: 100px;
+    vertical-align: middle;
+}
+
+.dont-know-vin {
+     font-size: 14px;
+    color: #cc0000;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    text-align: right;
+    float: left;
+    line-height: 0px;
+    margin-top: 0px;
+    top: 50%;
+    filter: drop-shadow(3px 3px 4px rgba(0,0,0,.2));
+}
+
+.connectsidebar {
+     height: 100%;
+    position: absolute;
+    /*width: 110px;*/
+    background: red;
+    top: 0px;
+    right: 0px;
+    width: 0px;
+    transition: all 200ms ease-out;
+    overflow: hidden;
+}
+.connectsidebar.green-bg {
+    background: green !important;
+}
+.connectsidebar.orange-bg {
+    background: #BE5014 !important;
+}
+
+.download-section li {
+    transition: all 200ms ease-out !important;
+}
+
+
+.download-section .withconnect:hover {
+    width: calc(25% - 12px + 150px) !important;
+    padding-right: 150px !important;
+}
+
+.download-section .withconnect:hover img {
+    opacity: 1;
+}
+
+.download-section .withconnect:hover > .connectsidebar {
+    width: 150px !important;
+
+}
+
+.connectsidebar > div:nth-child(1) {
+    background: #013dad;
+}
+
+.connectsidebar.e-booklet-two-btn > div:nth-child(1) {
+    background: #e01327 !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.connectsidebar > div:nth-child(2) {
+    background: #e01327;
+}
+
+.connectsidebar.e-booklet-two-btn > div:nth-child(2) {
+    background: #BE5014 !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 52%;
+}
+
+.connectsidebar > div:nth-child(3) {
+    background-color: green;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34%;
+    padding: 0px 10px;
+    text-align: center;
+}
+.connectsidebar.e-booklet > div:nth-child(3) {
+    background-color: #BE5014;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34%;
+    padding: 0px 10px;
+    text-align: center;
+}
+.connectsidebar > div:nth-child(3).four-btn-height {
+    height: 26%;
+}
+.connectsidebar > div:nth-child(4) {
+    background-color: #BE5014;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26%;
+    padding: 0px 10px;
+    text-align: center;
+}
+
+.three-btn-display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.four-btn-display{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.connectsidebar > div:nth-child(1) img {
+     transition-delay: 200ms;
+
+     /* width: 92px;
+     height: 45px; */
+}
+
+.connectsidebar.e-booklet-two-btn > div:nth-child(1) img {
+    width: 91%;
+}
+
+
+.connectsidebar > div:nth-child(2) img {
+     transition-delay: 400ms;
+
+     /* width: 92px;
+     height: 45px; */
+}
+.connectsidebar.e-booklet-two-btn > div:nth-child(2) a {
+    color: #FFFF !important;
+    font-size: 15px !important;
+    padding: 4% 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.connectsidebar > div:nth-child(3) a {
+    font-size: 12px !important;
+    padding-bottom: 3px;
+    color: #ffffff !important;
+    font-weight: 500;
+
+    transition-delay: 600ms;
+}
+.connectsidebar.e-booklet > div:nth-child(3) a {
+    font-size: 12px !important;
+    padding-bottom: 3px;
+    color: #ffffff !important;
+    font-weight: 500;
+
+    transition-delay: 600ms;
+}
+.connectsidebar > div:nth-child(4) a {
+    font-size: 12px !important;
+    padding-bottom: 3px;
+    color: #FFFF !important;
+    font-weight: 500;
+
+    transition-delay: 800ms;
+}
+
+.withconnect > .connectsidebar > div > img {
+    opacity: 0;
+    display: block;
+    transition: opacity 200ms linear;
+    width: 150px;height: 72px;
+}
+
+.connectbadge {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.maintenance-container .mt-section ul.download-section li.custom-style{
+    border-bottom: unset !important;
+}
+.maintenance-container .mt-section ul.download-section li.custom-style-four-btn{
+    height: 164px;
+}
+
+.car-info{
+    height: 100%;
+    border-bottom: 2px solid #e01327;
+}
+.car-info-four-btn{
+    height: 100%;
+    border-bottom: 2px solid #e01327;
+}
+
+.red-line{
+    border-bottom: 2px solid #e01327;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: none;
+}
+
+@media only screen and (min-width: 576px) {
+    .three-btn-img-size{
+        width: 92px;
+        height: 45px;
+    }
+
+    .four-btn-img-size {
+        width: 85px;
+        height: 37px;
+    }
+
+    .car-info-two-btn{
+        height: 115% !important;
+    }
+
+    .connectsidebar > div:nth-child(3) a.four-btn-text {
+        font-size: 12px !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .red-line{
+        display: block;
+    }
+
+    .connectsidebar > div:nth-child(3) {
+        height: 35%;
+    }
+
+    .car-info{
+        height: unset;
+        border-bottom: unset;
+        width: 100%;
+        /* padding-top: 36px; */
+        padding-top: 12px;
+    }
+
+    .maintenance-container .mt-section ul.download-section li.custom-style{
+        border-bottom: unset;
+        /* border-bottom: 2px solid #e01327 !important; */
+    }
+
+    .maintenance-container .mt-section ul.download-section li.custom-style .connectsidebar{
+        z-index: 1;
+    }
+    .three-btn-overall-container-mobile{
+        height: 169px;
+    }
+    .download-section .withconnect {
+        min-height: 105px;
+        padding-top: 40px !important;
+    }
+
+    .download-section .withconnect:hover {
+        width: 100% !important;
+        padding-right: 120px !important;
+    }
+    .download-section .withconnect:hover > .connectsidebar {
+        width: 105px !important;
+    }
+    .download-section .withconnect:hover img {
+        width: 100%;
+    }
+
+    .four-btn-img-size {
+        width: 75% !important;
+    }
+
+    .car-info-four-btn{
+        border-bottom: unset;
+        width: 100%;
+    }
+
+    .connectsidebar > div:nth-child(3) a {
+        font-size: 8px !important;
+    }
+    .connectsidebar > div:nth-child(4) a {
+        font-size: 8px !important;
+    }
+    .car-info-two-btn{
+        padding-top: 0;
+        margin-top: -15px;
+    }
+    .maintenance-container .mt-section ul.download-section li.custom-style-two-btn{
+        height: unset;
+    }
+
+    .connectsidebar.e-booklet-two-btn > div:nth-child(2) a {
+        font-size: 10px !important;
+    }
+
+    .connectsidebar.e-booklet-two-btn > div:nth-child(1) img {
+        width: 95%;
+    }
+
+}
+
+@media (max-width: 420px) and (orientation: portrait) {
+    .vin-instruct {
+        min-height: 33vh;
+    }
+
+    .howto-content {
+        overflow-y: hidden height: auto;
+        max-height: 100vh;
+    }
+
+
+}

@@ -49,6 +49,7 @@
 
 html, body {width: 100%;height: 100%;overflow-x: hidden;font-family: 'Conv_ProximaNova-Regular', Sans-Serif;}
 section	{width: 100%;height: 100%;padding-top: 70px;position: absolute;display: inline-block;float: left;}
+a{text-decoration: none;}
 a:hover {text-decoration: none;color: white;}
 a:focus {text-decoration: none;}
 a, p, h1, h2, h3, h4, ul, li, tr, td {font-family: 'Conv_ProximaNova-Regular';}
@@ -101,9 +102,9 @@ a, p, h1, h2, h3, h4, ul, li, tr, td {font-family: 'Conv_ProximaNova-Regular';}
 .title-wrapper {width: 100%;height: 100%;top: 0;position: absolute;margin: 0;}
 .title, .step-margin {text-align: center;width: 100%;height: auto;position: absolute;top: 70px;bottom: 80px;margin: auto;z-index: 1;overflow-y: auto;}
 /*.title-landing {display: block;top: 0;bottom: 0;margin: auto;position: absolute;height: 100%;max-height: 310px;padding-bottom: 20px;}*/
-.title-landing {display: block;top: 0;bottom: 0;margin: auto;position: absolute;height: 100%;max-height: 333px;padding-bottom: 20px;}
+.title-landing {display: block;top: 0;bottom: 0;margin: auto;position: absolute;height: 100%;max-height: 400px;padding-bottom: 20px;}
 /*#step-2 {overflow: hidden;}*/
-.step_wrapper {width: 760px;margin: auto;}
+.step_wrapper {width: 760px;margin: auto;height: 100%;}
 #step-2 {overflow-y: hidden;}
 #step-2 .step_wrapper {width: auto;min-width: 760px;max-width: 1366px;height: 100%; min-height: 550px;}
 #step-2 .row {margin: 0;height: auto;top: 130px;bottom: 0;position: absolute;}
@@ -124,17 +125,14 @@ a, p, h1, h2, h3, h4, ul, li, tr, td {font-family: 'Conv_ProximaNova-Regular';}
 .bottom-nav h3 {color: white;font-size: 20px;font-size: 16px;font-family: 'Conv_ProximaNova-Bold';}
 /*.bottom-nav .nav-btn:before {transform: scaleX(0);content:"";}*/
 /*.bottom-nav .nav-btn:after {transform: scaleX(1);}*/
-.bottom-nav .nav-btn {background: #cc0000;text-align: center;padding: 40px;cursor: pointer;height: 180px;}
+.bottom-nav .nav-btn {background: #cc0000;text-align: center;padding: 40px;cursor: pointer;height: 180px;position:relative;}
 .nav-btn img {width: 50px;height: 50px;}
 /*.bottom-nav .nav-btn:hover {background: #ae0707 !important;}*/
 /*Hover Effects*/
 .bottom-nav .nav-btn img,.bottom-nav .nav-btn h3{position:relative;z-index: 2}
-.bottom-nav .nav-btn:before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;bottom:0;background:#ae0707;-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:100% 100%;transform-origin:100% 100%;-webkit-transition-property:transform;transition-property:transform;-webkit-transition-duration:0.3s;transition-duration:0.3s;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out;}
-/*.bottom-nav .nav-btn:hover{color:#FFFFFF;}*/
+.bottom-nav .nav-btn:before{content:"";position:absolute;z-index:1;left:0;right:0;bottom:0;height:100%;background:#ae0707;-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:0 100%;transform-origin:0 100%;-webkit-transition-property:transform;transition-property:transform;-webkit-transition-duration:0.3s;transition-duration:0.3s;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out;}
 .bottom-nav .nav-btn:hover:before{-webkit-transform:scaleY(1); transform:scaleY(1);}
-/*.bottom-nav .nav-btn:after {width: 0%;height: 100%;top: 0;left: 0;background: #fff;}
-.bottom-nav .nav-btn:hover, .bottom-nav .nav-btn:active {color: #0e83cd;}
-.bottom-nav .nav-btn:hover:after, .bottom-nav .nav-btn:active:after {width: 100%;}*/
+/*.bottom-nav .nav-btn:hover{color:#FFFFFF;}*/
 
 .vin-nav {position: fixed;bottom: 0;width: 100%;overflow: hidden;z-index: 9;height: 80px;}
 
@@ -266,16 +264,16 @@ label.error {display: block;margin-top: 10px;position: absolute;text-align: left
 .scroll-note img {display: inline-block;margin: 0;width: 20px;height: auto;}
 
 .not-required-bg {width: 100%;height: 100%;position: fixed;top: 0;background: rgba(0, 0, 0, 0.6);z-index: 0;display: none;top: 0;left: 0;}
-.not-required, .howto {position: absolute;width: 80%;height: auto;margin: auto;left: 0;right: 0;top: 20%;bottom: 0;text-align: left;display: none;max-width: 768px;}
+.not-required, .howto {position: absolute;width: 100%;height: auto;margin: auto;left: 0;right: 0;top: 5%;bottom: 0;text-align: left;display: none;max-width: 1024px;}
 .not-title, .howto-title {background: #cc0000;color: white;padding: 10px 20px;-webkit-border-top-left-radius: 8px;-webkit-border-top-right-radius: 8px;-moz-border-radius-topleft: 8px;-moz-border-radius-topright: 8px;border-top-left-radius: 8px;border-top-right-radius: 8px;}
 .not-title h3, .howto-title h3 {margin: 0;font-size: 12px;}
 .howto-title a {right: 0;text-align: right;position: absolute;top: 0;margin: 7px 20px;color: white;}
 .howto-title a:hover, .howto-title a:focus {color: right;text-decoration: none;font-weight: 600;}
 .not-content, .howto-content {background: white;padding: 20px;-webkit-border-bottom-right-radius: 8px;-webkit-border-bottom-left-radius: 8px;-moz-border-radius-bottomright: 8px;-moz-border-radius-bottomleft: 8px;border-bottom-right-radius: 8px;border-bottom-left-radius: 8px;}
-.howto-content {overflow-y: auto;height: auto;max-height: 70%;}
+.howto-content {height: auto;max-height: 90%;}
 .not-content p, .howto-content p {margin: 0;text-align: left;}
 /*.howto-content img {margin-top: 20px;margin-right: 20px;width: 100%;}*/
-.vin-instruct {margin-top: 20px;margin-right: 20px;width: 100%;height: 100%;background: url(../img/vin_instruct.png)no-repeat center top;background-size: cover;min-height: 580px;}
+.vin-instruct {margin-top: 20px;margin-right: 20px;width: 100%;height: 100%;background: url(../img/vin_instruct.png)no-repeat center top;background-size: auto;min-height: 580px;}
 .not-vin {color: #cc0000;font-weight: 600;}
 .not-main {background: #cc0000;color: white;padding: 10px 20px;position: relative;top: 20px;display: block;width: 120px;text-align: center;margin-bottom: 20px;display: inline-block;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
 .not-restart {background: #cc0000;color: white;padding: 10px 20px;position: relative;top: 20px;display: block;width: 150px;text-align: center;margin-bottom: 20px;display: inline-block;margin-left: 10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
@@ -393,7 +391,7 @@ label.error {display: block;margin-top: 10px;position: absolute;text-align: left
 	.mCustomScrollBox {height: auto;}
 	.check-vin {height: 100%;}
 	.not-required, .howto {top: 20px;}
-	.howto-content {height: 70%;overflow: auto;width: 100%;}
+	.howto-content {height: 90%;overflow: auto;width: 100%;max-height: 100%;}
 	.howto-content {display: block;position: relative;}
 	.not-restart {margin-left: 0;}
 	.bubble-top {left: 240px;display: none !important;}

@@ -7,10 +7,19 @@
     $data = json_decode($data);
     $regions = $data->payload;
 
+    
+
 
     $data = file_get_contents($APIPATH.'pricing_price-items.json', false, $honda_api_context);
     $data = json_decode($data);
-    $price_items = $data->payload;
+    
+    // Check if this model has customized parameters
+    if (isset($data->payload_customized->{$model_slug}) && $data->payload_customized->{$model_slug}->customized) {
+        $price_items = $data->payload_customized->{$model_slug}->parameters;
+    } else {
+        $price_items = $data->payload;
+    }
+    
     foreach($price_items as $v){
         $priceitemforjs[] = $v->slug;
     }
@@ -26,6 +35,66 @@
     $variants = $data->payload;
     if ($variants) { 
         usort($variants, function($a, $b) { return strcmp($a->sequence, $b->sequence); }); 
+    }
+
+    $num_variants = count($variants);
+    $num_variants_table = $num_variants + 1;
+    // Calculate column widths
+    $data_width_table = (100 / $num_variants_table) - 0.3 . '%';
+    $data_width_column = (100 / $num_variants_table) . '%';
+    if ($num_variants == 1) {
+        $data_width_table = '40%';
+        $data_width_column = '16.3%';
+    }
+    elseif ($num_variants == 3) {
+        $data_width_column = '24.7%';
+    }
+
+    // Determine which regions have pricing data for this model/variants
+    $availableRegions = [];
+    if (!empty($regions) && !empty($variants) && !empty($price_items)) {
+        foreach ($regions as $r) {
+            $rslug = $r->slug;
+            $hasData = false;
+            foreach ($variants as $vcheck) {
+                $filePath = $APIPATH.'pricing_variant_'.$vcheck->id.'_'.$rslug.'.json';
+                $raw = @file_get_contents($filePath, false, $honda_api_context);
+                if (!$raw) continue;
+                $j = @json_decode($raw, true);
+                if (!$j || !isset($j['payload'][$rslug])) continue;
+                $payloadRegion = $j['payload'][$rslug];
+                // Check if at least one price item has a non-empty value
+                foreach ($price_items as $pi) {
+                    $slug = is_object($pi) ? $pi->slug : (is_array($pi) ? ($pi['slug'] ?? null) : null);
+                    if (!$slug) continue;
+                    // Normalize values: trim strings and convert nulls to empty strings
+                    foreach ($payloadRegion as $key => $value) {
+                        $payloadRegion[$key] = is_null($value) ? '' : trim((string)$value);
+                    }
+
+                    // Determine if this region contains any meaningful (non-zero) price for this price item
+                    if (isset($payloadRegion[$slug])) {
+                        $val = $payloadRegion[$slug];
+                        // Treat empty strings or numeric zero as 'no data'
+                        $isZeroNumber = is_numeric($val) && floatval($val) == 0;
+                        if ($val !== '' && !$isZeroNumber) {
+                            $hasData = true;
+                            break;
+                        }
+                    }
+                }
+                if ($hasData) break;
+            }
+            if ($hasData) {
+                $availableRegions[] = $r;
+            }
+        }
+    }
+
+    // Simplified array for JS
+    $availableRegionsSimple = [];
+    foreach ($availableRegions as $ar) {
+        $availableRegionsSimple[] = ['slug' => $ar->slug, 'name' => $ar->name];
     }
 
     // getting the price
@@ -84,52 +153,50 @@
 
 @section('inner-content')
 
+<style>
+    @media screen and (min-width: 1024px) {
+        .table-content-container .spec-details li table td {
+            width: {{$data_width_table}} !important;
+        }
+        /* Apply wider column only to the first column (label column) */
+        .table-content-container .spec-details li table td:first-child{
+            width: {{$data_width_column}} !important;
+        }
+        .drop-table.model-inner-container ul.selection .xoutline-drop, .selection-tag {
+            width: {{$data_width_column}} !important;
+        }
+    }
+    @media only screen and (max-width: 1024px) {
+        .drop-table.model-inner-container ul.selection li {
+            width: 100% !important;
+        }
+    }
+    
+</style>
+
 <script language="javascript">
     var modelslug = "{{$model_slug}}"; 
-    console.log(":" + modelslug);
 
     $(document).ready(function(){
-        var __APIPATH = '/api/';
+        var __APIPATH = '/deltaecho/api/';
         var __variants = {{json_encode($variantids)}};
-        var __region = '{{$DEFAULT_REGION}}';
+        var __availableRegions = @json($availableRegionsSimple ?? []);
+        var __region = __availableRegions.length > 0 ? __availableRegions[0].slug : '{{$DEFAULT_REGION}}';
 
         var __priceitems = '{{implode(',', $priceitemforjs)}}';
         __priceitems = __priceitems.split(',');
 
         function populatePricing(pos, vid, reg){
-            // if (modelslug == "crv") {
-            //     if(pos == 2) pos = 3 ;
-            //     else if (pos == 3)  pos = 2;
-            // }
-            // else if (modelslug == "city") {
-            //     if(pos == 3) pos = 4 ;
-            //     else if (pos == 4)  pos = 3;
-            // }
-
-
-            if (modelslug == "city-hatchback") {
-                 // if(pos == 3) pos = 4 ;
-                 // else if (pos == 4)  pos = 3;
-            }
-
-
             var col = '#col'+pos+'-';
-            //console.log('pricing/variant/'+vid+'/'+reg);
             $.getJSON(__APIPATH+'pricing_variant_'+vid+'_'+reg+'.json', function(dd) {
                 var price
                 for(i=0;i<__priceitems.length;i++){
-
-
-
                     price = dd.payload[reg][__priceitems[i]];
                     if(parseFloat(price) ==''|| parseFloat(price)==0 || price==undefined || price=='undefined'){
                         $(col+__priceitems[i]).html('');
                     } else {
                         $(col+__priceitems[i]).html('RM '+ price);
                     }
-
-
-
                 }
                 normalise_td_height();
             });
@@ -144,22 +211,9 @@
             $('.variant-select>li:nth-child(1)').show();
 
             for(i=0;i<__variants.length;i++){
-                var i1;
-                if (modelslug == "crv") {
-                    i1 = i;
-                    console.log("...");
-                    $('.colnum'+(i1)).css('opacity', 1);
-                    $('.variant-select>li:nth-child('+(i1+2)+')').show();
-                    populatePricing(i1, __variants[i1], __region);
-
-                }
-                else {
-                
-                    $('.colnum'+(i)).css('opacity', 1);
-                    $('.variant-select>li:nth-child('+(i+2)+')').show();
-                    populatePricing(i, __variants[i], __region);
-                }
-
+                $('.colnum'+(i)).css('opacity', 1);
+                $('.variant-select>li:nth-child('+(i+2)+')').show();
+                populatePricing(i, __variants[i], __region);
             }
             //
             $('#region-select li').show();
@@ -169,11 +223,26 @@
         $('.sai-dd-item li').click(function(){
             __variants[$(this).data('col')] = $(this).data('vid');
             populatePricing($(this).data('col'), $(this).data('vid'), __region);
+            var selectedText = $(this).text();
+            $(this).closest('.dropdown-select').find('.sai-dd-label').text(selectedText);
         })
 
-        $('#region-select li:nth-of-type(1)').trigger('click');
-        if (modelslug == "en1") {
-            $('.sai-dd-item li').trigger('click');
+        // Initialize pricing depending on available regions
+        if (__availableRegions.length > 0) {
+            // Use the first available region as initial
+            $('.region-label').html(__availableRegions[0].name);
+            if (__availableRegions.length > 1) {
+                // If dropdown exists, trigger its first item
+                $('#region-select li:nth-of-type(1)').trigger('click');
+            } else {
+                // Only one region available — populate directly
+                for(i=0;i<__variants.length;i++){
+                    populatePricing(i, __variants[i], __region);
+                }
+            }
+        } else {
+            // Fallback: trigger default behaviour
+            $('#region-select li:nth-of-type(1)').trigger('click');
         }
     })
 </script>
@@ -183,39 +252,25 @@
         <h2>PRICING</h2>
     </div>
 
+    @if(!empty($availableRegions) && count($availableRegions) > 0)
     <div class="location outline-drop">
-        @if ($model_slug == "en1")
-        <div class="dropdown-select" style="cursor: default;">
-            <div class="dropdown-box">
-                <span class="btn region-label">Peninsular Malaysia</span>
-            </div>
-        </div>
-        @else
         <div class="dropdown-select" data-toggle="toggle5">
             <div class="dropdown-box">
-                <span class="btn region-label">Peninsular Malaysia</span>
-                <span class="caret"><img src="{{url('img/interface/arrow-red-down.png')}}" alt=""></span>
+                <span class="btn region-label">{{ $availableRegions[0]->name }}</span>
+                @if(count($availableRegions) > 1)
+                    <span class="caret"><img src="{{url('img/interface/arrow-red-down.png')}}" alt=""></span>
+                @endif
             </div>
+            @if(count($availableRegions) > 1)
             <ul id="region-select" class="dropdown-menu hide" data-toggle="toggle5" style="display: none;">
-
-                @foreach ($regions as $item)
+                @foreach ($availableRegions as $item)
                     <li data-region="{{$item->slug}}" data-regionname="{{$item->name}}">{{$item->name}}</li>
                 @endforeach
             </ul>
+            @endif
         </div>
-        @endif
-        {{-- <div class="dropdown-select" data-toggle="toggle5">
-            <div class="dropdown-box">
-                <span class="btn region-label">Penisular Malaysia</span>
-                <span class="caret"><img src="{{url('img/interface/arrow-red-down.png')}}" alt=""></span>
-            </div>
-            <ul id="region-select" class="dropdown-menu hide" data-toggle="toggle5" style="display: none;">
-                @foreach ($regions as $item)
-                    <li data-region="{{$item->slug}}" data-regionname="{{$item->name}}">{{$item->name}}</li>
-                @endforeach
-            </ul>
-        </div> --}}
     </div>
+    @endif
 
     <div class="details-container"> 
         @include('components.model-dropdown-pricing')
@@ -223,7 +278,6 @@
 
 </section>
 
-@if ($model_slug != "odyssey")
 <section class="table-content-container model-inner-container price-inner">
     <div class="stage-contained table-content">
         <div class="spec-details black">
@@ -231,131 +285,24 @@
                 <li>
                 <table>
                     @php
-                    //dd(var_dump($dd));
                     foreach ($price_items as $item) {
                         $spclass = ['',''];
                         if($item->slug=='selling-price') $spclass = ['bold','darkgrey'];
                         if($item->slug=='retail-price') $spclass = ['','darkgrey'];
                         
-                        //    $est = "";
-                        //    echo '<tr class="'.$spclass[0].'">
-                        //          <td class="">'.$item->name.' '.$est.'</td>';
+                        $est = "";
+                        echo '<tr class="'.$spclass[0].'">
+                              <td class="">'.$item->name.' '.$est.'</td>';
 
-                        if($model_slug == "civic" || $model_slug == "crv"){
-                            if ($item->name === "Surcharge for Platinum White Pearl*") {
-                                if($model_slug == "civic"){
-                                    $item->name = "Surcharge for Platinum White Pearl or Ignite Red Metallic or Canyon River Blue Metallic*";
-                                }else{
-                                    $item->name = "Surcharge for Platinum White Pearl or Ignite Red Metallic*"; 
-                                }
+                        for ($i=0; $i < $num_variants; $i++) {
+                            $v = @$variants[$i];
+                            $label = (@$v->pricing['payload']['peninsular-malaysia'][$item->slug]!='') ? @$v->pricing['payload']['peninsular-malaysia'][$item->slug] : '';
+                            $td_class = $spclass[1] . ' colnum'.$i.' datacol';
+                            if ($num_variants == 1) {
+                                $td_class .= ' single-column';
                             }
-                            
-                            $est = "";
-                            echo '<tr class="'.$spclass[0].'">
-                                <td class="">'.$item->name.' '.$est.'</td>';
-                        }elseif($model_slug == "city" || $model_slug == "city-hatchback"){
-                            if ($item->name === "Surcharge for Platinum White Pearl*") {
-                                $item->name = "Surcharge for Platinum White Pearl or Phoenix Orange Pearl or Ignite Red Metallic*";
-                            }
-                            
-                            $est = "";
-                            echo '<tr class="'.$spclass[0].'">
-                                <td class="">'.$item->name.' '.$est.'</td>';
-                        }elseif($model_slug == "hrv"){
-                            if ($item->name === "Surcharge for Platinum White Pearl*") {
-                                $item->name = "Surcharge for Platinum White Pearl or Phoenix Orange Pearl*";
-                            }
-                            
-                            $est = "";
-                            echo '<tr class="'.$spclass[0].'">
-                                <td class="">'.$item->name.' '.$est.'</td>';
-                        }elseif($model_slug == "wr-v"){
-                            if ($item->name === "Surcharge for Platinum White Pearl*") {
-                                $item->name = "Surcharge for Platinum White Pearl, Phoenix Orange Pearl or Ignite Red Metallic*";
-                            }
-                            
-                            $est = "";
-                            echo '<tr class="'.$spclass[0].'">
-                                <td class="">'.$item->name.' '.$est.'</td>';
-                        }elseif($model_slug == "en1"){
-                            if (
-                                $item->slug == "surcharge-for-white-orchird-pearl" ||
-                                $item->slug == "surcharge-for-platinum-white-pearl"
-                            ) {
-                                continue; // Skip this iteration of the loop
-                            }
-                            $est = "";
-                            echo '<tr class="'.$spclass[0].'">
-                                <td class="">'.$item->name.' '.$est.'</td>';
-                        }else{
-                            $est = "";
-                            echo '<tr class="'.$spclass[0].'">
-                                 <td class="">'.$item->name.' '.$est.'</td>';
+                            echo '<td class="'.$td_class.'" id="col'.$i.'-'.$item->slug.'">'.$label.'</td>';
                         }
-
-                            $cc = 0;
-                            $numcols = 5;
-
-                            if ($model_slug == "city-hatchback") $numcols = 5;
-                            if ($model_slug == "en1") $numcols = 1;
-
-                            if($model_slug == "city"){
-                                for ($i=0; $i<5; $i++) {
-                                    if ($model_slug == "city") {
-                                        $j = $i;
-                                        // if ($i == 3) $j = 4;
-                                        //if ($i == 3) $j = 2;
-                                        $v = @$variants[$j];
-                                        $label = (@$v->pricing['payload']['peninsular-malaysia'][$item->slug]!='') ? @$v->pricing['payload']['peninsular-malaysia'][$item->slug] : '';
-                                        echo '<td class="'.$spclass[1].' colnum'.$j.' datacol new-width-row" id="col'.$cc.'-'.$item->slug.'">'.$label.'</td>';
-                                        $cc++;
-                                    }
-                                }
-                            }elseif($model_slug == "en1"){
-                                $j = 0;
-                                $v = @$variants[$j];
-                                $label = (@$v->pricing['payload']['peninsular-malaysia'][$item->slug]!='') ? @$v->pricing['payload']['peninsular-malaysia'][$item->slug] : '';
-                                echo '<td style="width: 40%; font-weight: 500;" class="'.$spclass[1].' colnum'.$j.' datacol new-width-row center-content-mobile" id="col'.$cc.'-'.$item->slug.'">'.$label.'</td>';
-                                $cc++;
-                            }else{
-                                for ($i=0; $i<5; $i++) {
-                                    if ($model_slug == "crv") {
-                                        $j = $i;
-                                        // if ($i == 2) $j = 3;
-                                        // if ($i == 3) $j = 2;
-
-                                        $v = @$variants[$j];
-                                        $label = (@$v->pricing['payload']['peninsular-malaysia'][$item->slug]!='') ? @$v->pricing['payload']['peninsular-malaysia'][$item->slug] : '';
-                                        echo '<td class="'.$spclass[1].' colnum'.$j.' datacol" id="col'.$cc.'-'.$item->slug.'">'.$label.'</td>';
-                                        $cc++;
-                                    }
-                                    // else if ($model_slug == "city") {
-                                    //     $j = $i;
-                                    //     // if ($i == 3) $j = 4;
-                                    //     //if ($i == 3) $j = 2;
-                                    //     $v = @$variants[$j];
-                                    //     $label = (@$v->pricing['payload']['peninsular-malaysia'][$item->slug]!='') ? @$v->pricing['payload']['peninsular-malaysia'][$item->slug] : '';
-                                    //     echo '<td class="'.$spclass[1].' colnum'.$j.' datacol" id="col'.$cc.'-'.$item->slug.'">'.$label.'</td>';
-                                    //     $cc++;
-                                    // }
-                                    else {
-                                        $v = @$variants[$i];
-                                        $label = (@$v->pricing['payload']['peninsular-malaysia'][$item->slug]!='') ? @$v->pricing['payload']['peninsular-malaysia'][$item->slug] : '';
-                                        
-                                        if ($numcols == 3 ) { 
-                                        if ($i == 3)
-                                            echo '<td style="opacity:.5 !important" class="'.$spclass[1].' ">-</td>';
-                                        else
-                                            echo '<td class="'.$spclass[1].' colnum'.$i.' datacol" id="col'.$cc.'-'.$item->slug.'">'.$label.'</td>';
-                                        }
-                                        else {
-                                            echo '<td class="'.$spclass[1].' colnum'.$i.' datacol" id="col'.$cc.'-'.$item->slug.'">'.$label.'</td>';
-                                        }
-                        
-                                        $cc++;
-                                    }
-                                }
-                            }
                         echo '</tr>';
                     }
                     @endphp
@@ -375,7 +322,6 @@
     </div>
 
 </section>
-@endif
 
 <section class="shopping-tools body-copy grey container section-gap" id="shopping-tools" style="padding-top: 40px; margin-top: -40px;">
     <h2 style="padding-top:40px;">SHOPPING TOOLS</h2>
@@ -394,117 +340,19 @@
         @foreach ($mobileTools as $m)
             <a href="{{$m[1]}}" class="mst-item" title="{{$m[0]}}" aria-label="{{$m[0]}}">
                 <img src="{{ versioned_asset('img/icon/'.$m[2]) }}" alt="{{$m[0]}}" />
-                <span>{{$m[0]}}</span>
+                <?php 
+                $toolLabel = $m[0];
+                    // Format multi-word labels for mobile display
+                    $toolLabel = str_replace('New Car Pre-Booking', 'New Car<br>Pre-Booking', $toolLabel);
+                    $toolLabel = str_replace('Loan Calculator', 'Loan<br>Calculator', $toolLabel);
+                    $toolLabel = str_replace('Download Brochure', 'Download<br>Brochure', $toolLabel);
+                    $toolLabel = str_replace('Book A Test Drive', 'Book A<br>Test Drive', $toolLabel);
+                ?>
+                <span>{!! $toolLabel !!}</span>
             </a>
         @endforeach
     </div>
 </section>
-
-<style>
-    .table-content-container .spec-details li table td
-    .drop-table.model-inner-container ul.selection li {width: {{floor(100/(count($variants)+1))-0.3}}%; box-sizing:border-box; }
-
-    @media only screen and (max-width: 1400px) and (min-width: 1240px) {
-        .dropdown-select .sai-dd-label{
-            /* min-width: 102px; */
-        }
-    }
-</style>
-
-<script>
-     $("document").ready(function(){
-        var mslug = "{{$model_slug}}";
-        // console.log(mslug);
-        if ( mslug  == "crv") {
-
-            $( ".sai-ddselect-0 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(4)").insertBefore(".sai-ddselect-0 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(3)" );
-            $( ".sai-ddselect-1 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(4)").insertBefore(".sai-ddselect-1 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(3)" );
-            $( ".sai-ddselect-2 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(4)").insertBefore(".sai-ddselect-2 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(3)" );
-            $( ".sai-ddselect-3 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(4)").insertBefore(".sai-ddselect-3 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(3)" );
-
-            /* $(".variant-select > .sai-ddselect-3").css("display", "none");
-            $(".colnum3").css("opacity", "0.2"); */
-
-            /* $(".region-label").on('DOMSubtreeModified', function() {
-                $(".variant-select > .sai-ddselect-3").css("display", "none");
-                $(".colnum3").css("opacity", "0.2");
-            }); */
-
-            /* let targetNode = document.querySelector(".region-label");
-
-            const config = { childList: true, characterData: true, subtree: true, attributes: true, };
-
-            const callback = function (mutationsList, observer) { 
-                $(".variant-select > .sai-ddselect-3").css("display", "none");
-                $(".colnum3").css("opacity", "0.2");
-            };
-
-            const observer = new MutationObserver(callback);
-            observer.observe(targetNode, config); */
-
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(9)").remove()
-        }
-        else if ( mslug  == "city") {
-
-            $( ".sai-ddselect-0 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(5)").insertBefore(".sai-ddselect-0 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(4)" );
-            $( ".sai-ddselect-1 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(5)").insertBefore(".sai-ddselect-1 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(4)" );
-            $( ".sai-ddselect-2 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(5)").insertBefore(".sai-ddselect-2 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(4)" );
-            $( ".sai-ddselect-4 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(5)").insertBefore(".sai-ddselect-4 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(4)" );
-
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(9)").remove()
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(3)").remove()
-
-            $(".stage-contained").addClass("new-width");
-            $(".xoutline-drop").addClass("new-width-row");
-        }
-        else if (mslug == "civic") {
-            // to remove orchid pearl idk what color was it but can't remember but its for civic
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(9)").remove()
-        }
-        else if ( mslug  == "city-hatchback") {
-
-            /* $( ".sai-ddselect-3 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(6)").insertBefore(".sai-ddselect-4 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(5)" ); */
-            /* setTimeout(() => {$("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-6").insertBefore("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-5")}, 5000); */
-            // $("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-3").insertBefore("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-4")
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(9)").remove()
-        }
-        else if ( mslug  == "wr-v") {
-
-            /* $( ".sai-ddselect-3 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(6)").insertBefore(".sai-ddselect-4 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(5)" ); */
-            /* setTimeout(() => {$("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-6").insertBefore("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-5")}, 5000); */
-            // $("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-3").insertBefore("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-4")
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(9)").remove()
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(3)").remove()
-        }
-        else if ( mslug  == "type-r") {
-
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(3) > td:first-child").text("Handling Fee")
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(9)").remove()
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(9)").remove()
-        }
-        else if ( mslug  == "hrv") {
-
-            /* $( ".sai-ddselect-3 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(6)").insertBefore(".sai-ddselect-4 > .dropdown-select > .dropdown-menu.sai-dd-item > li:nth-child(5)" ); */
-            /* setTimeout(() => {$("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-6").insertBefore("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-5")}, 5000); */
-            // $("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-3").insertBefore("#mainstage > section.model-inner-container.stage-contained.price-inner.drop-table > div.details-container > ul > li.xoutline-drop.sai-ddselect-4")
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(9)").remove()
-        }
-        else if ( mslug  == "en1") {
-            $("#mainstage > section.table-content-container.model-inner-container.price-inner > div.stage-contained.table-content > div > ul > li > table > tbody > tr:nth-child(3) td:first-child").text('Handling Fee');
-        }
-
-        /* const tbodyElement = document.querySelector('tbody');
-        const thirdTrElement = tbodyElement.querySelector('tr:nth-child(3)');
-        const tdElements = thirdTrElement.querySelectorAll('td:not(:first-child)');
-        tdElements.forEach(td => {
-            td.textContent = '_';
-        }); */
-
-      });
-    
-    </script>
-
-
 
 @stop
 

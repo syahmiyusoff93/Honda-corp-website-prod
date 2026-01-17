@@ -178,7 +178,6 @@ Honda SENSING
     <div class="space"></div>
 </section>
 
-
 <section class="model-selection section-gap">
     <h2>EXPLORE ALL MODELS with Honda SENSING</h2>
     {{-- @include('brand.sensing-model-carousel') --}}
@@ -187,7 +186,15 @@ Honda SENSING
     @endphp
     @include('components.model-carousel')
 </section>
-
+<script>
+$('.owl-carousel').on('initialized.owl.carousel', function () {
+    const stage = $(this).find('.owl-stage');
+    const containerWidth = $(this).width();
+    const stageWidth = stage.width();
+    const offset = (containerWidth - stageWidth) / 2;
+    stage.css('transform', `translate3d(${offset}px, 0, 0)`);
+});
+</script>
 
 
 @stop

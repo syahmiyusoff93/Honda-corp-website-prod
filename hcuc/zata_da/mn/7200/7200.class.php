@@ -135,18 +135,27 @@ if(!class_exists('MNC7200')){
             //     </div>'; 
             // }
             ksort( $models );
+            $optionsModel .= '<div class="cus-drop" da-val="'.htmlspecialchars('All').'">
+                <div>All</div>
+            </div>';
             foreach( $models as $model => $k ){
                 $optionsModel .= '<div class="cus-drop" da-val="'.htmlspecialchars($model) .'">
                     <div>'.$model.'</div>
                 </div>'; 
             }
             ksort( $bodys );
+            $optionBy .= '<div class="cus-drop" da-val="'.htmlspecialchars('All').'">
+                <div>All</div>
+            </div>'; 
             foreach( $bodys as $body => $k ){
                 $optionBy .= '<div class="cus-drop" da-val="'.htmlspecialchars($body) .'">
                     <div>'.$body.'</div>
                 </div>'; 
             }
             ksort( $locs );
+            $optionLoc .= '<div class="cus-drop" da-val="'.htmlspecialchars('All').'">
+                <div>All</div>
+            </div>'; 
             foreach( $locs as $loc => $k ){
                 // $stmt = $CON->stmt_init();
                 // $stmt -> prepare("SELECT * FROM lists WHERE id=?;");

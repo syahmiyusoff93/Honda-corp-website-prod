@@ -37,7 +37,7 @@
     $achievements[2019][] = "Carlist.my – People’s Choice Awards 2019 – SUV of The Year : Honda CR-V (Bronze)";
     $achievements[2019][] = "Carlist.my – People’s Choice Awards 2019 – Premium MPV of The Year : Honda Odyssey (Bronze)";
     $achievements[2019][] = "Carlist.my – People’s Choice Awards 2019 – Crossover of The Year : Honda BR-V (Bronze)";
-    $achievements[2019][] = "Putra Brand Awards – The People's Choice 2019 Automotive – Gold";
+    $achievements[2019][] = "Putra Brand Awards – The People’s Choice 2019 Automotive – Gold";
     $achievements[2019][] = "Car Sifu Editors’ Choice Awards 2019 – Best Hybrid – Honda HR-V Sport Hybrid";
     $achievements[2019][] = "2019 Cars of Malaysia – Best Compact SUV of Malaysia – New Honda HR-V ";
     $achievements[2019][] = "2019 Cars of Malaysia – Best Compact MPV of Malaysia – Honda BR-V ";
@@ -57,7 +57,7 @@
     $achievements[2018][] = "Carlist.my – People’s Choice Awards 2018 – Crossover of The Year: Honda HR-V (Gold)";
     $achievements[2018][] = "Carlist.my – People’s Choice Awards 2018 – SUV of The Year: Honda CR-V (Silver)";
     $achievements[2018][] = "Carlist.my – People’s Choice Awards 2018 – Premium MPV of The Year: Honda Odyssey (Bronze)";
-    $achievements[2018][] = "Putra Brand Awards – The People's Choice 2018 Automotive – Gold";
+    $achievements[2018][] = "Putra Brand Awards – The People’s Choice 2018 Automotive – Gold";
     $achievements[2018][] = "Car Sifu Editors’ Choice Awards 2018 – Best Large-Size MPV – Honda Odyssey 2.4";
     $achievements[2018][] = "DSF.my Allianz – Vehicle of The Year 2018 : Hybrid Of The Year – Honda City Hybrid​";
     $achievements[2018][] = "2018 Cars of Malaysia - Best 3 Compact Hatchback of Malaysia – Honda Jazz";
@@ -75,24 +75,24 @@
     $achievements[2017][] = "Car Sifu - Best SUV/Crossover - Mid Size 4x2 - Honda CR-V 1.5 TC-P 2WD";
     $achievements[2017][] = "Car Sifu - Best Family Ride < RM100K - Honda BR-V 1.5L V";
     $achievements[2017][] = "Car Sifu - Best SUV/Crossover - Compact - Honda BR-V 1.5L V";
-    $achievements[2017][] = "Putra Brand Awards - The People's Choice 2017 Automotive - Gold";
+    $achievements[2017][] = "Putra Brand Awards - The People’s Choice 2017 Automotive - Gold";
     $achievements[2017][] = "MAI/ Malaysia Car of The Year 2017 Awards - Overall Car of The Year - Honda Jazz 1.5L Hybrid";
     $achievements[2017][] = "MAI/ Malaysia Car of The Year 2017 Awards - Sedan and Hatchback (RM60,001 - RM100,000) - Honda Jazz 1.5L Hybrid";
     $achievements[2017][] = "MAI/ Malaysia Car of The Year 2017 Awards - Sedan and Hatchback (RM130,001 - RM160,000) - Honda Civic 1.5L TC-P";
     $achievements[2017][] = "MAI/ Malaysia Car of The Year 2017 Awards - MPV (Below RM100,000) - Honda BR-V 1.5L";
     $achievements[2017][] = "MAI/ Malaysia Car of The Year 2017 Awards - SUV and Crossover (Below RM130,000) - Honda HR-V 1.8L ";
     $achievements[2017][] = "MAI/ Malaysia Car of The Year 2017 Awards - SUV and Crossover (RM130,001 - RM160,000) - Honda CR-V 1.5L TC 2WD";
-    $achievements[2017][] = "iCar Asia People's Choice Awards 2017 - ASEAN Car of The Year 2017 (Silver) - Honda Civic";
-    $achievements[2017][] = "iCar Asia People's Choice Awards 2017 - Compact Hatch of The Year -  Honda Jazz";
-    $achievements[2017][] = "iCar Asia People's Choice Awards 2017 - Compact Sedan of The Year - Honda City";
-    $achievements[2017][] = "iCar Asia People's Choice Awards 2017 - Mid-Range Sedan of The Year - Honda Civic";
-    $achievements[2017][] = "iCar Asia People's Choice Awards 2017 - Family Sedan of The Year - Honda Accord";
-    $achievements[2017][] = "iCar Asia People's Choice Awards 2017 - Budget MPV of The Year - Honda BR-V";
-    $achievements[2017][] = "iCar Asia People's Choice Awards 2017 - Crossover of The Year - Honda HR-V";
-    $achievements[2017][] = "iCar Asia People's Choice Awards 2017 - SUV of The Year - Honda CR-V";
+    $achievements[2017][] = "iCar Asia People’s Choice Awards 2017 - ASEAN Car of The Year 2017 (Silver) - Honda Civic";
+    $achievements[2017][] = "iCar Asia People’s Choice Awards 2017 - Compact Hatch of The Year -  Honda Jazz";
+    $achievements[2017][] = "iCar Asia People’s Choice Awards 2017 - Compact Sedan of The Year - Honda City";
+    $achievements[2017][] = "iCar Asia People’s Choice Awards 2017 - Mid-Range Sedan of The Year - Honda Civic";
+    $achievements[2017][] = "iCar Asia People’s Choice Awards 2017 - Family Sedan of The Year - Honda Accord";
+    $achievements[2017][] = "iCar Asia People’s Choice Awards 2017 - Budget MPV of The Year - Honda BR-V";
+    $achievements[2017][] = "iCar Asia People’s Choice Awards 2017 - Crossover of The Year - Honda HR-V";
+    $achievements[2017][] = "iCar Asia People’s Choice Awards 2017 - SUV of The Year - Honda CR-V";
 
     $achievements[2016][] = "Malaysia Strongest Brand - Best in Automotive 2016";
-	$achievements[2016][] = "Putra Brand Award -The People's Choice  2016 Automotive - Silver";
+	$achievements[2016][] = "Putra Brand Award -The People’s Choice  2016 Automotive - Silver";
 	$achievements[2016][] = "Car Sifu -  Car of The Year - Honda Civic 1.5TCP";
 	$achievements[2016][] = "Car Sifu - Best Mid Size Car - Honda Civic 1.5TCP";
     $achievements[2016][] = "MAI/ Malaysia Car of The Year 2016 Awards - Car of The Year - Honda Civic 1.5TC";
@@ -128,7 +128,7 @@
     $achievements[2014][] = "Fuel Efficiency Award 2013 - Recognition Award for 1st Locally Assembled Hybrid - Jazz Hybrid";
     $achievements[2014][] = "Asian Auto Allianz Auto Industry Awards 2014 - Best Value For Money Family MPV - Odyssey";
     $achievements[2014][] = "Reader's Digest Trusted Brands 2014 - Gold Award for Automobiles - Honda";
-	$achievements[2014][] = "Putra Brand Awards 2014 - The People's Choice - Automotive Category – Gold";
+	$achievements[2014][] = "Putra Brand Awards 2014 - The People’s Choice - Automotive Category – Gold";
 	$achievements[2014][] = "Malaysia Social Media Week 2014 - Social Media Excellence Award: Best Automotive Sector";
 	$achievements[2014][] = "Autoworld Car of the Year Awards 2013 - Best Value for Money Passenger Car - Honda Jazz";
     $achievements[2014][] = "Autoworld Car of the Year Awards 2013 - Best Alternative Energy Vehicle - Honda CR-Z";
@@ -143,7 +143,7 @@
     $achievements[2013][] = "Asian Auto-Allianz Auto Industry Awards 2013 - Best Local Assembled Family Car – Honda Civic 1.8S";
     $achievements[2013][] = "Asian Auto-Allianz Auto Industry Awards 2013 - Best Value For Money SUV - Honda CR-V 2.0 i-VTEC";
     $achievements[2013][] = "Asian Auto-Allianz Auto Industry Awards 2013 - Best Value For Money Sports Car - Honda CR-Z Sports Hybrid Manual";
-    $achievements[2013][] = "Putra Brand Awards 2013 - The People's Choice - Automotive Category – Silver ";
+    $achievements[2013][] = "Putra Brand Awards 2013 - The People’s Choice - Automotive Category – Silver ";
     $achievements[2013][] = "Asian Auto Fuel Efficiency Awards 2012 - Compact MPV Category-1st Place-Honda Freed 1.5L-6.1L/100km";
     $achievements[2013][] = "Asian Auto Fuel Efficiency Awards 2012 - Small Family Cars Category-3rd Place-Honda City-6.1L/100km";
     $achievements[2013][] = "Autoworld Car of the Year Awards 2012 - Judges' Choice Award - Honda CR-Z";
@@ -165,7 +165,7 @@
     $achievements[2011][] = "JD Power Asia Pacific 2011 Malaysia Sales Satisfaction Index (SSI) Study - Highest in New Vehicle Sales Satisfaction";
     $achievements[2011][] = "Asian Auto - VCA Auto Industry Awards 2011 - Best Value for Money Hybrid Car - Honda Insight";
     $achievements[2011][] = "Reader's Digest Trusted Brands 2011 - Gold Award for Automobiles - Honda";
-    $achievements[2011][] = "Putra Brand Awards 2011 - The People's Choice - Automotive Category - Gold";
+    $achievements[2011][] = "Putra Brand Awards 2011 - The People’s Choice - Automotive Category - Gold";
     $achievements[2011][] = "Asian Auto Fuel Efficiency Awards 2010 - Family Cars category - 1st Place - Honda City";
     $achievements[2011][] = "Asian Auto Fuel Efficiency Awards 2010 - Compact MPV Category - 1st Place - Honda Freed";
     $achievements[2011][] = " Asian Auto Fuel Efficiency Awards 2010 - Family Hybrids Category - 2nd Place - Honda Insight";
@@ -315,6 +315,11 @@ Achievements
 
 <script>
 var g_Vehicle = [
+		{Year: "2025", Model: "Carlist.my & WapCar.my People’s Choice Award 2025 - Best Compact Sedan - Honda Civic"},
+		{Year: "2025", Model: "Carlist.my & WapCar.my People’s Choice Award 2025 - Best Affordable Hybrid – Honda City e:HEV RS"},
+		{Year: "2025", Model: "Carlist.my & WapCar.my People’s Choice Award 2025 - Best Mid-Range Hybrid – Honda CR-V e:HEV RS"},
+{Year: "2025", Model: "Carlist.my & WapCar.my Editor’s Choice Award 2025 - Best Compact Sedan - Honda Civic e:HEV RS"},		
+		
 {Year: "2024", Model: "CarPlus.my Editor’s Choice 2024 – Family Car of the Year – Honda CR-V e:HEV"},
 {Year: "2024", Model: "CarPlus.my Editor’s Choice 2024 – Performance Car of the Year – Honda Civic Type R"},   
 {Year: "2024", Model: "Putra Brand Awards 2024 – The People’s Choice Automotive (Gold) – Honda"},
@@ -380,7 +385,7 @@ var g_Vehicle = [
 {Year: "2019",Model: "Carlist.my – People’s Choice Awards 2019 – SUV of The Year : Honda CR-V (Bronze)"},
 {Year: "2019",Model: "Carlist.my – People’s Choice Awards 2019 – Premium MPV of The Year : Honda Odyssey (Bronze)"},
 {Year: "2019",Model: "Carlist.my – People’s Choice Awards 2019 – Crossover of The Year : Honda BR-V (Bronze)"},
-{Year: "2019",Model: "Putra Brand Awards – The People's Choice 2019 Automotive – Gold"},
+{Year: "2019",Model: "Putra Brand Awards – The People’s Choice 2019 Automotive – Gold"},
 {Year: "2019",Model: "Car Sifu Editors’ Choice Awards 2019 – Best Hybrid – Honda HR-V Sport Hybrid"},
 {Year: "2019",Model: "2019 Cars of Malaysia – Best Compact SUV of Malaysia – New Honda HR-V "},
 {Year: "2019",Model: "2019 Cars of Malaysia – Best Compact MPV of Malaysia – Honda BR-V "},
@@ -399,7 +404,7 @@ var g_Vehicle = [
 {Year: "2018",Model: "Carlist.my – People’s Choice Awards 2018 – Crossover of The Year: Honda HR-V (Gold)"},
 {Year: "2018",Model: "Carlist.my – People’s Choice Awards 2018 – SUV of The Year: Honda CR-V (Silver)"},
 {Year: "2018",Model: "Carlist.my – People’s Choice Awards 2018 – Premium MPV of The Year: Honda Odyssey (Bronze)"},
-{Year: "2018",Model: "Putra Brand Awards – The People's Choice 2018 Automotive – Gold"},
+{Year: "2018",Model: "Putra Brand Awards – The People’s Choice 2018 Automotive – Gold"},
 {Year: "2018",Model: "Car Sifu Editors’ Choice Awards 2018 – Best Large-Size MPV – Honda Odyssey 2.4"},
 {Year: "2018",Model: "DSF.my Allianz – Vehicle of The Year 2018 : Hybrid Of The Year – Honda City Hybrid​"},
 {Year: "2018",Model: "2018 Cars of Malaysia - Best 3 Compact Hatchback of Malaysia – Honda Jazz"},
@@ -416,23 +421,23 @@ var g_Vehicle = [
 {Year: "2017",Model: "Car Sifu - Best SUV/Crossover - Mid Size 4x2 - Honda CR-V 1.5 TC-P 2WD"},
 {Year: "2017",Model: "Car Sifu - Best Family Ride < RM100K - Honda BR-V 1.5L V"},
 {Year: "2017",Model: "Car Sifu - Best SUV/Crossover - Compact - Honda BR-V 1.5L V"},
-{Year: "2017",Model: "Putra Brand Awards - The People's Choice 2017 Automotive - Gold"},
+{Year: "2017",Model: "Putra Brand Awards - The People’s Choice 2017 Automotive - Gold"},
 {Year: "2017",Model: "MAI/ Malaysia Car of The Year 2017 Awards - Overall Car of The Year - Honda Jazz 1.5L Hybrid"},
 {Year: "2017",Model: "MAI/ Malaysia Car of The Year 2017 Awards - Sedan and Hatchback (RM60,001 - RM100,000) - Honda Jazz 1.5L Hybrid"},
 {Year: "2017",Model: "MAI/ Malaysia Car of The Year 2017 Awards - Sedan and Hatchback (RM130,001 - RM160,000) - Honda Civic 1.5L TC-P"},
 {Year: "2017",Model: "MAI/ Malaysia Car of The Year 2017 Awards - MPV (Below RM100,000) - Honda BR-V 1.5L"},
 {Year: "2017",Model: "MAI/ Malaysia Car of The Year 2017 Awards - SUV and Crossover (Below RM130,000) - Honda HR-V 1.8L "},
 {Year: "2017",Model: "MAI/ Malaysia Car of The Year 2017 Awards - SUV and Crossover (RM130,001 - RM160,000) - Honda CR-V 1.5L TC 2WD"},
-{Year: "2017",Model: "iCar Asia People's Choice Awards 2017 - ASEAN Car of The Year 2017 (Silver) - Honda Civic"},
-{Year: "2017",Model: "iCar Asia People's Choice Awards 2017 - Compact Hatch of The Year -  Honda Jazz"},
-{Year: "2017",Model: "iCar Asia People's Choice Awards 2017 - Compact Sedan of The Year - Honda City"},
-{Year: "2017",Model: "iCar Asia People's Choice Awards 2017 - Mid-Range Sedan of The Year - Honda Civic"},
-{Year: "2017",Model: "iCar Asia People's Choice Awards 2017 - Family Sedan of The Year - Honda Accord"},
-{Year: "2017",Model: "iCar Asia People's Choice Awards 2017 - Budget MPV of The Year - Honda BR-V"},
-{Year: "2017",Model: "iCar Asia People's Choice Awards 2017 - Crossover of The Year - Honda HR-V"},
-{Year: "2017",Model: "iCar Asia People's Choice Awards 2017 - SUV of The Year - Honda CR-V"},
+{Year: "2017",Model: "iCar Asia People’s Choice Awards 2017 - ASEAN Car of The Year 2017 (Silver) - Honda Civic"},
+{Year: "2017",Model: "iCar Asia People’s Choice Awards 2017 - Compact Hatch of The Year -  Honda Jazz"},
+{Year: "2017",Model: "iCar Asia People’s Choice Awards 2017 - Compact Sedan of The Year - Honda City"},
+{Year: "2017",Model: "iCar Asia People’s Choice Awards 2017 - Mid-Range Sedan of The Year - Honda Civic"},
+{Year: "2017",Model: "iCar Asia People’s Choice Awards 2017 - Family Sedan of The Year - Honda Accord"},
+{Year: "2017",Model: "iCar Asia People’s Choice Awards 2017 - Budget MPV of The Year - Honda BR-V"},
+{Year: "2017",Model: "iCar Asia People’s Choice Awards 2017 - Crossover of The Year - Honda HR-V"},
+{Year: "2017",Model: "iCar Asia People’s Choice Awards 2017 - SUV of The Year - Honda CR-V"},
 {Year: "2016",Model: "Malaysia Strongest Brand - Best in Automotive 2016"},
-{Year: "2016",Model: "Putra Brand Award -The People's Choice  2016 Automotive - Silver"},
+{Year: "2016",Model: "Putra Brand Award -The People’s Choice  2016 Automotive - Silver"},
 {Year: "2016",Model: "Car Sifu -  Car of The Year - Honda Civic 1.5TCP"},
 {Year: "2016",Model: "Car Sifu - Best Mid Size Car - Honda Civic 1.5TCP"},
 {Year: "2016",Model: "MAI/ Malaysia Car of The Year 2016 Awards - Car of The Year - Honda Civic 1.5TC"},
@@ -466,7 +471,7 @@ var g_Vehicle = [
 {Year: "2014",Model: "Fuel Efficiency Award 2013 - Recognition Award for 1st Locally Assembled Hybrid - Jazz Hybrid"},
 {Year: "2014",Model: "Asian Auto Allianz Auto Industry Awards 2014 - Best Value For Money Family MPV - Odyssey"},
 {Year: "2014",Model: "Reader's Digest Trusted Brands 2014 - Gold Award for Automobiles - Honda"},
-{Year: "2014",Model: "Putra Brand Awards 2014 - The People's Choice - Automotive Category – Gold"},
+{Year: "2014",Model: "Putra Brand Awards 2014 - The People’s Choice - Automotive Category – Gold"},
 {Year: "2014",Model: "Malaysia Social Media Week 2014 - Social Media Excellence Award: Best Automotive Sector"},
 {Year: "2014",Model: "Autoworld Car of the Year Awards 2013 - Best Value for Money Passenger Car - Honda Jazz"},
 {Year: "2014",Model: "Autoworld Car of the Year Awards 2013 - Best Alternative Energy Vehicle - Honda CR-Z"},
@@ -479,7 +484,7 @@ var g_Vehicle = [
 {Year: "2013",Model: "Asian Auto-Allianz Auto Industry Awards 2013 - Best Local Assembled Family Car – Honda Civic 1.8S"},
 {Year: "2013",Model: "Asian Auto-Allianz Auto Industry Awards 2013 - Best Value For Money SUV - Honda CR-V 2.0 i-VTEC"},
 {Year: "2013",Model: "Asian Auto-Allianz Auto Industry Awards 2013 - Best Value For Money Sports Car - Honda CR-Z Sports Hybrid Manual"},
-{Year: "2013",Model: "Putra Brand Awards 2013 - The People's Choice - Automotive Category – Silver "},
+{Year: "2013",Model: "Putra Brand Awards 2013 - The People’s Choice - Automotive Category – Silver "},
 {Year: "2013",Model: "Asian Auto Fuel Efficiency Awards 2012 - Compact MPV Category-1st Place-Honda Freed 1.5L-6.1L/100km"},
 {Year: "2013",Model: "Asian Auto Fuel Efficiency Awards 2012 - Small Family Cars Category-3rd Place-Honda City-6.1L/100km"},
 {Year: "2013",Model: "Autoworld Car of the Year Awards 2012 - Judges' Choice Award - Honda CR-Z"},
@@ -496,7 +501,7 @@ var g_Vehicle = [
 {Year: "2011",Model: "JD Power Asia Pacific 2011 Malaysia Sales Satisfaction Index (SSI) Study - Highest in New Vehicle Sales Satisfaction"},
 {Year: "2011",Model: "Asian Auto - VCA Auto Industry Awards 2011 - Best Value for Money Hybrid Car - Honda Insight"},
 {Year: "2011",Model: "Reader's Digest Trusted Brands 2011 - Gold Award for Automobiles - Honda"},
-{Year: "2011",Model: "Putra Brand Awards 2011 - The People's Choice - Automotive Category - Gold"},
+{Year: "2011",Model: "Putra Brand Awards 2011 - The People’s Choice - Automotive Category - Gold"},
 {Year: "2011",Model: "Asian Auto Fuel Efficiency Awards 2010 - Family Cars category - 1st Place - Honda City"},
 {Year: "2011",Model: "Asian Auto Fuel Efficiency Awards 2010 - Compact MPV Category - 1st Place - Honda Freed"},
 {Year: "2011",Model: " Asian Auto Fuel Efficiency Awards 2010 - Family Hybrids Category - 2nd Place - Honda Insight"},
@@ -735,6 +740,19 @@ $.each(g_Vehicle, function(index) {
         <!-- list container -->
         <div id="list-container" class="achievement-container list-container">
             <ul>
+				
+				<hr>
+				
+	<li>Carlist.my & WapCar.my People’s Choice Award 2025 - Best Compact Sedan - Honda Civic</li>
+ 	<hr>
+	<li>Carlist.my & WapCar.my People’s Choice Award 2025 - Best Affordable Hybrid - Honda City e:HEV RS</li>
+ 	<hr>
+	<li>Carlist.my & WapCar.my People’s Choice Award 2025 - Best Mid-Range Hybrid - Honda CR-V e:HEV RS</li>
+ 	<hr>
+<li>Carlist.my & WapCar.my Editor’s Choice Award 2025 - Best Compact Sedan - Honda Civic e:HEV RS</li>
+ 
+				
+				
                 <hr>
                 <li>CarPlus.my Editor’s Choice 2024 – Family Car of the Year – Honda CR-V e:HEV </li>
                 <hr>
@@ -832,7 +850,7 @@ $.each(g_Vehicle, function(index) {
                 <hr>
                 <li>Carlist.my – People’s Choice Awards 2019 – Crossover of The Year : Honda BR-V (Bronze)</li>
                 <hr>
-                <li>Putra Brand Awards – The People's Choice 2019 Automotive – Gold</li>
+                <li>Putra Brand Awards – The People’s Choice 2019 Automotive – Gold</li>
                 <hr><li>Car Sifu Editors’ Choice Awards 2019 – Best Hybrid – Honda HR-V Sport Hybrid</li>
                 <hr><li>2019 Cars of Malaysia – Best Compact SUV of Malaysia – New Honda HR-V </li>
                 <hr><li>2019 Cars of Malaysia – Best Compact MPV of Malaysia – Honda BR-V </li>
